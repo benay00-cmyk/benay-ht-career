@@ -8,6 +8,7 @@ import { checkRateLimit } from "@/lib/ai/rate-limit";
 import { logAiSession } from "@/lib/ai/log-session";
 
 export const runtime = "nodejs";
+export const maxDuration = 60;
 
 const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4MB
 
