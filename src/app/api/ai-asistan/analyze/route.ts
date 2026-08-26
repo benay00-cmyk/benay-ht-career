@@ -108,6 +108,7 @@ export async function POST(request: Request) {
     await logAiSession("cv_analysis", true);
     return NextResponse.json({ result, hasCv: !!cvText });
   } catch (error) {
+    console.error("[ai-asistan/analyze] analyzeCv failed:", error);
     await logAiSession("cv_analysis", false);
 
     if (error instanceof Error && error.message === "ANTHROPIC_API_KEY_MISSING") {
