@@ -94,18 +94,6 @@ export async function analyzeCv(
     throw new Error("ANTHROPIC_API_KEY_MISSING");
   }
 
-  const badCharIndex = [...apiKey].findIndex((ch) => ch.charCodeAt(0) > 255);
-  console.error(
-    "[ai-asistan/analyze] apiKey diagnostics:",
-    JSON.stringify({
-      length: apiKey.length,
-      startsWith: apiKey.slice(0, 12),
-      endsWith: apiKey.slice(-6),
-      badCharIndex,
-      badCharCode: badCharIndex >= 0 ? apiKey.charCodeAt(badCharIndex) : null,
-    })
-  );
-
   const client = new Anthropic({ apiKey });
 
   const cvBlock = cvText

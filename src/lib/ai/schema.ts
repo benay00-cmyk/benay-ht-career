@@ -15,52 +15,82 @@ const sentenceChangeSchema = z.object({
 export const analysisResultSchema = z.object({
   companySector: z
     .string()
+    .optional()
+    .default("")
     .describe("İlan metninden çıkarılabiliyorsa şirketin sektörü, çıkarılamıyorsa kısa bir not"),
   companyCulture: z
     .string()
+    .optional()
+    .default("")
     .describe("İlan metninden anlaşılan şirket kültürü/çalışma tarzı ipuçları"),
   companyRedFlags: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("İlan metninde dikkat çeken, sorgulanmaya değer ifadeler (belirsiz maaş, aşırı esneklik beklentisi vb.). Yoksa boş dizi döndür."),
   atsScore: z
     .number()
     .min(0)
     .max(100)
+    .optional()
+    .default(0)
     .describe("CV verildiyse ATS uyumluluk skoru 0-100; CV verilmediyse 0"),
   hiringLikelihood: z
     .number()
     .min(0)
     .max(100)
+    .optional()
+    .default(0)
     .describe("CV verildiyse ilana göre işe alınma olasılığı tahmini 0-100; CV verilmediyse 0"),
   applicationReadiness: z
     .enum(["hazir", "gelistirilmeli", "hazir_degil", "cv_yok"])
+    .optional()
+    .default("cv_yok")
     .describe("CV verilmediyse 'cv_yok', verildiyse başvurunun hazırlık durumu"),
   strengths: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("CV verildiyse ilana göre güçlü yönler; verilmediyse boş dizi"),
   gaps: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("CV verildiyse ilanın aradığı ama CV'de görünmeyen eksikler; verilmediyse boş dizi"),
   cvSentenceChanges: z
     .array(sentenceChangeSchema)
+    .optional()
+    .default([])
     .describe("CV verildiyse en fazla 5 adet birebir cümle/ifade değişikliği önerisi; verilmediyse boş dizi"),
   missingKeywords: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("CV verildiyse ilanda geçen ama CV'de eksik anahtar kelimeler; verilmediyse boş dizi"),
   interviewTips: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("Bu ilana özel mülakat hazırlık ipuçları (CV olmasa da verilebilir)"),
   starStories: z
     .array(starStorySchema)
+    .optional()
+    .default([])
     .describe("CV verildiyse CV'deki deneyimlerden 2-3 örnek STAR hikayesi taslağı; verilmediyse boş dizi"),
   likelyQuestions: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("Bu ilana özel sorulması muhtemel mülakat soruları"),
   questionsToAskEmployer: z
     .array(z.string())
+    .optional()
+    .default([])
     .describe("Adayın mülakatta işverene sorabileceği 3-5 akıllıca soru"),
   summary: z
     .string()
+    .optional()
+    .default("")
     .describe("Analizin 2-3 cümlelik Türkçe özeti, samimi ama profesyonel bir dille"),
 });
 
