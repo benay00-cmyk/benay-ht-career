@@ -13,27 +13,18 @@ export function Hero() {
             İK Danışmanlığı · Kariyer Koçluğu · Yapay Zeka Destekli Araçlar
           </span>
           <h1 className="max-w-xl font-display text-4xl leading-[1.1] font-medium text-navy-deep sm:text-5xl lg:text-[52px]">
-            Kariyerinde Daha Güçlü Bir Pozisyon Al.
+            Sıfırdan ve Tek Başına Başlamana Gerek Yok.
           </h1>
-          <p className="max-w-lg text-[18px] font-medium text-navy-deep">
-            Sıfırdan başlamana gerek yok.
-          </p>
           <p className="max-w-lg text-[17px] leading-relaxed text-ink-muted">
             İş arayanlar ve İK profesyonelleri için kariyer danışmanlığı,
             yapay zekâ destekli araçlar, eğitimler ve gerçek İK deneyimi.
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-4">
             <Link
-              href="/ai-asistan"
+              href="/is-arayanlar"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
-              Kariyerini Analiz Et
-            </Link>
-            <Link
-              href="/ik-profesyonelleri"
-              className={buttonVariants({ variant: "outline", size: "lg" })}
-            >
-              İK Dünyasına Gir
+              Hayaline Kavuş
             </Link>
           </div>
         </div>
