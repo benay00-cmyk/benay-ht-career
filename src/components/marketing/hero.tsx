@@ -38,7 +38,11 @@ export function Hero() {
           </div>
         </div>
 
-        <PhotoFrame label="Benay Aktaş" className="mx-auto w-full max-w-sm" />
+        <PhotoFrame
+          label="Benay Aktaş"
+          className="mx-auto w-full max-w-sm"
+          src="/images/benay-aktas.jpg"
+        />
       </Container>
     </section>
   );

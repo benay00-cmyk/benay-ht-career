@@ -14,8 +14,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#0A1628",
-          color: "#F7F5F0",
+          background: "#0F3324",
+          color: "#FAF5E9",
         }}
       >
         <div
@@ -47,7 +47,7 @@ export default function OpengraphImage() {
             display: "flex",
             marginTop: 24,
             fontSize: 30,
-            color: "rgba(247,245,240,0.7)",
+            color: "rgba(250,245,233,0.7)",
             maxWidth: 900,
           }}
         >

@@ -37,6 +37,7 @@ export default function HakkimdaPage() {
             label="Benay Aktaş"
             ratio="aspect-[4/5]"
             className="mx-auto w-full max-w-sm"
+            src="/images/benay-aktas.jpg"
           />
 
           <div className="flex flex-col gap-5">

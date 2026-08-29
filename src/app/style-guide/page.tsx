@@ -4,16 +4,16 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 const swatches = [
-  { name: "Deep Navy", cls: "bg-navy-deep", hex: "#0A1628", on: "light" as const },
-  { name: "Midnight Navy", cls: "bg-navy-midnight", hex: "#0F2340", on: "light" as const },
-  { name: "Royal Navy", cls: "bg-navy", hex: "#16305A", on: "light" as const },
+  { name: "Deep Forest", cls: "bg-navy-deep", hex: "#0F3324", on: "light" as const },
+  { name: "Midnight Forest", cls: "bg-navy-midnight", hex: "#154430", on: "light" as const },
+  { name: "Royal Emerald", cls: "bg-navy", hex: "#1E6B46", on: "light" as const },
   { name: "Premium Gold", cls: "bg-gold", hex: "#B08D3E", on: "dark" as const },
-  { name: "Soft Gold", cls: "bg-gold-soft", hex: "#E8D9B5", on: "dark" as const },
+  { name: "Soft Gold", cls: "bg-gold-soft", hex: "#ECDFB9", on: "dark" as const },
   { name: "Deep Gold", cls: "bg-gold-deep", hex: "#8A6C2A", on: "light" as const },
-  { name: "Off White", cls: "bg-bg border border-hairline", hex: "#F7F5F0", on: "dark" as const },
-  { name: "White", cls: "bg-surface border border-hairline", hex: "#FFFFFF", on: "dark" as const },
-  { name: "Light Gray", cls: "bg-hairline", hex: "#E7E3D8", on: "dark" as const },
-  { name: "Charcoal", cls: "bg-ink", hex: "#23262B", on: "light" as const },
+  { name: "Cream", cls: "bg-bg border border-hairline", hex: "#FAF5E9", on: "dark" as const },
+  { name: "White", cls: "bg-surface border border-hairline", hex: "#FFFDF8", on: "dark" as const },
+  { name: "Light Gray", cls: "bg-hairline", hex: "#E7DDC4", on: "dark" as const },
+  { name: "Charcoal", cls: "bg-ink", hex: "#23261F", on: "light" as const },
 ];
 
 export default function StyleGuidePage() {
