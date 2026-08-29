@@ -78,8 +78,7 @@ function List({ items }: { items: string[] }) {
 }
 
 export function AnalysisResult({ result }: { result: AnalysisResultType }) {
-  const [companyTab, setCompanyTab] = React.useState("sirket");
-  const [prepTab, setPrepTab] = React.useState("ipuclari");
+  const [companyTab, setCompanyTab] = React.useState("analiz");
 
   const readiness = readinessConfig[result.applicationReadiness];
   const hasCv = result.applicationReadiness !== "cv_yok";
@@ -98,15 +97,15 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
         </div>
       </Card>
 
-      {/* Group 1: Şirket / Güçlü-Zayıf / Analiz */}
       <div>
         <TabGroup
           active={companyTab}
           onChange={setCompanyTab}
           tabs={[
-            { id: "sirket", label: "Şirket" },
+            { id: "analiz", label: "ATS & CV Skoru" },
             { id: "guclu-zayif", label: "Güçlü & Zayıf" },
-            { id: "analiz", label: "İK Analizi & ATS Skoru" },
+            { id: "sirket", label: "Şirket" },
+            { id: "mulakat", label: "Mülakat İpuçları" },
           ]}
         />
 
@@ -219,79 +218,57 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
               )}
             </div>
           )}
-        </Card>
-      </div>
 
-      {/* Group 2: Mülakat Hazırlığı */}
-      <div>
-        <h3 className="mb-3 font-display text-lg font-medium text-navy-deep">
-          Mülakat Hazırlığı
-        </h3>
-        <TabGroup
-          active={prepTab}
-          onChange={setPrepTab}
-          tabs={[
-            { id: "ipuclari", label: "İpuçları" },
-            { id: "star", label: "STAR" },
-            { id: "sorular", label: "Sorular" },
-          ]}
-        />
+          {companyTab === "mulakat" && (
+            <div className="flex flex-col gap-7">
+              <div>
+                <div className="flex items-center gap-2.5">
+                  <Lightbulb className="size-4.5 text-gold-deep" />
+                  <CardTitle className="mt-0 text-base">Mülakat İpuçları</CardTitle>
+                </div>
+                <div className="mt-4">
+                  <List items={result.interviewTips} />
+                </div>
+              </div>
 
-        <Card className="mt-4">
-          {prepTab === "ipuclari" && (
-            <div>
-              <div className="flex items-center gap-2.5">
-                <Lightbulb className="size-4.5 text-gold-deep" />
-                <CardTitle className="mt-0 text-base">Mülakat İpuçları</CardTitle>
-              </div>
-              <div className="mt-4">
-                <List items={result.interviewTips} />
-              </div>
-            </div>
-          )}
-
-          {prepTab === "star" && (
-            <div>
-              <div className="flex items-center gap-2.5">
-                <Star className="size-4.5 text-gold-deep" />
-                <CardTitle className="mt-0 text-base">Örnek STAR Hikayeleri</CardTitle>
-              </div>
-              <div className="mt-4">
-                {hasCv && result.starStories.length > 0 ? (
-                  <div className="flex flex-col gap-4">
-                    {result.starStories.map((story, i) => (
-                      <div key={i} className="rounded-(--radius-sm) border border-hairline bg-bg p-4">
-                        <div className="grid gap-2.5 sm:grid-cols-2">
-                          <div>
-                            <span className="font-mono text-[10px] text-gold-deep uppercase">Durum</span>
-                            <p className="text-[13.5px] text-ink">{story.situation}</p>
-                          </div>
-                          <div>
-                            <span className="font-mono text-[10px] text-gold-deep uppercase">Görev</span>
-                            <p className="text-[13.5px] text-ink">{story.task}</p>
-                          </div>
-                          <div>
-                            <span className="font-mono text-[10px] text-gold-deep uppercase">Eylem</span>
-                            <p className="text-[13.5px] text-ink">{story.action}</p>
-                          </div>
-                          <div>
-                            <span className="font-mono text-[10px] text-gold-deep uppercase">Sonuç</span>
-                            <p className="text-[13.5px] text-ink">{story.result}</p>
+              <div className="border-t border-hairline pt-6">
+                <div className="flex items-center gap-2.5">
+                  <Star className="size-4.5 text-gold-deep" />
+                  <CardTitle className="mt-0 text-base">Örnek STAR Hikayeleri</CardTitle>
+                </div>
+                <div className="mt-4">
+                  {hasCv && result.starStories.length > 0 ? (
+                    <div className="flex flex-col gap-4">
+                      {result.starStories.map((story, i) => (
+                        <div key={i} className="rounded-(--radius-sm) border border-hairline bg-bg p-4">
+                          <div className="grid gap-2.5 sm:grid-cols-2">
+                            <div>
+                              <span className="font-mono text-[10px] text-gold-deep uppercase">Durum</span>
+                              <p className="text-[13.5px] text-ink">{story.situation}</p>
+                            </div>
+                            <div>
+                              <span className="font-mono text-[10px] text-gold-deep uppercase">Görev</span>
+                              <p className="text-[13.5px] text-ink">{story.task}</p>
+                            </div>
+                            <div>
+                              <span className="font-mono text-[10px] text-gold-deep uppercase">Eylem</span>
+                              <p className="text-[13.5px] text-ink">{story.action}</p>
+                            </div>
+                            <div>
+                              <span className="font-mono text-[10px] text-gold-deep uppercase">Sonuç</span>
+                              <p className="text-[13.5px] text-ink">{story.result}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <EmptyNote>STAR hikayeleri için CV eklemen gerekir.</EmptyNote>
-                )}
+                      ))}
+                    </div>
+                  ) : (
+                    <EmptyNote>STAR hikayeleri için CV eklemen gerekir.</EmptyNote>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
 
-          {prepTab === "sorular" && (
-            <div className="flex flex-col gap-6">
-              <div>
+              <div className="border-t border-hairline pt-6">
                 <div className="flex items-center gap-2.5">
                   <HelpCircle className="size-4.5 text-gold-deep" />
                   <CardTitle className="mt-0 text-base">Gelebilecek Örnek Sorular</CardTitle>
@@ -300,6 +277,7 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
                   <List items={result.likelyQuestions} />
                 </div>
               </div>
+
               <div>
                 <div className="flex items-center gap-2.5">
                   <Users className="size-4.5 text-gold-deep" />
