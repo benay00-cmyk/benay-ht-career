@@ -24,7 +24,13 @@ export function Hero() {
               href="/is-arayanlar"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
-              Hayaline Kavuş
+              Kariyer Dünyası
+            </Link>
+            <Link
+              href="/ik-profesyonelleri"
+              className={buttonVariants({ variant: "outline", size: "lg" })}
+            >
+              İK Dünyası
             </Link>
           </div>
         </div>

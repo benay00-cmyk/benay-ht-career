@@ -50,6 +50,8 @@ const otherModules = [
 export default function IsArayanlarPage() {
   return (
     <div className="bg-bg">
+      <AiAssistantTeaser />
+
       <div className="border-b border-hairline py-20">
         <Container className="max-w-2xl">
           <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
@@ -75,8 +77,6 @@ export default function IsArayanlarPage() {
           ))}
         </div>
       </Container>
-
-      <AiAssistantTeaser />
     </div>
   );
 }

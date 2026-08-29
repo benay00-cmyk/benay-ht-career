@@ -6,37 +6,37 @@ import { SectionHeading } from "@/components/ui/section-heading";
 const testimonials = [
   {
     name: "Gürcan",
-    role: "Danışan",
+    role: "Satın Alma Departmanı",
     quote:
       "Asla olmaz diyordum, olmazı oldurdun abla. Hakkını helal et, Bursa'ya gelirsen artık evin var.",
   },
   {
     name: "Cenk",
-    role: "Yönetici, 15 yıllık İK deneyimi",
+    role: "Yönetici",
     quote:
       "15 yıllık tecrübeliyim ve yöneticiyim, sizinle konuşunca kendimi unuttuğumu anladım. Sağ olun, sayenizde yeni işime çok kısa bir zamanda ulaştım.",
   },
   {
     name: "Buse",
-    role: "Danışan",
+    role: "Arge Mühendisi",
     quote:
       "Benay Hanım, inanmıyorum, 2. mülakata davet edildim. İlk kez CV'm görüntülendi, onda da davet aldım. Çok teşekkür ederim.",
   },
   {
     name: "Ali",
-    role: "Danışan",
+    role: "Satış Müdürü",
     quote:
       "Ekibimi kaybetme korkum olmasa onlara bile sizi önereceğim. Bu nasıl bir iletişim Benay Hanım. Görüşmede söylediğiniz iki cümleyi söyledim, sözleşme önüme geldi. Başarılarınızın devamını dilerim.",
   },
   {
     name: "Asude",
-    role: "İK Profesyoneli",
+    role: "İK Uzman Yardımcısı",
     quote:
       "Bir insan kaynakları çalışanı olarak söylüyorum ki başta tedirginliklerim vardı. Sonra sizinle çalışmak çok istedim. Şimdi sayenizde hayalimi yaşıyorum. Sadece İK mentörlüğü değil, yaşam koçluğu yaptınız. Bakış açım değişti. Emeklerinize sağlık.",
   },
   {
     name: "Neslişah",
-    role: "Danışan",
+    role: "Finans Uzmanı",
     quote:
       "Çok çok çok teşekkür ederim. 1,5 ay gibi kısa bir sürede yurtdışından teklif aldım. CV'mi tam 4 firma görüntüledi ve 2 mülakat daveti aldım. Harikasınız.",
   },
