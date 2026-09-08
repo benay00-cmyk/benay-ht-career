@@ -6,21 +6,16 @@ export const metadata: Metadata = { title: "KVKK Aydınlatma Metni · Benay HR" 
 
 export default function KvkkAydinlatmaMetniPage() {
   return (
-    <LegalPage title="KVKK Aydınlatma Metni" updatedAt="[YAYIN TARİHİ]">
-      <p className="text-[13px] text-ink-muted">
-        Bu metindeki köşeli parantez içindeki alanlar, platform yayına
-        alınmadan önce gerçek veri sorumlusu bilgileriyle doldurulmalıdır.
-      </p>
-
+    <LegalPage title="KVKK Aydınlatma Metni" updatedAt="29.08.2026">
       <LegalSection title="1. Veri Sorumlusu">
         <p>
           6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;)
           uyarınca, Benay HR &amp; Career platformu (&quot;Platform&quot;)
           üzerinden paylaştığınız kişisel verileriniz, veri sorumlusu sıfatıyla{" "}
-          <strong>[VERİ SORUMLUSU UNVANI / AD SOYAD]</strong> (&quot;Benay
-          HR&quot;) tarafından, aşağıda açıklanan kapsamda işlenmektedir.
+          <strong>Benay Aktaş</strong> (&quot;Benay HR&quot;) tarafından,
+          aşağıda açıklanan kapsamda işlenmektedir.
         </p>
-        <p>İletişim: [E-POSTA ADRESİ] · [ADRES, VARSA]</p>
+        <p>İletişim: hr.benayaktas@gmail.com</p>
       </LegalSection>
 
       <LegalSection title="2. İşlenen Kişisel Veri Kategorileri">
@@ -86,8 +81,12 @@ export default function KvkkAydinlatmaMetniPage() {
             iletilmesi için.
           </li>
           <li>
-            <strong>[BARINDIRMA/HOSTING SAĞLAYICISI]</strong> — platformun
-            teknik altyapısının barındırılması için.
+            <strong>Vercel</strong> — platformun teknik altyapısının
+            barındırılması için.
+          </li>
+          <li>
+            <strong>Supabase</strong> — talep/başvuru verilerinin veritabanında
+            saklanması için.
           </li>
         </ul>
         <p>
@@ -118,8 +117,9 @@ export default function KvkkAydinlatmaMetniPage() {
           <li>Kanuna aykırı işleme nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etme.</li>
         </ul>
         <p>
-          Bu haklarınızı kullanmak için <strong>[BAŞVURU E-POSTASI]</strong>{" "}
-          adresine yazılı olarak başvurabilirsiniz.
+          Bu haklarınızı kullanmak için{" "}
+          <strong>hr.benayaktas@gmail.com</strong> adresine yazılı olarak
+          başvurabilirsiniz.
         </p>
       </LegalSection>
     </LegalPage>

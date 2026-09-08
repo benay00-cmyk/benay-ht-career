@@ -32,6 +32,9 @@ export const mentorshipLeadSchema = z.object({
     .min(10, "En büyük problemi biraz daha detaylandırın."),
   expectation: z.string().min(10, "Beklentinizi biraz daha detaylandırın."),
   preferredContact: z.enum(["email", "telefon", "video-gorusme"]),
+  kvkkConsent: z
+    .boolean()
+    .refine((v) => v === true, "Devam etmek için KVKK Aydınlatma Metni'ni onaylamanız gerekir."),
 });
 
 export type MentorshipLeadValues = z.infer<typeof mentorshipLeadSchema>;
@@ -43,6 +46,9 @@ export const generalLeadSchema = z.object({
   email: z.string().email("Geçerli bir e-posta adresi girin."),
   phone: z.string().optional(),
   message: z.string().min(10, "Mesajınızı biraz daha detaylandırın."),
+  kvkkConsent: z
+    .boolean()
+    .refine((v) => v === true, "Devam etmek için KVKK Aydınlatma Metni'ni onaylamanız gerekir."),
 });
 
 export type GeneralLeadValues = z.infer<typeof generalLeadSchema>;

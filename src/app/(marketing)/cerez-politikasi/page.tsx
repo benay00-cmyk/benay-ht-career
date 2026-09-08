@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Çerez Politikası · Benay HR" };
 
 export default function CerezPolitikasiPage() {
   return (
-    <LegalPage title="Çerez Politikası" updatedAt="[YAYIN TARİHİ]">
+    <LegalPage title="Çerez Politikası" updatedAt="29.08.2026">
       <LegalSection title="Şu An Durum">
         <p>
           Bu platform şu anda reklam, analitik veya izleme amaçlı hiçbir
@@ -28,8 +28,9 @@ export default function CerezPolitikasiPage() {
 
       <LegalSection title="Sorularınız İçin">
         <p>
-          Çerez kullanımıyla ilgili sorularınız için <strong>[BAŞVURU E-POSTASI]</strong>{" "}
-          adresinden bize ulaşabilirsiniz.
+          Çerez kullanımıyla ilgili sorularınız için{" "}
+          <strong>hr.benayaktas@gmail.com</strong> adresinden bize
+          ulaşabilirsiniz.
         </p>
       </LegalSection>
     </LegalPage>

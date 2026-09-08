@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, CheckCircle2 } from "lucide-react";
@@ -139,6 +140,27 @@ export function MentorshipForm() {
               </label>
             ))}
           </div>
+        </div>
+
+        <div>
+          <label className="flex items-start gap-2.5 text-[13px] text-ink-muted">
+            <input
+              type="checkbox"
+              {...register("kvkkConsent")}
+              className="mt-0.5 size-4 shrink-0 accent-gold-deep"
+            />
+            <span>
+              <Link
+                href="/kvkk-aydinlatma-metni"
+                target="_blank"
+                className="text-navy-deep underline underline-offset-2 hover:text-gold-deep"
+              >
+                KVKK Aydınlatma Metni
+              </Link>
+              &apos;ni okudum, kişisel verilerimin işlenmesini onaylıyorum.
+            </span>
+          </label>
+          <FieldError message={errors.kvkkConsent?.message} />
         </div>
 
         {serverError && (

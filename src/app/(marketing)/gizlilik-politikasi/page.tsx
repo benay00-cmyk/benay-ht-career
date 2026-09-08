@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Gizlilik Politikası · Benay HR" };
 
 export default function GizlilikPolitikasiPage() {
   return (
-    <LegalPage title="Gizlilik Politikası" updatedAt="[YAYIN TARİHİ]">
+    <LegalPage title="Gizlilik Politikası" updatedAt="29.08.2026">
       <p>
         Bu sayfa, Benay HR &amp; Career platformunu kullanırken verilerinizin
         nasıl işlendiğini sade bir dille anlatır. Yasal ayrıntılar için{" "}
@@ -40,7 +40,7 @@ export default function GizlilikPolitikasiPage() {
 
       <LegalSection title="Dosya Yükleme Güvenliği">
         <ul className="list-disc pl-5">
-          <li>Yalnızca PDF formatındaki dosyalar kabul edilir.</li>
+          <li>Yalnızca PDF ve Word (.docx) formatındaki dosyalar kabul edilir.</li>
           <li>Maksimum dosya boyutu 4 MB ile sınırlıdır.</li>
           <li>Yüklenen dosyalar analiz amacı dışında kullanılmaz.</li>
         </ul>
@@ -49,7 +49,7 @@ export default function GizlilikPolitikasiPage() {
       <LegalSection title="Verilerinizin Silinmesini Talep Etme">
         <p>
           Bize ilettiğiniz herhangi bir verinin silinmesini istediğinizde,{" "}
-          <strong>[BAŞVURU E-POSTASI]</strong> adresine yazmanız yeterlidir.
+          <strong>hr.benayaktas@gmail.com</strong> adresine yazmanız yeterlidir.
           Talebinizi makul bir süre içinde yerine getiririz.
         </p>
       </LegalSection>
@@ -70,7 +70,7 @@ export default function GizlilikPolitikasiPage() {
           <Link href="/iletisim" className="text-navy-deep underline underline-offset-2 hover:text-gold-deep">
             iletişim formu
           </Link>
-          {" "}üzerinden ya da <strong>[BAŞVURU E-POSTASI]</strong> adresinden
+          {" "}üzerinden ya da <strong>hr.benayaktas@gmail.com</strong> adresinden
           bize ulaşabilirsiniz.
         </p>
       </LegalSection>
