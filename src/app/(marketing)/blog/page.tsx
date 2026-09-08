@@ -4,9 +4,9 @@ import { Container } from "@/components/ui/container";
 import { BlogList } from "@/features/blog/components/blog-list";
 
 export const metadata: Metadata = {
-  title: "Blog · Benay HR",
+  title: "Kariyer Merkezi · Benay HR",
   description:
-    "Kariyer, İK, yapay zekâ ve iş hayatı üzerine uygulanabilir yazılar.",
+    "Kariyer, İK, yapay zekâ ve iş hayatı üzerine uygulanabilir rehberler.",
 };
 
 export default function BlogPage() {
@@ -15,14 +15,14 @@ export default function BlogPage() {
       <div className="border-b border-hairline py-16">
         <Container className="max-w-2xl">
           <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
-            Blog
+            Kariyer Merkezi
           </span>
           <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
-            Kariyer ve İK üzerine yazılar
+            Ücretsiz kariyer ve İK rehberleri
           </h1>
           <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
             Kariyer, İK, yapay zekâ ve iş hayatı üzerine uygulanabilir,
-            araştırmaya dayalı içerikler.
+            araştırmaya dayalı rehberler — her biri ilgili aracımıza bağlı.
           </p>
         </Container>
       </div>

@@ -4,17 +4,16 @@ import * as React from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
+  { href: "/kariyer-testi", label: "Kariyer Testi", accent: true },
   { href: "/is-arayanlar", label: "İş Arayanlar" },
   { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-  { href: "/ai-asistan", label: "Kariyer Asistanı", accent: true },
+  { href: "/ai-asistan", label: "AI Asistan" },
   { href: "/egitimler", label: "Eğitimler" },
   { href: "/danismanlik", label: "Danışmanlık" },
-  { href: "/ik-haritasi", label: "İK Haritası" },
-  { href: "/blog", label: "Blog" },
+  { href: "/blog", label: "Kariyer Merkezi" },
   { href: "/hakkimda", label: "Hakkımda" },
   { href: "/iletisim", label: "İletişim" },
 ];
@@ -49,21 +48,6 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
-          <Link
-            href="/ik-profesyonelleri"
-            className={buttonVariants({ variant: "ghost", size: "sm" })}
-          >
-            İK Dünyasına Katıl
-          </Link>
-          <Link
-            href="/is-arayanlar"
-            className={buttonVariants({ variant: "primary", size: "sm" })}
-          >
-            Kariyerini Güçlendir
-          </Link>
-        </div>
-
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -91,22 +75,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-3 flex flex-col gap-2 border-t border-hairline pt-4">
-              <Link
-                href="/ik-profesyonelleri"
-                onClick={() => setOpen(false)}
-                className={buttonVariants({ variant: "outline", size: "sm" })}
-              >
-                İK Dünyasına Katıl
-              </Link>
-              <Link
-                href="/is-arayanlar"
-                onClick={() => setOpen(false)}
-                className={buttonVariants({ variant: "primary", size: "sm" })}
-              >
-                Kariyerini Güçlendir
-              </Link>
-            </div>
           </nav>
         </div>
       )}

@@ -4,15 +4,16 @@ const columns = [
   {
     title: "Platform",
     links: [
+      { href: "/kariyer-testi", label: "Ücretsiz Kariyer Testi" },
       { href: "/is-arayanlar", label: "İş Arayanlar" },
       { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-      { href: "/ai-asistan", label: "Kariyer Asistanı" },
+      { href: "/ai-asistan", label: "AI Kariyer Asistanı" },
     ],
   },
   {
     title: "Kaynaklar",
     links: [
-      { href: "/blog", label: "Blog" },
+      { href: "/blog", label: "Kariyer Merkezi" },
       { href: "/egitimler", label: "Eğitimler" },
       { href: "/ik-haritasi", label: "İK Haritası" },
     ],

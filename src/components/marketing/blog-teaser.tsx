@@ -12,7 +12,7 @@ export function BlogTeaser() {
     <section className="bg-bg py-24">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading eyebrow="Blog" title="Kariyer ve İK üzerine yazılar" />
+          <SectionHeading eyebrow="Kariyer Merkezi" title="Ücretsiz kariyer ve İK rehberleri" />
           <Link
             href="/blog"
             className="mb-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-navy-deep hover:text-gold-deep"

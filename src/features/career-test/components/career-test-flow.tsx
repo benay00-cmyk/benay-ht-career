@@ -1,0 +1,232 @@
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, AlertTriangle, RotateCcw } from "lucide-react";
+
+import { Card } from "@/components/ui/card";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { questions } from "@/features/career-test/data/questions";
+import { scoreTest, type TestResult } from "@/features/career-test/lib/scoring";
+
+function ScoreRing({ value }: { value: number }) {
+  const [display, setDisplay] = React.useState(0);
+
+  React.useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let frame = requestAnimationFrame(function tick(now = performance.now()) {
+      if (prefersReduced) {
+        setDisplay(value);
+        return;
+      }
+      const duration = 900;
+      const start = now;
+      function step(current: number) {
+        const progress = Math.min(1, (current - start) / duration);
+        setDisplay(Math.round(progress * value));
+        if (progress < 1) frame = requestAnimationFrame(step);
+      }
+      frame = requestAnimationFrame(step);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [value]);
+
+  const circumference = 2 * Math.PI * 54;
+  const offset = circumference - (display / 100) * circumference;
+
+  return (
+    <div className="relative flex size-36 shrink-0 items-center justify-center">
+      <svg viewBox="0 0 120 120" className="size-full -rotate-90">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="var(--light-gray)" strokeWidth="8" />
+        <circle
+          cx="60"
+          cy="60"
+          r="54"
+          fill="none"
+          stroke="var(--gold)"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          style={{ transition: "stroke-dashoffset 0.2s linear" }}
+        />
+      </svg>
+      <div className="absolute flex flex-col items-center">
+        <span className="font-display text-3xl font-medium text-navy-deep">{display}</span>
+        <span className="text-[11px] text-ink-muted">/ 100</span>
+      </div>
+    </div>
+  );
+}
+
+function ResultScreen({ result }: { result: TestResult }) {
+  return (
+    <div className="flex flex-col gap-6">
+      <Card className="flex flex-col items-center gap-5 py-10 text-center sm:flex-row sm:items-center sm:text-left">
+        <ScoreRing value={result.overallScore} />
+        <div className="flex flex-col gap-2">
+          <span className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
+            Kariyer Skorun
+          </span>
+          <h2 className="font-display text-2xl font-medium text-navy-deep">
+            Ana problemin: {result.mainProblem.label}
+          </h2>
+          <p className="text-[14.5px] leading-relaxed text-ink-muted">
+            {result.mainProblem.message}
+          </p>
+        </div>
+      </Card>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        {result.strengths.length > 0 && (
+          <Card>
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2 className="size-4.5 text-emerald-600" />
+              <h3 className="font-display text-base font-medium text-navy-deep">Güçlü Yönlerin</h3>
+            </div>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {result.strengths.map((s) => (
+                <li key={s.id} className="flex items-center justify-between text-[13.5px] text-ink">
+                  {s.label}
+                  <span className="font-mono text-navy-deep">{s.score}/100</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        )}
+
+        {result.risks.length > 0 && (
+          <Card>
+            <div className="flex items-center gap-2.5">
+              <AlertTriangle className="size-4.5 text-amber-600" />
+              <h3 className="font-display text-base font-medium text-navy-deep">Riskli Alanların</h3>
+            </div>
+            <ul className="mt-4 flex flex-col gap-2.5">
+              {result.risks.map((r) => (
+                <li key={r.id} className="flex items-center justify-between text-[13.5px] text-ink">
+                  {r.label}
+                  <span className="font-mono text-navy-deep">{r.score}/100</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        )}
+      </div>
+
+      <Card>
+        <h3 className="font-display text-base font-medium text-navy-deep">Tüm Kategoriler</h3>
+        <div className="mt-4 flex flex-col gap-4">
+          {result.categories.map((c) => (
+            <div key={c.id}>
+              <div className="flex items-center justify-between text-[13px]">
+                <span className="text-ink-muted">{c.label}</span>
+                <span className="font-mono text-navy-deep">{c.score}/100</span>
+              </div>
+              <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-hairline">
+                <div
+                  className="h-full rounded-full bg-gold-deep"
+                  style={{ width: `${c.score}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card className="flex flex-col items-center gap-4 bg-navy-deep py-10 text-center">
+        <p className="max-w-md font-display text-xl font-medium text-surface">
+          Problemini bulduk. Şimdi neden olduğunu öğren.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href={result.nextStep.href}
+            className={buttonVariants({ variant: "gold", size: "lg" })}
+          >
+            {result.nextStep.label}
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-surface hover:text-gold"
+          >
+            Ücretsiz Kaynaklara Göz At
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+export function CareerTestFlow() {
+  const [step, setStep] = React.useState(0);
+  const [answers, setAnswers] = React.useState<Record<string, number>>({});
+  const [result, setResult] = React.useState<TestResult | null>(null);
+
+  const question = questions[step];
+  const progress = Math.round((step / questions.length) * 100);
+
+  function selectAnswer(points: number) {
+    const next = { ...answers, [question.id]: points };
+    setAnswers(next);
+
+    if (step + 1 < questions.length) {
+      setStep(step + 1);
+    } else {
+      setResult(scoreTest(next));
+    }
+  }
+
+  function restart() {
+    setStep(0);
+    setAnswers({});
+    setResult(null);
+  }
+
+  if (result) {
+    return (
+      <div className="flex flex-col gap-4">
+        <ResultScreen result={result} />
+        <Button variant="outline" onClick={restart} className="w-fit self-center">
+          <RotateCcw className="size-3.5" aria-hidden="true" />
+          Testi Tekrar Yap
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <Card className="flex flex-col gap-7">
+      <div>
+        <div className="flex items-center justify-between text-[12.5px] text-ink-muted">
+          <span>
+            Soru {step + 1} / {questions.length}
+          </span>
+          <span>%{progress}</span>
+        </div>
+        <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-hairline">
+          <div
+            className="h-full rounded-full bg-gold-deep transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+
+      <h2 className="font-display text-xl font-medium text-navy-deep sm:text-2xl">
+        {question.text}
+      </h2>
+
+      <div className="flex flex-col gap-3">
+        {question.options.map((opt) => (
+          <button
+            key={opt.label}
+            type="button"
+            onClick={() => selectAnswer(opt.points)}
+            className="rounded-(--radius-sm) border border-hairline bg-bg px-5 py-3.5 text-left text-[14.5px] text-ink transition-colors hover:border-gold-deep hover:bg-gold-soft/20"
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+    </Card>
+  );
+}

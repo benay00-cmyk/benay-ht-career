@@ -23,15 +23,16 @@ export function AiAssistantTeaser() {
             <Sparkles className="size-5" aria-hidden="true" />
           </span>
           <span className="font-mono text-[11px] tracking-[0.16em] text-gold uppercase">
-            Kariyer Asistanı
+            AI Kariyer Asistanı
           </span>
           <h2 className="font-display text-3xl font-medium text-surface sm:text-4xl">
-            CV&apos;ni yükle, ilanı yapıştır, birkaç saniyede sonucu gör.
+            AI analiz eder. İnsan deneyimi yön verir.
           </h2>
           <p className="max-w-md text-[16px] leading-relaxed text-surface/70">
-            Şirket araştırması, ATS uyumluluk skoru, güçlü/eksik yönler, CV
-            önerileri, STAR hikayeleri ve mülakat soruları — hepsi tek bir
-            analizde.
+            &quot;CV&apos;m neden eleniyor?&quot; &quot;Bu ilana başvurmalı
+            mıyım?&quot; &quot;Mülakata nasıl hazırlanırım?&quot; — CV&apos;ni
+            yükle, ilanı yapıştır, birkaç saniyede şirket araştırması, ATS
+            skoru, güçlü/eksik yönler ve mülakat hazırlığını tek analizde gör.
           </p>
           <Link
             href="/ai-asistan"
