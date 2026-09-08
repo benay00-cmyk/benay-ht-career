@@ -26,8 +26,8 @@ export const questions: Question[] = [
     category: "basvuru_stratejisi",
     text: "Son 1 ayda kaç iş ilanına başvurdun?",
     options: [
-      { label: "0-5 arası", points: 25 },
-      { label: "6-15 arası", points: 60 },
+      { label: "0-5 arası", points: 20 },
+      { label: "6-15 arası", points: 55 },
       { label: "15'ten fazla", points: 90 },
     ],
   },
@@ -66,7 +66,7 @@ export const questions: Question[] = [
     category: "cv_profil",
     text: "CV'ni ATS (başvuru takip sistemi) uyumluluğu açısından hiç kontrol ettin mi?",
     options: [
-      { label: "Hayır", points: 25 },
+      { label: "Hayır", points: 20 },
       { label: "Biraz araştırdım ama emin değilim", points: 55 },
       { label: "Evet, kontrol ettim", points: 90 },
     ],
@@ -86,9 +86,9 @@ export const questions: Question[] = [
     category: "mulakat",
     text: "Başvurduğun ilanların yaklaşık kaçından mülakat daveti alıyorsun?",
     options: [
-      { label: "Neredeyse hiç", points: 15 },
-      { label: "Bazen", points: 50 },
-      { label: "Sık sık", points: 85 },
+      { label: "Neredeyse hiç", points: 20 },
+      { label: "Bazen", points: 55 },
+      { label: "Sık sık", points: 90 },
     ],
   },
   {
@@ -116,8 +116,8 @@ export const questions: Question[] = [
     category: "kariyer_netligi",
     text: "İş değiştirme/arama motivasyonun ne kadar net?",
     options: [
-      { label: "Sadece 'bir şey olsun' istiyorum", points: 25 },
-      { label: "Belirli sebeplerim var ama tam net değil", points: 60 },
+      { label: "Sadece 'bir şey olsun' istiyorum", points: 20 },
+      { label: "Belirli sebeplerim var ama tam net değil", points: 55 },
       { label: "Net bir sebebim ve hedefim var", points: 90 },
     ],
   },

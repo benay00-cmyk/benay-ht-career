@@ -30,7 +30,7 @@ export default function DanismanlikPage() {
       <Container className="py-14">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {consultingServices.map((s) => (
-            <Card key={s.id}>
+            <Card key={s.id} id={s.id} className="scroll-mt-24">
               <s.icon className="size-5 text-gold-deep" />
               <h3 className="mt-3 font-display text-lg font-medium text-navy-deep">
                 {s.title}

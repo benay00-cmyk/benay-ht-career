@@ -31,7 +31,7 @@ const diagnosisByCategory: Record<CategoryId, string> = {
 const nextStepByCategory: Record<CategoryId, { label: string; href: string }> = {
   basvuru_stratejisi: { label: "AI Kariyer Asistanı ile Detaylı Analiz Et", href: "/ai-asistan" },
   cv_profil: { label: "AI Kariyer Asistanı ile CV'ni Analiz Et", href: "/ai-asistan" },
-  mulakat: { label: "AI Kariyer Asistanı ile Mülakat Hazırlığı Yap", href: "/ai-asistan" },
+  mulakat: { label: "Mülakat Simülasyonu Hizmetini İncele", href: "/danismanlik#mulakat-simulasyonu" },
   kariyer_netligi: { label: "Kariyer Danışmanlığı Al", href: "/danismanlik" },
   networking: { label: "Eğitimlere Göz At", href: "/egitimler" },
 };
