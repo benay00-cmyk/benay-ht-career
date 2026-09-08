@@ -12,9 +12,11 @@ import {
   Star,
   HelpCircle,
   FileWarning,
+  Download,
 } from "lucide-react";
 
 import { Card, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { AnalysisResult as AnalysisResultType } from "@/lib/ai/schema";
 import { ScoreBar } from "@/features/ai-assistant/components/score-bar";
@@ -84,7 +86,7 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
   const hasCv = result.applicationReadiness !== "cv_yok";
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 print:gap-4">
       <Card className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <readiness.icon className={`size-8 shrink-0 ${readiness.className}`} />
@@ -95,23 +97,34 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
             <p className="text-[13.5px] text-ink-muted">{result.summary}</p>
           </div>
         </div>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={() => window.print()}
+          className="w-fit shrink-0 print:hidden"
+        >
+          <Download className="size-3.5" aria-hidden="true" />
+          PDF Olarak İndir
+        </Button>
       </Card>
 
       <div>
-        <TabGroup
-          active={companyTab}
-          onChange={setCompanyTab}
-          tabs={[
-            { id: "analiz", label: "ATS & CV Skoru" },
-            { id: "guclu-zayif", label: "Güçlü & Zayıf" },
-            { id: "sirket", label: "Şirket" },
-            { id: "mulakat", label: "Mülakat İpuçları" },
-          ]}
-        />
+        <div className="print:hidden">
+          <TabGroup
+            active={companyTab}
+            onChange={setCompanyTab}
+            tabs={[
+              { id: "analiz", label: "ATS & CV Skoru" },
+              { id: "guclu-zayif", label: "Güçlü & Zayıf" },
+              { id: "sirket", label: "Şirket" },
+              { id: "mulakat", label: "Mülakat İpuçları" },
+            ]}
+          />
+        </div>
 
-        <Card className="mt-4">
-          {companyTab === "sirket" && (
-            <div className="flex flex-col gap-5">
+        <Card className="mt-4 print:mt-3">
+          <div className={cn(companyTab === "sirket" ? "flex" : "hidden", "flex-col gap-5 print:flex print:border-b print:border-hairline print:pb-6")}>
               <div className="flex items-center gap-2.5">
                 <Building2 className="size-4.5 text-gold-deep" />
                 <CardTitle className="mt-0 text-base">Şirket Hakkında</CardTitle>
@@ -137,10 +150,8 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
                 )}
               </div>
             </div>
-          )}
 
-          {companyTab === "guclu-zayif" && (
-            <div className="grid gap-6 sm:grid-cols-2">
+          <div className={cn(companyTab === "guclu-zayif" ? "grid" : "hidden", "gap-6 sm:grid-cols-2 print:grid print:border-b print:border-hairline print:pb-6")}>
               <div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="size-4.5 text-emerald-600" />
@@ -160,10 +171,8 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
                 </div>
               </div>
             </div>
-          )}
 
-          {companyTab === "analiz" && (
-            <div className="flex flex-col gap-6">
+          <div className={cn(companyTab === "analiz" ? "flex" : "hidden", "flex-col gap-6 print:flex print:border-b print:border-hairline print:pb-6")}>
               <div className="flex items-center gap-2.5">
                 <BarChart3 className="size-4.5 text-gold-deep" />
                 <CardTitle className="mt-0 text-base">İK Analizi &amp; ATS Skoru</CardTitle>
@@ -217,10 +226,8 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
                 </EmptyNote>
               )}
             </div>
-          )}
 
-          {companyTab === "mulakat" && (
-            <div className="flex flex-col gap-7">
+          <div className={cn(companyTab === "mulakat" ? "flex" : "hidden", "flex-col gap-7 print:flex")}>
               <div>
                 <div className="flex items-center gap-2.5">
                   <Lightbulb className="size-4.5 text-gold-deep" />
@@ -288,11 +295,10 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
                 </div>
               </div>
             </div>
-          )}
         </Card>
       </div>
 
-      <p className="rounded-(--radius-md) border border-hairline bg-surface px-5 py-4 text-[12.5px] leading-relaxed text-ink-muted">
+      <p className="rounded-(--radius-md) border border-hairline bg-surface px-5 py-4 text-[12.5px] leading-relaxed text-ink-muted print:border-none print:px-0 print:py-2">
         Bu skorlar tahmini bir uyumluluk analizidir; gerçek ATS sisteminin
         sonucunu garanti etmez. Şirket bilgileri güncel olmayabilir, başvuru
         öncesi doğrulayın. Yapay zeka çıktıları, insan değerlendirmesinin ve

@@ -103,7 +103,7 @@ export function AnalyzerForm() {
             setCvText("");
             setJobDescription("");
           }}
-          className="w-fit"
+          className="w-fit print:hidden"
         >
           Yeni Analiz Yap
         </Button>

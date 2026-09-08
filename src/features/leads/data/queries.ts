@@ -30,7 +30,9 @@ export async function getLeadStats() {
 
 export async function getAiSessionStats() {
   const supabase = await createClient();
-  const { data, error } = await supabase.from("ai_sessions").select("kind, success");
+  const { data, error } = await supabase
+    .from("ai_sessions")
+    .select("kind, success, has_cv, ats_score, hiring_likelihood");
 
   if (error) throw error;
 
@@ -42,5 +44,24 @@ export async function getAiSessionStats() {
     byKind[session.kind] = (byKind[session.kind] ?? 0) + 1;
   }
 
-  return { total, successCount, failedCount: total - successCount, byKind };
+  const withCv = data.filter(
+    (s) => s.success && s.has_cv && s.ats_score !== null && s.hiring_likelihood !== null
+  );
+  const cvAnalysisCount = withCv.length;
+  const avgAtsScore = cvAnalysisCount
+    ? Math.round(withCv.reduce((sum, s) => sum + (s.ats_score ?? 0), 0) / cvAnalysisCount)
+    : null;
+  const avgHiringLikelihood = cvAnalysisCount
+    ? Math.round(withCv.reduce((sum, s) => sum + (s.hiring_likelihood ?? 0), 0) / cvAnalysisCount)
+    : null;
+
+  return {
+    total,
+    successCount,
+    failedCount: total - successCount,
+    byKind,
+    cvAnalysisCount,
+    avgAtsScore,
+    avgHiringLikelihood,
+  };
 }

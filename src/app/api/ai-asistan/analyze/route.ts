@@ -105,7 +105,12 @@ export async function POST(request: Request) {
 
   try {
     const result = await analyzeCv(parsedRequest.data.jobDescription, cvText);
-    await logAiSession("cv_analysis", true);
+    await logAiSession("cv_analysis", true, {
+      hasCv: !!cvText,
+      atsScore: result.atsScore,
+      hiringLikelihood: result.hiringLikelihood,
+      applicationReadiness: result.applicationReadiness,
+    });
     return NextResponse.json({ result, hasCv: !!cvText });
   } catch (error) {
     console.error("[ai-asistan/analyze] analyzeCv failed:", error);

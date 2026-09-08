@@ -86,3 +86,10 @@
     color: var(--navy-deep);
   }
 }
+
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+}

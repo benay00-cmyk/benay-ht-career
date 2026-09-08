@@ -60,18 +60,30 @@ export type Database = {
           id: string;
           kind: AiSessionKind;
           success: boolean;
+          has_cv: boolean | null;
+          ats_score: number | null;
+          hiring_likelihood: number | null;
+          application_readiness: string | null;
           created_at: string;
         };
         Insert: {
           id?: string;
           kind: AiSessionKind;
           success: boolean;
+          has_cv?: boolean | null;
+          ats_score?: number | null;
+          hiring_likelihood?: number | null;
+          application_readiness?: string | null;
           created_at?: string;
         };
         Update: {
           id?: string;
           kind?: AiSessionKind;
           success?: boolean;
+          has_cv?: boolean | null;
+          ats_score?: number | null;
+          hiring_likelihood?: number | null;
+          application_readiness?: string | null;
           created_at?: string;
         };
         Relationships: [];

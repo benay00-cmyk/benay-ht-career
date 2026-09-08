@@ -87,6 +87,22 @@ export default async function AdminDashboardPage() {
                 <span className="text-ink">İK Sorusu</span>
                 <span className="font-mono text-navy-deep">{aiStats.byKind.hr_question ?? 0}</span>
               </div>
+              <div className="flex items-center justify-between rounded-(--radius-sm) bg-bg px-3.5 py-2 text-[13.5px]">
+                <span className="text-ink">CV ile Yapılan Analiz</span>
+                <span className="font-mono text-navy-deep">{aiStats.cvAnalysisCount}</span>
+              </div>
+              <div className="flex items-center justify-between rounded-(--radius-sm) bg-bg px-3.5 py-2 text-[13.5px]">
+                <span className="text-ink">Ortalama ATS Skoru</span>
+                <span className="font-mono text-navy-deep">
+                  {aiStats.avgAtsScore !== null ? `${aiStats.avgAtsScore}/100` : "—"}
+                </span>
+              </div>
+              <div className="flex items-center justify-between rounded-(--radius-sm) bg-bg px-3.5 py-2 text-[13.5px]">
+                <span className="text-ink">Ortalama İşe Alınma Olasılığı</span>
+                <span className="font-mono text-navy-deep">
+                  {aiStats.avgHiringLikelihood !== null ? `${aiStats.avgHiringLikelihood}/100` : "—"}
+                </span>
+              </div>
             </div>
           </Card>
         </div>
