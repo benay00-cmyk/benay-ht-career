@@ -3,6 +3,7 @@ import { Sparkles } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const scoreRows = [
   { label: "ATS Uyumluluk Skoru", value: 78 },
@@ -16,9 +17,9 @@ const findings = [
 
 export function AiAssistantTeaser() {
   return (
-    <section className="bg-navy-deep py-24">
+    <section className="bg-deep-navy py-24">
       <Container className="grid items-center gap-14 lg:grid-cols-2">
-        <div className="flex flex-col gap-5">
+        <ScrollReveal direction="left" className="flex flex-col gap-5">
           <span className="flex size-11 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
             <Sparkles className="size-5" aria-hidden="true" />
           </span>
@@ -40,9 +41,13 @@ export function AiAssistantTeaser() {
           >
             Başvurumu Analiz Et
           </Link>
-        </div>
+        </ScrollReveal>
 
-        <div className="rounded-(--radius-lg) border border-surface/10 bg-navy-midnight p-7">
+        <ScrollReveal
+          direction="right"
+          delay={100}
+          className="rounded-(--radius-lg) border border-surface/10 bg-deep-navy-soft p-7 backdrop-blur-sm"
+        >
           <div className="flex flex-col gap-5">
             {scoreRows.map((row) => (
               <div key={row.label}>
@@ -76,7 +81,7 @@ export function AiAssistantTeaser() {
             sonucunu garanti etmez. Yapay zeka çıktıları, insan
             değerlendirmesinin yerini almaz.
           </p>
-        </div>
+        </ScrollReveal>
       </Container>
     </section>
   );

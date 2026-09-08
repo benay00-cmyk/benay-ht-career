@@ -28,7 +28,10 @@ function ModuleTile({
         {href ? (
           <span className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-navy-deep">
             İncele
-            <ArrowRight className="size-3.5" aria-hidden="true" />
+            <ArrowRight
+              className="size-3.5 transition-transform duration-(--motion-fast) ease-(--ease-out) group-hover:translate-x-1"
+              aria-hidden="true"
+            />
           </span>
         ) : (
           <span className="inline-flex items-center gap-1.5 text-[12.5px] font-medium text-ink-muted">
@@ -41,9 +44,9 @@ function ModuleTile({
   );
 
   const className = cn(
-    "flex flex-col rounded-(--radius-lg) border bg-surface p-6 transition-all",
+    "group flex flex-col rounded-(--radius-lg) border bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out)",
     href
-      ? "border-hairline hover:border-gold/40 hover:shadow-(--shadow-card)"
+      ? "border-hairline hover:-translate-y-1 hover:border-gold/40 hover:shadow-(--shadow-card)"
       : "border-dashed border-hairline opacity-70"
   );
 

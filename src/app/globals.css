@@ -1,29 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  /* Yeşil — güven, büyüme, denge */
-  --navy-deep: #0f3324;
-  --navy-midnight: #154430;
-  --navy-royal: #1e6b46;
+  /* Forest Green — HR Speak'in karakter rengi */
+  --navy-deep: #1f4a3d;
+  --navy-midnight: #163a30;
+  --navy-royal: #245447;
 
-  /* Gold — uzmanlık, kontrollü kullanım */
+  /* Deep Navy — ayrı, premium kontrast rengi (yalnızca AI alanı / seçili CTA'lar) */
+  --deep-navy: #172b3a;
+  --deep-navy-soft: #223e50;
+
+  /* Gold — uzmanlık, kontrollü/azaltılmış kullanım */
   --gold: #b08d3e;
   --gold-soft: #ecdfb9;
   --gold-deep: #8a6c2a;
 
+  /* Sage / Mint / Beige — ikincil aksan ve yüzeyler */
+  --sage: #a8bdae;
+  --mint: #dce9df;
+  --beige: #d8ccba;
+
   /* Krem nötrler */
-  --off-white: #faf5e9;
-  --white: #fffdf8;
-  --light-gray: #e7ddc4;
+  --off-white: #f6f1e7;
+  --white: #fcfbf7;
+  --light-gray: #e5ddc9;
   --charcoal: #23261f;
   --charcoal-muted: #5e5c4d;
 
-  --radius-sm: 3px;
-  --radius-md: 5px;
-  --radius-lg: 8px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
 
-  --shadow-card: 0 1px 2px rgba(15, 51, 36, 0.05), 0 6px 20px rgba(15, 51, 36, 0.06);
-  --shadow-gold-glow: 0 0 0 1px rgba(176, 141, 62, 0.35), 0 8px 28px rgba(176, 141, 62, 0.18);
+  --shadow-card: 0 1px 2px rgba(23, 43, 58, 0.05), 0 6px 20px rgba(23, 43, 58, 0.06);
+  --shadow-gold-glow: 0 0 0 1px rgba(176, 141, 62, 0.3), 0 8px 28px rgba(176, 141, 62, 0.16);
+
+  /* Motion tokens */
+  --motion-fast: 150ms;
+  --motion-normal: 300ms;
+  --motion-slow: 500ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @theme inline {
@@ -36,9 +52,16 @@
   --color-navy-deep: var(--navy-deep);
   --color-navy-midnight: var(--navy-midnight);
 
+  --color-deep-navy: var(--deep-navy);
+  --color-deep-navy-soft: var(--deep-navy-soft);
+
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --color-gold-deep: var(--gold-deep);
+
+  --color-sage: var(--sage);
+  --color-mint: var(--mint);
+  --color-beige: var(--beige);
 
   --color-hairline: var(--light-gray);
 
@@ -84,6 +107,88 @@
   ::selection {
     background: var(--gold-soft);
     color: var(--navy-deep);
+  }
+
+  a,
+  button {
+    transition-duration: var(--motion-fast);
+    transition-timing-function: var(--ease-out);
+  }
+}
+
+/* Scroll-reveal: fades/slides an element up as it enters the viewport.
+   Applied via the ScrollReveal component (IntersectionObserver toggles
+   [data-revealed]); the pre-reveal state is the transition's start point. */
+@layer utilities {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--motion-slow) var(--ease-out),
+      transform var(--motion-slow) var(--ease-out);
+  }
+
+  [data-reveal="left"] {
+    transform: translateX(-16px);
+  }
+
+  [data-reveal="right"] {
+    transform: translateX(16px);
+  }
+
+  [data-reveal="scale"] {
+    transform: scale(0.96);
+  }
+
+  [data-revealed="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-entrance {
+    animation: fade-up-in var(--motion-slow) var(--ease-out) both;
+  }
+}
+
+@keyframes fade-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right var(--motion-normal) var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

@@ -2,9 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, AlertTriangle, RotateCcw } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, AlertTriangle, RotateCcw } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { questions } from "@/features/career-test/data/questions";
 import { scoreTest, type TestResult } from "@/features/career-test/lib/scoring";
@@ -62,7 +63,9 @@ function ScoreRing({ value }: { value: number }) {
 function ResultScreen({ result }: { result: TestResult }) {
   return (
     <div className="flex flex-col gap-6">
-      <Card className="flex flex-col items-center gap-5 py-10 text-center sm:flex-row sm:items-center sm:text-left">
+      <Card
+        className="animate-entrance flex flex-col items-center gap-5 py-10 text-center sm:flex-row sm:items-center sm:text-left"
+      >
         <ScoreRing value={result.overallScore} />
         <div className="flex flex-col gap-2">
           <span className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
@@ -79,7 +82,7 @@ function ResultScreen({ result }: { result: TestResult }) {
 
       <div className="grid gap-5 sm:grid-cols-2">
         {result.strengths.length > 0 && (
-          <Card>
+          <Card className="animate-entrance" style={{ animationDelay: "80ms" }}>
             <div className="flex items-center gap-2.5">
               <CheckCircle2 className="size-4.5 text-emerald-600" />
               <h3 className="font-display text-base font-medium text-navy-deep">Güçlü Yönlerin</h3>
@@ -96,7 +99,7 @@ function ResultScreen({ result }: { result: TestResult }) {
         )}
 
         {result.risks.length > 0 && (
-          <Card>
+          <Card className="animate-entrance" style={{ animationDelay: "140ms" }}>
             <div className="flex items-center gap-2.5">
               <AlertTriangle className="size-4.5 text-amber-600" />
               <h3 className="font-display text-base font-medium text-navy-deep">Riskli Alanların</h3>
@@ -113,7 +116,7 @@ function ResultScreen({ result }: { result: TestResult }) {
         )}
       </div>
 
-      <Card>
+      <Card className="animate-entrance" style={{ animationDelay: "200ms" }}>
         <h3 className="font-display text-base font-medium text-navy-deep">Tüm Kategoriler</h3>
         <div className="mt-4 flex flex-col gap-4">
           {result.categories.map((c) => (
@@ -124,7 +127,7 @@ function ResultScreen({ result }: { result: TestResult }) {
               </div>
               <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-hairline">
                 <div
-                  className="h-full rounded-full bg-gold-deep"
+                  className="h-full rounded-full bg-gold-deep transition-[width] duration-700 ease-(--ease-out)"
                   style={{ width: `${c.score}%` }}
                 />
               </div>
@@ -133,7 +136,10 @@ function ResultScreen({ result }: { result: TestResult }) {
         </div>
       </Card>
 
-      <Card className="flex flex-col items-center gap-4 bg-navy-deep py-10 text-center">
+      <Card
+        className="animate-entrance flex flex-col items-center gap-4 bg-navy-deep py-10 text-center"
+        style={{ animationDelay: "260ms" }}
+      >
         <p className="max-w-md font-display text-xl font-medium text-surface">
           Problemini bulduk. Şimdi neden olduğunu öğren.
         </p>
@@ -157,23 +163,38 @@ function ResultScreen({ result }: { result: TestResult }) {
   );
 }
 
+const SELECT_FEEDBACK_MS = 200;
+
 export function CareerTestFlow() {
   const [step, setStep] = React.useState(0);
   const [answers, setAnswers] = React.useState<Record<string, number>>({});
   const [result, setResult] = React.useState<TestResult | null>(null);
+  const [selectedPoints, setSelectedPoints] = React.useState<number | null>(null);
 
   const question = questions[step];
   const progress = Math.round((step / questions.length) * 100);
+  const answeredPoints = answers[question.id];
 
   function selectAnswer(points: number) {
-    const next = { ...answers, [question.id]: points };
-    setAnswers(next);
+    if (selectedPoints !== null) return;
+    setSelectedPoints(points);
 
-    if (step + 1 < questions.length) {
-      setStep(step + 1);
-    } else {
-      setResult(scoreTest(next));
-    }
+    window.setTimeout(() => {
+      const next = { ...answers, [question.id]: points };
+      setAnswers(next);
+      setSelectedPoints(null);
+
+      if (step + 1 < questions.length) {
+        setStep(step + 1);
+      } else {
+        setResult(scoreTest(next));
+      }
+    }, SELECT_FEEDBACK_MS);
+  }
+
+  function goBack() {
+    if (step === 0) return;
+    setStep(step - 1);
   }
 
   function restart() {
@@ -195,7 +216,7 @@ export function CareerTestFlow() {
   }
 
   return (
-    <Card className="flex flex-col gap-7">
+    <Card className="flex flex-col gap-7 overflow-hidden">
       <div>
         <div className="flex items-center justify-between text-[12.5px] text-ink-muted">
           <span>
@@ -205,28 +226,51 @@ export function CareerTestFlow() {
         </div>
         <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-hairline">
           <div
-            className="h-full rounded-full bg-gold-deep transition-all duration-300"
+            className="h-full rounded-full bg-gold-deep transition-[width] duration-(--motion-normal) ease-(--ease-out)"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
-      <h2 className="font-display text-xl font-medium text-navy-deep sm:text-2xl">
-        {question.text}
-      </h2>
+      <div key={question.id} className="animate-slide-in flex flex-col gap-7">
+        <h2 className="font-display text-xl font-medium text-navy-deep sm:text-2xl">
+          {question.text}
+        </h2>
 
-      <div className="flex flex-col gap-3">
-        {question.options.map((opt) => (
-          <button
-            key={opt.label}
-            type="button"
-            onClick={() => selectAnswer(opt.points)}
-            className="rounded-(--radius-sm) border border-hairline bg-bg px-5 py-3.5 text-left text-[14.5px] text-ink transition-colors hover:border-gold-deep hover:bg-gold-soft/20"
-          >
-            {opt.label}
-          </button>
-        ))}
+        <div className="flex flex-col gap-3">
+          {question.options.map((opt) => {
+            const isChosen =
+              selectedPoints === opt.points || (selectedPoints === null && answeredPoints === opt.points);
+            return (
+              <button
+                key={opt.label}
+                type="button"
+                onClick={() => selectAnswer(opt.points)}
+                disabled={selectedPoints !== null}
+                className={cn(
+                  "rounded-(--radius-sm) border px-5 py-3.5 text-left text-[14.5px] text-ink transition-[transform,border-color,background-color] duration-(--motion-fast) ease-(--ease-out)",
+                  isChosen
+                    ? "scale-[1.01] border-gold-deep bg-gold-soft/30"
+                    : "border-hairline bg-bg hover:border-gold-deep hover:bg-gold-soft/20"
+                )}
+              >
+                {opt.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
+
+      {step > 0 && (
+        <button
+          type="button"
+          onClick={goBack}
+          className="inline-flex w-fit items-center gap-1.5 text-[13px] font-medium text-ink-muted hover:text-navy-deep"
+        >
+          <ArrowLeft className="size-3.5" aria-hidden="true" />
+          Önceki Soru
+        </button>
+      )}
     </Card>
   );
 }

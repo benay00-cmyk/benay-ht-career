@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -7,14 +8,17 @@ function PhotoFrame({
   className,
   ratio = "aspect-[4/5]",
   src,
+  style,
 }: {
   label?: string;
   className?: string;
   ratio?: string;
   src?: string;
+  style?: CSSProperties;
 }) {
   return (
     <div
+      style={style}
       className={cn(
         "relative overflow-hidden rounded-(--radius-lg) border border-gold/25 bg-navy-deep",
         ratio,
