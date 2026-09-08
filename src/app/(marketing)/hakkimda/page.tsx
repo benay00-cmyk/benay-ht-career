@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { PhotoFrame } from "@/components/marketing/photo-frame";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = { title: "Hakkımda · Benay HR" };
@@ -33,14 +34,16 @@ export default function HakkimdaPage() {
     <div className="bg-bg">
       <div className="border-b border-hairline py-16">
         <Container className="grid items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <PhotoFrame
-            label="Benay Aktaş"
-            ratio="aspect-[4/5]"
-            className="mx-auto w-full max-w-sm"
-            src="/images/benay-aktas.jpg"
-          />
+          <ScrollReveal direction="scale">
+            <PhotoFrame
+              label="Benay Aktaş"
+              ratio="aspect-[4/5]"
+              className="mx-auto w-full max-w-sm"
+              src="/images/benay-aktas.jpg"
+            />
+          </ScrollReveal>
 
-          <div className="flex flex-col gap-5">
+          <ScrollReveal direction="left" delay={80} className="flex flex-col gap-5">
             <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
               Hakkımda
             </span>
@@ -65,7 +68,7 @@ export default function HakkimdaPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </Container>
       </div>
 
@@ -105,18 +108,17 @@ export default function HakkimdaPage() {
           </p>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
-            {approach.map((a) => (
-              <div
-                key={a.title}
-                className="rounded-(--radius-lg) border border-hairline bg-surface p-6"
-              >
-                <p className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
-                  {a.title}
-                </p>
-                <p className="mt-3 text-[14px] leading-relaxed text-ink">
-                  {a.text}
-                </p>
-              </div>
+            {approach.map((a, i) => (
+              <ScrollReveal key={a.title} delay={i * 60}>
+                <div className="rounded-(--radius-lg) border border-hairline bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:border-gold/40 hover:shadow-(--shadow-card)">
+                  <p className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
+                    {a.title}
+                  </p>
+                  <p className="mt-3 text-[14px] leading-relaxed text-ink">
+                    {a.text}
+                  </p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

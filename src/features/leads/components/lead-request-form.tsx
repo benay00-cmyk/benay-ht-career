@@ -72,7 +72,7 @@ export function LeadRequestForm({
             <label className="text-[13.5px] font-medium text-ink">İlgilendiğiniz Konu</label>
             <select
               {...register("context")}
-              className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none focus-visible:border-gold-deep"
+              className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none transition-colors duration-(--motion-fast) ease-(--ease-out) focus-visible:border-gold-deep"
             >
               {contextOptions.map((opt) => (
                 <option key={opt} value={opt}>
@@ -91,7 +91,7 @@ export function LeadRequestForm({
             <label className="text-[13.5px] font-medium text-ink">Ad Soyad</label>
             <input
               {...register("name")}
-              className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none focus-visible:border-gold-deep"
+              className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none transition-colors duration-(--motion-fast) ease-(--ease-out) focus-visible:border-gold-deep"
             />
             <FieldError message={errors.name?.message} />
           </div>
@@ -100,7 +100,7 @@ export function LeadRequestForm({
             <input
               type="email"
               {...register("email")}
-              className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none focus-visible:border-gold-deep"
+              className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none transition-colors duration-(--motion-fast) ease-(--ease-out) focus-visible:border-gold-deep"
             />
             <FieldError message={errors.email?.message} />
           </div>
@@ -110,7 +110,7 @@ export function LeadRequestForm({
           <label className="text-[13.5px] font-medium text-ink">Telefon (opsiyonel)</label>
           <input
             {...register("phone")}
-            className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none focus-visible:border-gold-deep"
+            className="mt-2 w-full rounded-(--radius-sm) border border-hairline bg-bg px-3.5 py-2.5 text-[14px] outline-none transition-colors duration-(--motion-fast) ease-(--ease-out) focus-visible:border-gold-deep"
           />
         </div>
 

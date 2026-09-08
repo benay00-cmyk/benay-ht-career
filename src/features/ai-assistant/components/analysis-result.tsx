@@ -86,7 +86,7 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
   const hasCv = result.applicationReadiness !== "cv_yok";
 
   return (
-    <div className="flex flex-col gap-6 print:gap-4">
+    <div className="animate-entrance flex flex-col gap-6 print:gap-4">
       <Card className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <readiness.icon className={`size-8 shrink-0 ${readiness.className}`} />

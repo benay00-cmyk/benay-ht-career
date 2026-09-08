@@ -6,11 +6,11 @@ import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { href: "/kariyer-testi", label: "Kariyer Testi", accent: true },
+const navItems: { href: string; label: string; variant?: "free" | "ai" }[] = [
+  { href: "/kariyer-testi", label: "Kariyer Testi", variant: "free" },
   { href: "/is-arayanlar", label: "İş Arayanlar" },
   { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-  { href: "/ai-asistan", label: "Başvuru Analizi", accent: true },
+  { href: "/ai-asistan", label: "Başvuru Analizi", variant: "ai" },
   { href: "/egitimler", label: "Eğitimler" },
   { href: "/danismanlik", label: "Danışmanlık" },
   { href: "/blog", label: "Kariyer Merkezi" },
@@ -37,13 +37,20 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-[13px] font-medium tracking-[0.01em] whitespace-nowrap transition-colors",
-                item.accent
+                "flex items-center gap-1.5 text-[13px] font-medium tracking-[0.01em] whitespace-nowrap transition-colors",
+                item.variant === "ai"
                   ? "text-gold-deep hover:text-gold"
-                  : "text-ink/75 hover:text-navy-deep"
+                  : item.variant === "free"
+                    ? "text-navy-deep hover:text-gold-deep"
+                    : "text-ink/75 hover:text-navy-deep"
               )}
             >
               {item.label}
+              {item.variant === "free" && (
+                <span className="rounded-full bg-mint px-1.5 py-0.5 font-mono text-[9px] tracking-[0.1em] text-navy-deep uppercase">
+                  Ücretsiz
+                </span>
+              )}
             </Link>
           ))}
         </nav>
@@ -68,11 +75,20 @@ export function Header() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-(--radius-sm) px-2 py-2.5 text-[15px] font-medium",
-                  item.accent ? "text-gold-deep" : "text-ink"
+                  "flex items-center gap-2 rounded-(--radius-sm) px-2 py-2.5 text-[15px] font-medium",
+                  item.variant === "ai"
+                    ? "text-gold-deep"
+                    : item.variant === "free"
+                      ? "text-navy-deep"
+                      : "text-ink"
                 )}
               >
                 {item.label}
+                {item.variant === "free" && (
+                  <span className="rounded-full bg-mint px-1.5 py-0.5 font-mono text-[9px] tracking-[0.1em] text-navy-deep uppercase">
+                    Ücretsiz
+                  </span>
+                )}
               </Link>
             ))}
           </nav>

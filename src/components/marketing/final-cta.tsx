@@ -3,35 +3,38 @@ import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function FinalCta() {
   return (
     <section className="bg-navy-deep py-24">
-      <Container className="flex flex-col items-center gap-6 text-center">
-        <h2 className="max-w-xl font-display text-3xl font-medium text-surface sm:text-4xl">
-          Kariyerinde bir sonraki adımını şimdi bul.
-        </h2>
-        <p className="max-w-lg text-[15px] leading-relaxed text-surface/70">
-          Emin değilsen önce ücretsiz kariyer testini yap. Belirli bir ilana
-          başvuruyorsan doğrudan CV ve başvuru analizine geç. İstersen
-          eğitimlerle kendin ilerle, istersen Benay ile birlikte çalış.
-        </p>
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/kariyer-testi"
-            className={buttonVariants({ variant: "gold", size: "lg" })}
-          >
-            Ücretsiz Kariyer Testine Başla
-          </Link>
-          <Link
-            href="/ai-asistan"
-            className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-surface hover:text-gold"
-          >
-            Başvurumu Analiz Et
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </Container>
+      <ScrollReveal>
+        <Container className="flex flex-col items-center gap-6 text-center">
+          <h2 className="max-w-xl font-display text-3xl font-medium text-surface sm:text-4xl">
+            Kariyerinde bir sonraki adımını şimdi bul.
+          </h2>
+          <p className="max-w-lg text-[15px] leading-relaxed text-surface/70">
+            Emin değilsen önce ücretsiz kariyer testini yap. Belirli bir ilana
+            başvuruyorsan doğrudan CV ve başvuru analizine geç. İstersen
+            eğitimlerle kendin ilerle, istersen Benay ile birlikte çalış.
+          </p>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/kariyer-testi"
+              className={buttonVariants({ variant: "gold", size: "lg" })}
+            >
+              Ücretsiz Kariyer Testine Başla
+            </Link>
+            <Link
+              href="/ai-asistan"
+              className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-surface hover:text-gold"
+            >
+              Başvurumu Analiz Et
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </Container>
+      </ScrollReveal>
     </section>
   );
 }

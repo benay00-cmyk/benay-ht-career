@@ -2,6 +2,7 @@ import { Quote } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const testimonials = [
   {
@@ -46,35 +47,36 @@ export function Testimonials() {
   return (
     <section className="border-y border-hairline bg-surface py-24">
       <Container>
-        <SectionHeading
-          align="center"
-          eyebrow="Sosyal Kanıt"
-          title="Danışanlarımız ne diyor?"
-          className="mx-auto"
-        />
+        <ScrollReveal>
+          <SectionHeading
+            align="center"
+            eyebrow="Sosyal Kanıt"
+            title="Danışanlarımız ne diyor?"
+            className="mx-auto"
+          />
+        </ScrollReveal>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="flex flex-col gap-4 rounded-(--radius-lg) border border-hairline bg-bg p-7"
-            >
-              <Quote className="size-5 text-gold-deep/60" aria-hidden="true" />
-              <p className="text-[14.5px] leading-relaxed text-ink-muted italic">
-                &quot;{t.quote}&quot;
-              </p>
-              <div className="mt-2 flex items-center gap-3 border-t border-hairline pt-4">
-                <span className="flex size-9 items-center justify-center rounded-full bg-hairline text-[11px] font-medium text-ink-muted">
-                  {t.name.charAt(0)}
-                </span>
-                <div>
-                  <p className="text-[13.5px] font-medium text-ink">
-                    {t.name}
-                  </p>
-                  <p className="text-[12px] text-ink-muted">{t.role}</p>
+          {testimonials.map((t, i) => (
+            <ScrollReveal key={t.name} delay={(i % 3) * 60} className="h-full">
+              <div className="flex h-full flex-col gap-4 rounded-(--radius-lg) border border-hairline bg-bg p-7 transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card)">
+                <Quote className="size-5 text-gold-deep/60" aria-hidden="true" />
+                <p className="text-[14.5px] leading-relaxed text-ink-muted italic">
+                  &quot;{t.quote}&quot;
+                </p>
+                <div className="mt-2 flex items-center gap-3 border-t border-hairline pt-4">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-beige text-[11px] font-medium text-navy-deep">
+                    {t.name.charAt(0)}
+                  </span>
+                  <div>
+                    <p className="text-[13.5px] font-medium text-ink">
+                      {t.name}
+                    </p>
+                    <p className="text-[12px] text-ink-muted">{t.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

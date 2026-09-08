@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Compass, Target } from "lucide-react";
+import { ChevronDown, Compass, Target } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -13,65 +13,50 @@ export function UserPaths() {
         <ScrollReveal>
           <SectionHeading
             align="center"
-            eyebrow="İki Farklı İhtiyaç"
-            title="Kariyerinde şu anda neye ihtiyacın var?"
+            eyebrow="Nereden Başlamalı?"
+            title="Emin değilsen, buradan başla."
             className="mx-auto"
           />
         </ScrollReveal>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <ScrollReveal direction="left" className="h-full">
-            <div className="flex h-full flex-col gap-5 rounded-(--radius-lg) border border-hairline bg-surface p-9 transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card)">
-              <span className="flex size-12 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-2xl">
-                🧭
+        <ScrollReveal className="mt-12 mx-auto max-w-xl">
+          <div className="flex flex-col gap-5 rounded-(--radius-lg) border border-hairline bg-surface p-9 text-center transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card)">
+            <span className="mx-auto flex size-12 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-2xl">
+              🧭
+            </span>
+            <div className="flex flex-col items-center gap-2">
+              <span className="rounded-full bg-mint px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-navy-deep uppercase">
+                Ücretsiz
               </span>
-              <div>
-                <h3 className="font-display text-xl font-medium text-navy-deep">
-                  Henüz nerede gelişmem gerektiğinden emin değilim
-                </h3>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-ink-muted">
-                  Kariyerindeki güçlü ve gelişime açık alanları keşfet.
-                </p>
-              </div>
-              <Link
-                href="/kariyer-testi"
-                className={buttonVariants({ variant: "outline", size: "lg", className: "mt-auto w-fit" })}
-              >
-                Kariyer Testini Çöz
-                <span className="text-[12px] font-normal text-gold-deep">— Ücretsiz</span>
-              </Link>
+              <h3 className="font-display text-xl font-medium text-navy-deep">
+                Henüz nerede gelişmem gerektiğinden emin değilim
+              </h3>
+              <p className="mt-1 text-[14.5px] leading-relaxed text-ink-muted">
+                Kariyerindeki güçlü ve gelişime açık alanları keşfet.
+              </p>
             </div>
-          </ScrollReveal>
+            <Link
+              href="/kariyer-testi"
+              className={buttonVariants({ variant: "gold", size: "lg", className: "mx-auto w-fit" })}
+            >
+              Kariyer Testini Çöz
+            </Link>
+          </div>
+        </ScrollReveal>
 
-          <ScrollReveal direction="right" delay={80} className="h-full">
-            <div className="flex h-full flex-col gap-5 rounded-(--radius-lg) border border-gold/30 bg-deep-navy p-9 transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card)">
-              <span className="flex size-12 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-2xl">
-                🎯
-              </span>
-              <div>
-                <h3 className="font-display text-xl font-medium text-surface">
-                  Belirli bir işe başvuruyorum
-                </h3>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-surface/70">
-                  CV&apos;ni ve başvuracağın iş ilanını işe alım perspektifiyle
-                  analiz et.
-                </p>
-              </div>
-              <Link
-                href="/ai-asistan"
-                className={buttonVariants({ variant: "gold", size: "lg", className: "mt-auto w-fit" })}
-              >
-                Başvurumu Analiz Et
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        <p className="mt-6 text-center text-[13.5px] text-ink-muted">
-          Emin değil misin? <strong className="text-ink">Önce Kariyer Testini çöz.</strong>{" "}
-          Belirli bir ilana başvuruyorsan{" "}
-          <strong className="text-ink">doğrudan CV ve başvuru analizine geç.</strong>
-        </p>
+        <ScrollReveal delay={80} className="mt-10 flex flex-col items-center gap-2 text-center">
+          <p className="max-w-md text-[13.5px] leading-relaxed text-ink-muted">
+            Belirli bir ilana başvuruyorsan{" "}
+            <strong className="text-ink">doğrudan CV ve başvuru analizine geç.</strong>
+          </p>
+          <a
+            href="#ai-analiz"
+            aria-label="Başvurumu ve CV'mi AI ile Analiz Et bölümüne git"
+            className="mt-1 flex size-9 items-center justify-center rounded-full border border-gold/30 text-gold-deep transition-colors duration-(--motion-fast) ease-(--ease-out) hover:bg-gold-soft/30"
+          >
+            <ChevronDown className="size-4 animate-bounce-down" aria-hidden="true" />
+          </a>
+        </ScrollReveal>
 
         <div className="mt-8 flex items-center gap-3 text-[13px]">
           <Compass className="size-3.5 text-gold-deep" aria-hidden="true" />

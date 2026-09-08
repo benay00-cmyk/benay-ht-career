@@ -3,6 +3,7 @@ import { Clock, User } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Card, CardEyebrow, CardTitle } from "@/components/ui/card";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { courses, digitalProducts } from "@/features/courses/data/courses";
 
@@ -18,75 +19,81 @@ export default function EgitimlerPage() {
     <div className="bg-bg">
       <div className="border-b border-hairline py-16">
         <Container className="max-w-2xl">
-          <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
-            Eğitimler
-          </span>
-          <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
-            Uygulanabilir, kısa, doğrudan sonuca odaklı
-          </h1>
-          <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
-            Ödeme entegrasyonu yakında eklenecek — şimdilik ön kayıt
-            oluşturarak yerinizi ayırtabilirsiniz.
-          </p>
+          <ScrollReveal>
+            <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+              Eğitimler
+            </span>
+            <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
+              Uygulanabilir, kısa, doğrudan sonuca odaklı
+            </h1>
+            <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
+              Ödeme entegrasyonu yakında eklenecek — şimdilik ön kayıt
+              oluşturarak yerinizi ayırtabilirsiniz.
+            </p>
+          </ScrollReveal>
         </Container>
       </div>
 
       <Container className="py-14">
         <div className="grid gap-5 sm:grid-cols-2">
-          {courses.map((c) => (
-            <Card key={c.id} className="flex flex-col">
-              <div className="flex items-center justify-between">
-                <CardEyebrow>{c.category}</CardEyebrow>
-                <span className="font-mono text-[13px] text-navy-deep">{c.price}</span>
-              </div>
-              <CardTitle>{c.title}</CardTitle>
-              <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
+          {courses.map((c, i) => (
+            <ScrollReveal key={c.id} delay={i * 60}>
+              <Card interactive className="flex h-full flex-col">
+                <div className="flex items-center justify-between">
+                  <CardEyebrow>{c.category}</CardEyebrow>
+                  <span className="font-mono text-[13px] text-navy-deep">{c.price}</span>
+                </div>
+                <CardTitle>{c.title}</CardTitle>
+                <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
 
-              <ul className="mt-4 flex flex-col gap-2">
-                {c.outcomes.map((o) => (
-                  <li key={o} className="flex items-start gap-2 text-[13px] text-ink">
-                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-gold-deep" />
-                    {o}
-                  </li>
-                ))}
-              </ul>
+                <ul className="mt-4 flex flex-col gap-2">
+                  {c.outcomes.map((o) => (
+                    <li key={o} className="flex items-start gap-2 text-[13px] text-ink">
+                      <span className="mt-1.5 size-1 shrink-0 rounded-full bg-gold-deep" />
+                      {o}
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="mt-5 flex items-center gap-4 border-t border-hairline pt-4 text-[12.5px] text-ink-muted">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="size-3.5" /> {c.duration}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <User className="size-3.5" /> {c.instructor}
-                </span>
-              </div>
-            </Card>
+                <div className="mt-5 flex items-center gap-4 border-t border-hairline pt-4 text-[12.5px] text-ink-muted">
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="size-3.5" /> {c.duration}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <User className="size-3.5" /> {c.instructor}
+                  </span>
+                </div>
+              </Card>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-16">
+        <ScrollReveal className="mt-16">
           <h2 className="font-display text-2xl font-medium text-navy-deep">
             Dijital Ürünler
           </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {digitalProducts.map((p) => (
-              <Card key={p.id}>
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-display text-[15px] font-medium text-navy-deep">
-                    {p.title}
-                  </h3>
-                  <span className="shrink-0 font-mono text-[13px] text-navy-deep">
-                    {p.price}
-                  </span>
-                </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
-                  {p.description}
-                </p>
-              </Card>
+            {digitalProducts.map((p, i) => (
+              <ScrollReveal key={p.id} delay={i * 60}>
+                <Card interactive className="h-full">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-display text-[15px] font-medium text-navy-deep">
+                      {p.title}
+                    </h3>
+                    <span className="shrink-0 font-mono text-[13px] text-navy-deep">
+                      {p.price}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
+                    {p.description}
+                  </p>
+                </Card>
+              </ScrollReveal>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="mt-16">
+        <ScrollReveal className="mt-16">
           <h2 className="font-display text-2xl font-medium text-navy-deep">
             Ön Kayıt / Talep Oluştur
           </h2>
@@ -101,7 +108,7 @@ export default function EgitimlerPage() {
               submitLabel="Ön Kayıt Oluştur"
             />
           </div>
-        </div>
+        </ScrollReveal>
       </Container>
     </div>
   );

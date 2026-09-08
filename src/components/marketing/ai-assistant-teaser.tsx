@@ -17,7 +17,7 @@ const findings = [
 
 export function AiAssistantTeaser() {
   return (
-    <section className="bg-deep-navy py-24">
+    <section id="ai-analiz" className="scroll-mt-20 bg-deep-navy py-24">
       <Container className="grid items-center gap-14 lg:grid-cols-2">
         <ScrollReveal direction="left" className="flex flex-col gap-5">
           <span className="flex size-11 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
