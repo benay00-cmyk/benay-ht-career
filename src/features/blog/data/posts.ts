@@ -155,7 +155,7 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: {
       text: "Bu analizi kendi CV'niz ve hedef ilanınız için deneyin.",
-      label: "AI Kariyer Asistanına Git",
+      label: "Başvurumu Analiz Et",
       href: "/ai-asistan",
     },
   },

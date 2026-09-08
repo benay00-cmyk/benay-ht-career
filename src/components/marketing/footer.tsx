@@ -7,7 +7,7 @@ const columns = [
       { href: "/kariyer-testi", label: "Ücretsiz Kariyer Testi" },
       { href: "/is-arayanlar", label: "İş Arayanlar" },
       { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-      { href: "/ai-asistan", label: "AI Kariyer Asistanı" },
+      { href: "/ai-asistan", label: "Başvurumu ve CV'mi AI ile Analiz Et" },
     ],
   },
   {

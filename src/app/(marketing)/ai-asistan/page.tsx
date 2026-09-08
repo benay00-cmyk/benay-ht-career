@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { FileWarning, Target, ShieldCheck, MessagesSquare, Compass } from "lucide-react";
+import { FileWarning, Target, ShieldCheck, MessagesSquare } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { AnalyzerForm } from "@/features/ai-assistant/components/analyzer-form";
 
-export const metadata: Metadata = { title: "AI Kariyer Asistanı · Benay HR" };
+export const metadata: Metadata = { title: "Başvurumu ve CV'mi AI ile Analiz Et · Benay HR" };
 
 const scenarios = [
   { icon: FileWarning, text: "CV'm neden eleniyor?" },
   { icon: Target, text: "Bu ilana başvurmalı mıyım?" },
   { icon: ShieldCheck, text: "CV'm ATS'den geçer mi?" },
   { icon: MessagesSquare, text: "Mülakata nasıl hazırlanmalıyım?" },
-  { icon: Compass, text: "Kariyerimde hangi yöne gitmeliyim?" },
 ];
 
 export default function AiAsistanPage() {
@@ -20,14 +19,15 @@ export default function AiAsistanPage() {
       <div className="border-b border-hairline py-16">
         <Container className="max-w-2xl">
           <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
-            AI Kariyer Asistanı
+            Belirli Bir İşe Başvuruyorsan
           </span>
           <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
-            AI analiz eder. Sen karar verirsin.
+            Başvurumu ve CV&apos;mi AI ile Analiz Et
           </h1>
           <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
-            Şirket araştırması, ATS uyumluluk skoru, güçlü/eksik yönler, CV
-            önerileri, STAR hikayeleri ve mülakat soruları — tek bir analizde.
+            CV&apos;ni ve başvuracağın iş ilanını analiz et. Güçlü yönlerini,
+            risklerini ve geliştirmen gereken alanları gör — şirket
+            araştırması, ATS skoru ve mülakat hazırlığıyla birlikte.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">

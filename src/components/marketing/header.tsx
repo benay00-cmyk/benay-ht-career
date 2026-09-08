@@ -10,7 +10,7 @@ const navItems = [
   { href: "/kariyer-testi", label: "Kariyer Testi", accent: true },
   { href: "/is-arayanlar", label: "İş Arayanlar" },
   { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-  { href: "/ai-asistan", label: "AI Asistan" },
+  { href: "/ai-asistan", label: "Başvuru Analizi", accent: true },
   { href: "/egitimler", label: "Eğitimler" },
   { href: "/danismanlik", label: "Danışmanlık" },
   { href: "/blog", label: "Kariyer Merkezi" },

@@ -33,7 +33,7 @@ export function Hero() {
               href="/ai-asistan"
               className={buttonVariants({ variant: "outline", size: "lg" })}
             >
-              AI Kariyer Asistanı&apos;nı Keşfet
+              Başvurumu Analiz Et
             </Link>
           </div>
         </div>

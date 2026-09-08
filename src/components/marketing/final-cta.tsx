@@ -12,9 +12,9 @@ export function FinalCta() {
           Kariyerinde bir sonraki adımını şimdi bul.
         </h2>
         <p className="max-w-lg text-[15px] leading-relaxed text-surface/70">
-          Önce ücretsiz kariyer testini yap, sonucunu gör. İstersen AI Kariyer
-          Asistanı ile daha derine in, istersen eğitimlerle kendin ilerle,
-          istersen Benay ile birlikte çalış.
+          Emin değilsen önce ücretsiz kariyer testini yap. Belirli bir ilana
+          başvuruyorsan doğrudan CV ve başvuru analizine geç. İstersen
+          eğitimlerle kendin ilerle, istersen Benay ile birlikte çalış.
         </p>
         <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
           <Link
@@ -27,7 +27,7 @@ export function FinalCta() {
             href="/ai-asistan"
             className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-surface hover:text-gold"
           >
-            AI Kariyer Asistanı&apos;nı Keşfet
+            Başvurumu Analiz Et
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
