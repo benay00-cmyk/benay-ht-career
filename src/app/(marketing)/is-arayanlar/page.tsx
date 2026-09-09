@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/container";
 import { ModuleTile } from "@/components/marketing/module-tile";
 import { AiAssistantTeaser } from "@/components/marketing/ai-assistant-teaser";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 
 export const metadata: Metadata = { title: "İş Arayanlar · Benay HR" };
 
@@ -76,13 +77,11 @@ export default function IsArayanlarPage() {
             İhtiyacın Olan Her Şey
           </h2>
         </ScrollReveal>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {otherModules.map((m, i) => (
-            <ScrollReveal key={m.title} delay={i * 60}>
-              <ModuleTile {...m} />
-            </ScrollReveal>
+        <HorizontalCarousel className="mt-6">
+          {otherModules.map((m) => (
+            <ModuleTile key={m.title} {...m} />
           ))}
-        </div>
+        </HorizontalCarousel>
       </Container>
     </div>
   );

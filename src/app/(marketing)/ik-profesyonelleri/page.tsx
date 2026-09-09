@@ -4,6 +4,7 @@ import { Library, Map, Users2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { ModuleTile } from "@/components/marketing/module-tile";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { HrAssistantWidget } from "@/features/hr-assistant/components/hr-assistant-widget";
 
 export const metadata: Metadata = { title: "İK Profesyonelleri · Benay HR" };
@@ -55,13 +56,11 @@ export default function IkProfesyonelleriPage() {
           <HrAssistantWidget />
         </ScrollReveal>
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-3">
-          {modules.map((m, i) => (
-            <ScrollReveal key={m.title} delay={i * 60}>
-              <ModuleTile {...m} />
-            </ScrollReveal>
+        <HorizontalCarousel className="mt-6">
+          {modules.map((m) => (
+            <ModuleTile key={m.title} {...m} />
           ))}
-        </div>
+        </HorizontalCarousel>
       </Container>
     </div>
   );

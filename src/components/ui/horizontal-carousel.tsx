@@ -66,15 +66,15 @@ export function HorizontalCarousel({
       <div
         ref={trackRef}
         data-lenis-prevent
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory items-start gap-5 overflow-x-auto overflow-y-visible scroll-smooth px-1 pt-4 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {React.Children.map(children, (child, i) => (
           <div
             className={cn(
-              "shrink-0 snap-center transition-[transform,opacity] duration-(--motion-normal) ease-(--ease-out)",
+              "shrink-0 snap-center transition-[transform,opacity] duration-(--motion-slow) ease-(--ease-out) will-change-transform",
               i === active
-                ? "scale-100 opacity-100"
-                : "scale-[0.92] opacity-55"
+                ? "z-10 -translate-y-3 scale-100 opacity-100 drop-shadow-[0_20px_32px_rgba(23,43,58,0.18)]"
+                : "z-0 translate-y-1.5 scale-[0.88] opacity-45"
             )}
             style={{ width: cardWidth }}
           >
