@@ -65,6 +65,7 @@ export function HorizontalCarousel({
     <div className={cn("relative", className)}>
       <div
         ref={trackRef}
+        data-lenis-prevent
         className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {React.Children.map(children, (child, i) => (
