@@ -2,12 +2,18 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
+import { MagneticLink } from "@/components/ui/magnetic-link";
+import { Parallax } from "@/components/ui/parallax";
 import { PhotoFrame } from "@/components/marketing/photo-frame";
 
 export function Hero() {
   return (
-    <section className="border-b border-hairline bg-bg py-20 sm:py-28">
-      <Container className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+    <section className="relative overflow-hidden border-b border-hairline bg-bg py-20 sm:py-28">
+      <div
+        aria-hidden="true"
+        className="animate-blob pointer-events-none absolute -top-24 -right-24 size-[420px] bg-gold-soft/40 blur-3xl"
+      />
+      <Container className="relative grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
         <div className="flex flex-col gap-6">
           <span
             className="animate-entrance font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase"
@@ -37,12 +43,12 @@ export function Hero() {
             className="animate-entrance mt-2 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "220ms" }}
           >
-            <Link
+            <MagneticLink
               href="/kariyer-testi"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
               Ücretsiz Kariyer Testine Başla
-            </Link>
+            </MagneticLink>
             <Link
               href="/ai-asistan"
               className={buttonVariants({ variant: "outline", size: "lg" })}
@@ -52,12 +58,14 @@ export function Hero() {
           </div>
         </div>
 
-        <PhotoFrame
-          label="Benay Aktaş"
-          className="animate-entrance mx-auto w-full max-w-sm"
-          src="/images/benay-aktas.jpg"
-          style={{ animationDelay: "100ms" }}
-        />
+        <Parallax speed={0.06} className="mx-auto w-full max-w-sm">
+          <PhotoFrame
+            label="Benay Aktaş"
+            className="animate-entrance"
+            src="/images/benay-aktas.jpg"
+            style={{ animationDelay: "100ms" }}
+          />
+        </Parallax>
       </Container>
     </section>
   );

@@ -4,12 +4,17 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { MagneticLink } from "@/components/ui/magnetic-link";
 
 export function FinalCta() {
   return (
-    <section className="bg-navy-deep py-24">
+    <section className="relative overflow-hidden bg-navy-deep py-24">
+      <div
+        aria-hidden="true"
+        className="animate-blob pointer-events-none absolute top-1/2 left-1/2 size-[460px] -translate-x-1/2 -translate-y-1/2 bg-gold/[0.06] blur-3xl"
+      />
       <ScrollReveal>
-        <Container className="flex flex-col items-center gap-6 text-center">
+        <Container className="relative flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-xl font-display text-3xl font-medium text-surface sm:text-4xl">
             Kariyerinde bir sonraki adımını şimdi bul.
           </h2>
@@ -19,12 +24,12 @@ export function FinalCta() {
             eğitimlerle kendin ilerle, istersen Benay ile birlikte çalış.
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
-            <Link
+            <MagneticLink
               href="/kariyer-testi"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
               Ücretsiz Kariyer Testine Başla
-            </Link>
+            </MagneticLink>
             <Link
               href="/ai-asistan"
               className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-surface hover:text-gold"

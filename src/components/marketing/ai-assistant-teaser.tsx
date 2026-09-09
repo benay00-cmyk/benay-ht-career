@@ -17,8 +17,12 @@ const findings = [
 
 export function AiAssistantTeaser() {
   return (
-    <section id="ai-analiz" className="scroll-mt-20 bg-deep-navy py-24">
-      <Container className="grid items-center gap-14 lg:grid-cols-2">
+    <section id="ai-analiz" className="relative scroll-mt-20 overflow-hidden bg-deep-navy py-24">
+      <div
+        aria-hidden="true"
+        className="animate-blob pointer-events-none absolute top-1/3 -left-32 size-[380px] bg-gold/10 blur-3xl"
+      />
+      <Container className="relative grid items-center gap-14 lg:grid-cols-2">
         <ScrollReveal direction="left" className="flex flex-col gap-5">
           <span className="flex size-11 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
             <Sparkles className="size-5" aria-hidden="true" />

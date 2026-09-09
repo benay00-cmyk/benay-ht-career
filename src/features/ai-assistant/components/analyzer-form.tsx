@@ -16,6 +16,14 @@ type CvMode = "paste" | "upload";
 const ACCEPTED_TYPES =
   "application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,.docx";
 
+const LOADING_STEPS = [
+  "İş ilanı okunuyor...",
+  "CV ile karşılaştırılıyor...",
+  "Şirket araştırması yapılıyor...",
+  "ATS uyumluluğu hesaplanıyor...",
+  "Mülakat önerileri hazırlanıyor...",
+];
+
 export function AnalyzerForm() {
   const [jobDescription, setJobDescription] = React.useState("");
   const [cvMode, setCvMode] = React.useState<CvMode>("paste");
@@ -24,7 +32,16 @@ export function AnalyzerForm() {
   const [status, setStatus] = React.useState<Status>("idle");
   const [error, setError] = React.useState<string | null>(null);
   const [result, setResult] = React.useState<AnalysisResult | null>(null);
+  const [loadingStep, setLoadingStep] = React.useState(0);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    if (status !== "loading") return;
+    const interval = setInterval(() => {
+      setLoadingStep((s) => Math.min(s + 1, LOADING_STEPS.length - 1));
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [status]);
 
   function handleFileSelect(selected: File | undefined) {
     if (!selected) return;
@@ -59,6 +76,7 @@ export function AnalyzerForm() {
     }
 
     setStatus("loading");
+    setLoadingStep(0);
 
     const formData = new FormData();
     formData.append("jobDescription", jobDescription);
@@ -229,16 +247,32 @@ export function AnalyzerForm() {
         </p>
       )}
 
-      <Button
-        type="submit"
-        variant="gold"
-        size="lg"
-        disabled={status === "loading"}
-        className="w-fit"
-      >
-        {status === "loading" && <Loader2 className="size-4 animate-spin" />}
-        {status === "loading" ? "Analiz Ediliyor..." : "Analiz Et"}
-      </Button>
+      <div className="flex flex-col gap-3">
+        <Button
+          type="submit"
+          variant="gold"
+          size="lg"
+          disabled={status === "loading"}
+          className="w-fit"
+        >
+          {status === "loading" && <Loader2 className="size-4 animate-spin" />}
+          {status === "loading" ? "Analiz Ediliyor..." : "Analiz Et"}
+        </Button>
+
+        {status === "loading" && (
+          <div className="flex flex-col gap-2">
+            <p
+              key={loadingStep}
+              className="animate-entrance text-[13px] text-ink-muted"
+            >
+              {LOADING_STEPS[loadingStep]}
+            </p>
+            <div className="h-1 w-48 overflow-hidden rounded-full bg-hairline">
+              <div className="h-full w-1/3 rounded-full bg-gold-deep animate-loading-scan" />
+            </div>
+          </div>
+        )}
+      </div>
     </form>
   );
 }

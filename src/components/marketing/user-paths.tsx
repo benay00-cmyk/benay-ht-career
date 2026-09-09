@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { MagneticLink } from "@/components/ui/magnetic-link";
 
 export function UserPaths() {
   return (
@@ -35,12 +36,12 @@ export function UserPaths() {
                 Kariyerindeki güçlü ve gelişime açık alanları keşfet.
               </p>
             </div>
-            <Link
+            <MagneticLink
               href="/kariyer-testi"
               className={buttonVariants({ variant: "gold", size: "lg", className: "mx-auto w-fit" })}
             >
               Kariyer Testini Çöz
-            </Link>
+            </MagneticLink>
           </div>
         </ScrollReveal>
 
