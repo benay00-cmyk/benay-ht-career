@@ -4,11 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
+import { PulseDots } from "@/components/ui/pulse-dots";
 import { mentorshipLeadSchema, type MentorshipLeadValues } from "@/lib/leads/schema";
 import { submitMentorshipLead } from "@/lib/leads/submit-lead";
 
@@ -50,8 +51,8 @@ export function MentorshipForm() {
 
   if (submitted) {
     return (
-      <Card className="flex flex-col items-center gap-3 py-14 text-center">
-        <CheckCircle2 className="size-9 text-emerald-600" />
+      <Card className="animate-entrance flex flex-col items-center gap-3 py-14 text-center">
+        <CheckCircle2 className="animate-success-pop size-9 text-emerald-600" />
         <h3 className="font-display text-xl font-medium text-navy-deep">
           Talebiniz Alındı
         </h3>
@@ -170,7 +171,7 @@ export function MentorshipForm() {
         )}
 
         <Button type="submit" variant="gold" size="lg" disabled={isSubmitting} className="w-fit">
-          {isSubmitting && <Loader2 className="size-4 animate-spin" />}
+          {isSubmitting && <PulseDots />}
           Talebi Gönder
         </Button>
       </form>

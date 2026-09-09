@@ -1,14 +1,16 @@
 "use client";
 
 import * as React from "react";
-import { UploadCloud, Loader2, FileText, X, PenLine, Paperclip } from "lucide-react";
+import { UploadCloud, FileText, X, PenLine, Paperclip } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
+import { PulseDots } from "@/components/ui/pulse-dots";
 import { cn } from "@/lib/utils";
 import type { AnalysisResult } from "@/lib/ai/schema";
 import { AnalysisResult as AnalysisResultView } from "@/features/ai-assistant/components/analysis-result";
+import { AiThinkingVisual } from "@/features/ai-assistant/components/ai-thinking-visual";
 
 type Status = "idle" | "loading" | "error";
 type CvMode = "paste" | "upload";
@@ -255,22 +257,20 @@ export function AnalyzerForm() {
           disabled={status === "loading"}
           className="w-fit"
         >
-          {status === "loading" && <Loader2 className="size-4 animate-spin" />}
+          {status === "loading" && <PulseDots />}
           {status === "loading" ? "Analiz Ediliyor..." : "Analiz Et"}
         </Button>
 
         {status === "loading" && (
-          <div className="flex flex-col gap-2">
+          <Card className="animate-entrance flex flex-col items-center gap-4 py-6">
+            <AiThinkingVisual stage={loadingStep} />
             <p
               key={loadingStep}
               className="animate-entrance text-[13px] text-ink-muted"
             >
               {LOADING_STEPS[loadingStep]}
             </p>
-            <div className="h-1 w-48 overflow-hidden rounded-full bg-hairline">
-              <div className="h-full w-1/3 rounded-full bg-gold-deep animate-loading-scan" />
-            </div>
-          </div>
+          </Card>
         )}
       </div>
     </form>

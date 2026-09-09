@@ -89,7 +89,7 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
     <div className="animate-entrance flex flex-col gap-6 print:gap-4">
       <Card className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <readiness.icon className={`size-8 shrink-0 ${readiness.className}`} />
+          <readiness.icon className={`animate-success-pop size-8 shrink-0 ${readiness.className}`} />
           <div>
             <p className="font-display text-lg font-medium text-navy-deep">
               {readiness.label}

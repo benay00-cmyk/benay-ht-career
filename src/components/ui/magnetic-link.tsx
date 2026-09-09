@@ -9,7 +9,7 @@ type MagneticLinkProps = LinkProps &
   };
 
 export const MagneticLink = React.forwardRef<HTMLAnchorElement, MagneticLinkProps>(
-  ({ strength = 10, className, style, children, ...props }, forwardedRef) => {
+  ({ strength = 26, className, style, children, ...props }, forwardedRef) => {
     const innerRef = React.useRef<HTMLAnchorElement>(null);
 
     function handleMove(e: React.MouseEvent<HTMLAnchorElement>) {

@@ -9,7 +9,7 @@ import { MagneticLink } from "@/components/ui/magnetic-link";
 
 export function UserPaths() {
   return (
-    <section className="bg-bg py-24">
+    <section className="bg-mint py-24">
       <Container>
         <ScrollReveal>
           <SectionHeading
@@ -21,7 +21,7 @@ export function UserPaths() {
         </ScrollReveal>
 
         <ScrollReveal className="mt-12 mx-auto max-w-xl">
-          <div className="flex flex-col gap-5 rounded-(--radius-lg) border border-hairline bg-surface p-9 text-center transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card)">
+          <div className="flex flex-col gap-5 rounded-(--radius-lg) border border-hairline bg-surface p-9 text-center transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-2.5 hover:scale-[1.015] hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]">
             <span className="mx-auto flex size-12 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-2xl">
               🧭
             </span>

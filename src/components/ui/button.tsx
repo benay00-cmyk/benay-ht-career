@@ -4,13 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-(--radius-sm) font-medium tracking-[0.01em] transition-all duration-(--motion-fast) ease-(--ease-out) outline-none hover:scale-[1.02] active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50 disabled:hover:scale-100",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-(--radius-sm) font-semibold tracking-[0.01em] transition-all duration-(--motion-normal) ease-(--ease-out) outline-none hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50 disabled:hover:scale-100 disabled:hover:translate-y-0",
   {
     variants: {
       variant: {
         primary:
           "bg-navy-deep text-surface border border-navy-deep hover:shadow-(--shadow-gold-glow) hover:border-gold-deep",
-        gold: "bg-gold text-navy-deep border border-gold hover:bg-gold-deep hover:border-gold-deep",
+        gold: "bg-gold text-navy-deep border border-gold hover:bg-gold-deep hover:border-gold-deep hover:shadow-(--shadow-gold-glow)",
         outline:
           "bg-transparent text-navy border border-navy/30 hover:border-navy hover:bg-navy/[0.03]",
         ghost:

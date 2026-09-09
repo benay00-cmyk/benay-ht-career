@@ -238,7 +238,7 @@ export function CareerTestFlow() {
         </h2>
 
         <div className="flex flex-col gap-3">
-          {question.options.map((opt) => {
+          {question.options.map((opt, i) => {
             const isChosen =
               selectedPoints === opt.points || (selectedPoints === null && answeredPoints === opt.points);
             return (
@@ -247,11 +247,12 @@ export function CareerTestFlow() {
                 type="button"
                 onClick={() => selectAnswer(opt.points)}
                 disabled={selectedPoints !== null}
+                style={{ animationDelay: `${i * 60}ms` }}
                 className={cn(
-                  "rounded-(--radius-sm) border px-5 py-3.5 text-left text-[14.5px] text-ink transition-[transform,border-color,background-color] duration-(--motion-fast) ease-(--ease-out)",
+                  "animate-entrance rounded-(--radius-sm) border px-5 py-3.5 text-left text-[14.5px] text-ink transition-[transform,border-color,background-color,box-shadow] duration-(--motion-fast) ease-(--ease-out)",
                   isChosen
-                    ? "scale-[1.01] border-gold-deep bg-gold-soft/30"
-                    : "border-hairline bg-bg hover:border-gold-deep hover:bg-gold-soft/20"
+                    ? "scale-[1.03] border-gold-deep bg-gold-soft/30 shadow-(--shadow-gold-glow)"
+                    : "border-hairline bg-bg hover:-translate-y-0.5 hover:border-gold-deep hover:bg-gold-soft/20"
                 )}
               >
                 {opt.label}

@@ -40,6 +40,7 @@ export default function HakkimdaPage() {
               ratio="aspect-[4/5]"
               className="mx-auto w-full max-w-sm"
               src="/images/benay-aktas.jpg"
+              reveal
             />
           </ScrollReveal>
 
@@ -110,7 +111,7 @@ export default function HakkimdaPage() {
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {approach.map((a, i) => (
               <ScrollReveal key={a.title} delay={i * 60}>
-                <div className="rounded-(--radius-lg) border border-hairline bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:border-gold/40 hover:shadow-(--shadow-card)">
+                <div className="rounded-(--radius-lg) border border-hairline bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-2.5 hover:scale-[1.015] hover:border-gold/50 hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]">
                   <p className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
                     {a.title}
                   </p>

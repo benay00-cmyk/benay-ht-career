@@ -17,7 +17,10 @@ function ModuleTile({
 }) {
   const content = (
     <>
-      <Icon className="size-5 text-gold-deep" aria-hidden="true" />
+      <Icon
+        className="size-5 text-gold-deep transition-transform duration-(--motion-normal) ease-(--ease-out) group-hover:scale-125 group-hover:-rotate-6"
+        aria-hidden="true"
+      />
       <h3 className="mt-4 font-display text-lg font-medium text-navy-deep">
         {title}
       </h3>
@@ -46,7 +49,7 @@ function ModuleTile({
   const className = cn(
     "group flex flex-col rounded-(--radius-lg) border bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out)",
     href
-      ? "border-hairline hover:-translate-y-1 hover:border-gold/40 hover:shadow-(--shadow-card)"
+      ? "border-hairline hover:-translate-y-2.5 hover:scale-[1.015] hover:border-gold/50 hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]"
       : "border-dashed border-hairline opacity-70"
   );
 

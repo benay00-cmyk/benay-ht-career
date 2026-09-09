@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Loader2, Send, Sparkles } from "lucide-react";
+import { Send, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { PulseDots } from "@/components/ui/pulse-dots";
 
 const exampleQuestions = [
   "Yetkinlik bazlı mülakat nasıl tasarlanır?",
@@ -107,11 +108,7 @@ export function HrAssistantWidget() {
           disabled={loading}
           className="shrink-0"
         >
-          {loading ? (
-            <Loader2 className="size-4 animate-spin" />
-          ) : (
-            <Send className="size-4" />
-          )}
+          {loading ? <PulseDots /> : <Send className="size-4" />}
           Sor
         </Button>
       </div>

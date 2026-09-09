@@ -11,7 +11,7 @@ export function FinalCta() {
     <section className="relative overflow-hidden bg-navy-deep py-24">
       <div
         aria-hidden="true"
-        className="animate-blob pointer-events-none absolute top-1/2 left-1/2 size-[460px] -translate-x-1/2 -translate-y-1/2 bg-gold/[0.06] blur-3xl"
+        className="animate-blob pointer-events-none absolute top-1/2 left-1/2 size-[560px] -translate-x-1/2 -translate-y-1/2 bg-gold/15 blur-3xl"
       />
       <ScrollReveal>
         <Container className="relative flex flex-col items-center gap-6 text-center">

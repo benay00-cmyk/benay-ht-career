@@ -51,7 +51,7 @@ export function BlogList() {
           <Link
             key={post.slug}
             href={`/blog/${post.category}/${post.slug}`}
-            className="group flex flex-col justify-between gap-6 rounded-(--radius-lg) border border-hairline bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:border-gold/40 hover:shadow-(--shadow-card)"
+            className="group flex flex-col justify-between gap-6 rounded-(--radius-lg) border border-hairline bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-2.5 hover:scale-[1.015] hover:border-gold/50 hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]"
           >
             <div>
               <span className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">

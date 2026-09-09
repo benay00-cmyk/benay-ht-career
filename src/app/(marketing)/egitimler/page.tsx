@@ -4,6 +4,7 @@ import { Clock, User } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Card, CardEyebrow, CardTitle } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { courses, digitalProducts } from "@/features/courses/data/courses";
 
@@ -72,25 +73,23 @@ export default function EgitimlerPage() {
           <h2 className="font-display text-2xl font-medium text-navy-deep">
             Dijital Ürünler
           </h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {digitalProducts.map((p, i) => (
-              <ScrollReveal key={p.id} delay={i * 60}>
-                <Card interactive className="h-full">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="font-display text-[15px] font-medium text-navy-deep">
-                      {p.title}
-                    </h3>
-                    <span className="shrink-0 font-mono text-[13px] text-navy-deep">
-                      {p.price}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
-                    {p.description}
-                  </p>
-                </Card>
-              </ScrollReveal>
+          <HorizontalCarousel className="mt-6">
+            {digitalProducts.map((p) => (
+              <Card key={p.id} interactive className="h-full">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-display text-[15px] font-medium text-navy-deep">
+                    {p.title}
+                  </h3>
+                  <span className="shrink-0 font-mono text-[13px] text-navy-deep">
+                    {p.price}
+                  </span>
+                </div>
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
+                  {p.description}
+                </p>
+              </Card>
             ))}
-          </div>
+          </HorizontalCarousel>
         </ScrollReveal>
 
         <ScrollReveal className="mt-16">

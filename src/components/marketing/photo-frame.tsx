@@ -9,12 +9,14 @@ function PhotoFrame({
   ratio = "aspect-[4/5]",
   src,
   style,
+  reveal = false,
 }: {
   label?: string;
   className?: string;
   ratio?: string;
   src?: string;
   style?: CSSProperties;
+  reveal?: boolean;
 }) {
   return (
     <div
@@ -31,7 +33,7 @@ function PhotoFrame({
           alt={label}
           fill
           sizes="(min-width: 1024px) 28rem, 90vw"
-          className="object-cover"
+          className={cn("object-cover", reveal && "animate-image-reveal")}
           priority
         />
       ) : (
