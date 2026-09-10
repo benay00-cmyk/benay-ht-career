@@ -9,7 +9,7 @@ import { MagneticLink } from "@/components/ui/magnetic-link";
 
 export function UserPaths() {
   return (
-    <section className="bg-mint py-24">
+    <section className="bg-bg py-24">
       <Container>
         <ScrollReveal>
           <SectionHeading

@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { ModuleTile } from "@/components/marketing/module-tile";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
+import { RotatingGlobe } from "@/components/marketing/rotating-globe";
 import { HrAssistantWidget } from "@/features/hr-assistant/components/hr-assistant-widget";
 
 export const metadata: Metadata = { title: "İK Profesyonelleri · Benay HR" };
@@ -34,7 +35,7 @@ export default function IkProfesyonelleriPage() {
   return (
     <div className="bg-bg">
       <div className="border-b border-hairline py-20">
-        <Container className="max-w-2xl">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <ScrollReveal>
             <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
               İK Profesyonelleri
@@ -47,6 +48,9 @@ export default function IkProfesyonelleriPage() {
               pratik kaynaklar, yapay zekâ destekli asistan ve kariyer yol
               haritası.
             </p>
+          </ScrollReveal>
+          <ScrollReveal direction="scale" delay={80} className="hidden justify-self-center lg:flex">
+            <RotatingGlobe className="size-56" />
           </ScrollReveal>
         </Container>
       </div>
