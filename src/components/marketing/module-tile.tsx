@@ -4,23 +4,38 @@ import { ArrowRight, Clock } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+const accentChip = {
+  gold: "bg-gold-soft/50 text-gold-deep border-gold/30",
+  green: "bg-navy-deep/10 text-navy-deep border-navy-deep/20",
+  sage: "bg-sage/40 text-navy-deep border-sage/60",
+};
+
 function ModuleTile({
   icon: Icon,
   title,
   description,
   href,
+  accent = "gold",
 }: {
   icon: LucideIcon;
   title: string;
   description: string;
   href?: string;
+  accent?: "gold" | "green" | "sage";
 }) {
   const content = (
     <>
-      <Icon
-        className="size-5 text-gold-deep transition-transform duration-(--motion-normal) ease-(--ease-out) group-hover:scale-125 group-hover:-rotate-6"
-        aria-hidden="true"
-      />
+      <span
+        className={cn(
+          "flex size-11 items-center justify-center rounded-full border transition-transform duration-(--motion-normal) ease-(--ease-out) group-hover:scale-110",
+          accentChip[accent]
+        )}
+      >
+        <Icon
+          className="size-5 transition-transform duration-(--motion-normal) ease-(--ease-out) group-hover:-rotate-6"
+          aria-hidden="true"
+        />
+      </span>
       <h3 className="mt-4 font-display text-lg font-medium text-navy-deep">
         {title}
       </h3>

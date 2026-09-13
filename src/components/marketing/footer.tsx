@@ -44,8 +44,8 @@ export function Footer() {
               Benay <span className="text-gold">HR</span>
             </span>
             <p className="max-w-xs text-[14px] leading-relaxed text-surface/60">
-              İK danışmanlığı, kariyer koçluğu ve yapay zekâ destekli kariyer
-              araçları — tek bir uzmanlık platformunda.
+              İşe alımın diğer tarafında geçirdiğim yıllardan öğrendiklerimi,
+              bugün senin kariyerine aktarıyorum.
             </p>
           </div>
 

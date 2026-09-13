@@ -16,18 +16,21 @@ const modules = [
     title: "Prompt Kütüphanesi",
     description: "11 kategoride, kopyala-yapıştır kullanılabilecek İK promptları.",
     href: "/ik-profesyonelleri/prompt-kutuphanesi",
+    accent: "gold" as const,
   },
   {
     icon: Map,
     title: "İK Haritası",
     description: "Kariyerinde neredesin? Seviyeni seç, yol haritanı gör.",
     href: "/ik-haritasi",
+    accent: "green" as const,
   },
   {
     icon: Users2,
     title: "İK Mentörlüğü",
     description: "Bire bir kariyer ve yetkinlik mentörlüğü talep et.",
     href: "/ik-haritasi",
+    accent: "sage" as const,
   },
 ];
 

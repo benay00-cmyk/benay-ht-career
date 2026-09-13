@@ -42,7 +42,9 @@ export default function EgitimlerPage() {
               <Card interactive className="flex h-full flex-col">
                 <div className="flex items-center justify-between">
                   <CardEyebrow>{c.category}</CardEyebrow>
-                  <span className="font-mono text-[13px] text-navy-deep">{c.price}</span>
+                  <span className="rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[16px] font-semibold text-gold-deep">
+                    {c.price}
+                  </span>
                 </div>
                 <CardTitle>{c.title}</CardTitle>
                 <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
@@ -80,7 +82,7 @@ export default function EgitimlerPage() {
                   <h3 className="font-display text-[15px] font-medium text-navy-deep">
                     {p.title}
                   </h3>
-                  <span className="shrink-0 font-mono text-[13px] text-navy-deep">
+                  <span className="shrink-0 rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[15px] font-semibold text-gold-deep">
                     {p.price}
                   </span>
                 </div>

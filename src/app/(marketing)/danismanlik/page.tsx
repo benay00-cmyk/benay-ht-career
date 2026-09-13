@@ -5,6 +5,13 @@ import { Card } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { consultingServices } from "@/features/consulting/data/services";
+import { cn } from "@/lib/utils";
+
+const accentChip = {
+  gold: "bg-gold-soft/50 text-gold-deep border-gold/30",
+  green: "bg-navy-deep/10 text-navy-deep border-navy-deep/20",
+  sage: "bg-sage/40 text-navy-deep border-sage/60",
+};
 
 export const metadata: Metadata = { title: "Danışmanlık · Benay HR" };
 
@@ -35,7 +42,14 @@ export default function DanismanlikPage() {
           {consultingServices.map((s, i) => (
             <ScrollReveal key={s.id} delay={i * 60}>
               <Card id={s.id} interactive className="scroll-mt-24 h-full">
-                <s.icon className="size-5 text-gold-deep" />
+                <span
+                  className={cn(
+                    "flex size-11 items-center justify-center rounded-full border",
+                    accentChip[s.accent]
+                  )}
+                >
+                  <s.icon className="size-5" aria-hidden="true" />
+                </span>
                 <h3 className="mt-3 font-display text-lg font-medium text-navy-deep">
                   {s.title}
                 </h3>

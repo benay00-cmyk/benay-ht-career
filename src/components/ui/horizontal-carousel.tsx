@@ -73,7 +73,7 @@ export function HorizontalCarousel({
             className={cn(
               "shrink-0 snap-center transition-[transform,opacity] duration-(--motion-slow) ease-(--ease-out) will-change-transform",
               i === active
-                ? "z-10 -translate-y-3 scale-100 opacity-100 drop-shadow-[0_20px_32px_rgba(23,43,58,0.18)]"
+                ? "z-10 -translate-y-3 scale-100 opacity-100 shadow-[0_20px_32px_rgba(23,43,58,0.18)]"
                 : "z-0 translate-y-1.5 scale-[0.88] opacity-45"
             )}
             style={{ width: cardWidth }}

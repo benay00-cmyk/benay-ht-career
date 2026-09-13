@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope, IBM_Plex_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const displayFont = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin", "latin-ext"],
-  style: ["normal", "italic"],
-  axes: ["opsz", "SOFT", "WONK"],
 });
 
 const manrope = Manrope({
@@ -49,7 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="tr"
-      className={`${fraunces.variable} ${manrope.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${displayFont.variable} ${manrope.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink">
         {children}

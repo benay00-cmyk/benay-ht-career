@@ -11,12 +11,7 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-hairline bg-bg py-20 sm:py-28">
       <div
         aria-hidden="true"
-        className="animate-blob pointer-events-none absolute -top-32 -right-32 size-[560px] bg-gold-soft/60 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="animate-blob pointer-events-none absolute -bottom-40 -left-24 size-[420px] bg-navy-royal/15 blur-3xl"
-        style={{ animationDelay: "-4s" }}
+        className="animate-blob blob-shape pointer-events-none absolute -top-32 -right-32 size-[560px] bg-gold-soft/60 blur-2xl"
       />
       <Container className="relative grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
         <div className="flex flex-col gap-6">

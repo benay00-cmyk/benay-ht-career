@@ -203,24 +203,26 @@
   animation: loading-scan 1.3s var(--ease-in-out) infinite;
 }
 
+.blob-shape {
+  border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+}
+
 @keyframes blob-morph {
   0%,
   100% {
-    border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
     transform: scale(1) rotate(0deg) translate(0, 0);
   }
   33% {
-    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
     transform: scale(1.12) rotate(10deg) translate(10px, -8px);
   }
   66% {
-    border-radius: 35% 65% 55% 45% / 60% 35% 65% 40%;
     transform: scale(0.92) rotate(-8deg) translate(-8px, 10px);
   }
 }
 
 .animate-blob {
   animation: blob-morph 15s var(--ease-in-out) infinite;
+  will-change: transform;
 }
 
 @keyframes image-reveal {

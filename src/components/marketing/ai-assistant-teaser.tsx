@@ -20,12 +20,7 @@ export function AiAssistantTeaser() {
     <section id="ai-analiz" className="relative scroll-mt-20 overflow-hidden bg-deep-navy py-24">
       <div
         aria-hidden="true"
-        className="animate-blob pointer-events-none absolute top-1/3 -left-40 size-[480px] bg-gold/20 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="animate-blob pointer-events-none absolute -bottom-32 -right-24 size-[380px] bg-surface/10 blur-3xl"
-        style={{ animationDelay: "-3s" }}
+        className="animate-blob blob-shape pointer-events-none absolute top-1/3 -left-40 size-[480px] bg-gold/20 blur-2xl"
       />
       <Container className="relative grid items-center gap-14 lg:grid-cols-2">
         <ScrollReveal direction="left" className="flex flex-col gap-5">

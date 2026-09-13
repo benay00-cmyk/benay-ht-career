@@ -20,32 +20,38 @@ const otherModules = [
     icon: Map,
     title: "Kariyer Yol Haritası",
     description: "Bulunduğun noktadan hedefine giden somut adımlar.",
+    accent: "gold" as const,
   },
   {
     icon: FileEdit,
     title: "CV Hazırlama",
     description: "Sıfırdan profesyonel CV oluşturma desteği.",
+    accent: "green" as const,
   },
   {
     icon: Link2,
     title: "LinkedIn Optimizasyonu",
     description: "Profilinin doğru kişiler tarafından bulunmasını sağla.",
+    accent: "sage" as const,
   },
   {
     icon: MessagesSquare,
     title: "İş Arama Teknikleri",
     description: "Doğru kanallardan doğru pozisyonlara ulaşma stratejileri.",
+    accent: "gold" as const,
   },
   {
     icon: MessagesSquare,
     title: "İletişim Teknikleri",
     description: "Başvuru sürecinde etkili yazışma ve görüşme becerileri.",
+    accent: "green" as const,
   },
   {
     icon: GraduationCap,
     title: "Eğitimler",
     description: "Kariyer gelişimine yönelik uygulamalı eğitimler.",
     href: "/egitimler",
+    accent: "sage" as const,
   },
 ];
 

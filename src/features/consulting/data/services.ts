@@ -14,6 +14,7 @@ export type ConsultingService = {
   title: string;
   desc: string;
   longDesc: string;
+  accent: "gold" | "green" | "sage";
 };
 
 export const consultingServices: ConsultingService[] = [
@@ -23,6 +24,7 @@ export const consultingServices: ConsultingService[] = [
     title: "CV Danışmanlığı",
     desc: "CV'nin ATS ve insan gözüyle birlikte gözden geçirilmesi.",
     longDesc: "CV'niz hem ATS sistemleri hem de işe alım uzmanları gözüyle satır satır incelenir; somut, uygulanabilir düzenleme önerileri alırsınız.",
+    accent: "gold",
   },
   {
     id: "mulakat-simulasyonu",
@@ -30,6 +32,7 @@ export const consultingServices: ConsultingService[] = [
     title: "Mülakat Simülasyonu",
     desc: "Gerçekçi mülakat provası ve geri bildirim.",
     longDesc: "Gerçek bir mülakat ortamını simüle eden bire bir pratik seansı; sonrasında detaylı, yapıcı geri bildirim alırsınız.",
+    accent: "gold",
   },
   {
     id: "kariyer-danismanligi",
@@ -37,6 +40,7 @@ export const consultingServices: ConsultingService[] = [
     title: "Kariyer Danışmanlığı",
     desc: "Yön belirleme, hedef netleştirme ve yol haritası.",
     longDesc: "Kariyer hedeflerinizi netleştirmek ve oraya giden somut bir yol haritası çıkarmak için birlikte çalışırız.",
+    accent: "gold",
   },
   {
     id: "ik-danismanligi",
@@ -44,6 +48,7 @@ export const consultingServices: ConsultingService[] = [
     title: "İK Danışmanlığı",
     desc: "Şirketler için süreç ve sistem kurulumu.",
     longDesc: "İşe alımdan performans yönetimine, İK süreçlerinizi kurumunuzun büyüklüğüne uygun şekilde tasarlar ve kurarız.",
+    accent: "green",
   },
   {
     id: "ik-mentorlugu",
@@ -51,6 +56,7 @@ export const consultingServices: ConsultingService[] = [
     title: "İK Mentörlüğü",
     desc: "Bire bir kariyer ve yetkinlik mentörlüğü.",
     longDesc: "İK kariyerinizde bir sonraki adıma geçmeniz için düzenli, bire bir mentörlük desteği.",
+    accent: "green",
   },
   {
     id: "kurumsal-egitim",
@@ -58,5 +64,6 @@ export const consultingServices: ConsultingService[] = [
     title: "Kurumsal Eğitim",
     desc: "Ekipler için özel tasarlanmış İK eğitimleri.",
     longDesc: "Ekibinizin ihtiyaçlarına göre özel olarak tasarlanmış, yerinde ya da online İK eğitimleri.",
+    accent: "green",
   },
 ];
