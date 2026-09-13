@@ -5,9 +5,24 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
+import { cn } from "@/lib/utils";
 import { blogCategories, blogPosts } from "@/features/blog/data/posts";
 
 const featured = blogPosts.slice(0, 3);
+
+const categoryAccent: Record<string, string> = {
+  kariyer: "bg-gradient-to-br from-gold-soft/80 to-bg",
+  ik: "bg-gradient-to-br from-sage/45 to-bg",
+  "ai-hr": "bg-gradient-to-br from-deep-navy/20 to-bg",
+  "is-hayati": "bg-gradient-to-br from-beige/70 to-bg",
+};
+
+const categoryTopBar: Record<string, string> = {
+  kariyer: "before:bg-gold",
+  ik: "before:bg-navy-deep",
+  "ai-hr": "before:bg-deep-navy",
+  "is-hayati": "before:bg-beige",
+};
 
 export function BlogTeaser() {
   return (
@@ -29,7 +44,11 @@ export function BlogTeaser() {
             <Link
               key={post.slug}
               href={`/blog/${post.category}/${post.slug}`}
-              className="group flex h-full flex-col justify-between gap-8 rounded-(--radius-lg) border border-hairline bg-surface p-7 transition-[background-color,transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-2 hover:bg-gold-soft/30 hover:shadow-(--shadow-card)"
+              className={cn(
+                "group relative flex h-full flex-col justify-between gap-8 overflow-hidden rounded-(--radius-lg) border border-hairline p-7 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) before:absolute before:inset-x-0 before:top-0 before:h-1.5 hover:-translate-y-2 hover:border-gold/50 hover:shadow-(--shadow-card)",
+                categoryAccent[post.category],
+                categoryTopBar[post.category]
+              )}
             >
               <span className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
                 {blogCategories.find((c) => c.slug === post.category)?.label}
