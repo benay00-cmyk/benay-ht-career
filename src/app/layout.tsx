@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
+import type { CSSProperties } from "react";
+import { Manrope, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-
-const displayFont = Bricolage_Grotesque({
-  variable: "--font-display",
-  subsets: ["latin", "latin-ext"],
-});
 
 const manrope = Manrope({
   variable: "--font-body",
@@ -47,7 +43,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="tr"
-      className={`${displayFont.variable} ${manrope.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${plexMono.variable} h-full antialiased`}
+      style={{ "--font-display": "var(--font-body)" } as CSSProperties}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink">
         {children}

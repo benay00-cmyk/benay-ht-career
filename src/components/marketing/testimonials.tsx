@@ -4,6 +4,15 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
+const cardGradients = [
+  "bg-gradient-to-br from-sage/25 via-bg to-mint/35",
+  "bg-gradient-to-br from-gold-soft/35 via-bg to-beige/30",
+  "bg-gradient-to-br from-mint/35 via-bg to-beige/25",
+  "bg-gradient-to-br from-beige/30 via-bg to-sage/25",
+  "bg-gradient-to-br from-gold-soft/30 via-bg to-mint/30",
+  "bg-gradient-to-br from-sage/25 via-bg to-gold-soft/30",
+];
+
 const testimonials = [
   {
     name: "Gürcan",
@@ -59,13 +68,15 @@ export function Testimonials() {
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <ScrollReveal key={t.name} delay={(i % 3) * 60} className="h-full">
-              <div className="flex h-full flex-col gap-4 rounded-(--radius-lg) border border-hairline bg-bg p-7 transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card)">
+              <div
+                className={`flex h-full flex-col gap-4 rounded-(--radius-lg) border border-hairline p-7 transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-1 hover:shadow-(--shadow-card) ${cardGradients[i % cardGradients.length]}`}
+              >
                 <Quote className="size-5 text-gold-deep/60" aria-hidden="true" />
                 <p className="text-[14.5px] leading-relaxed text-ink-muted italic">
                   &quot;{t.quote}&quot;
                 </p>
                 <div className="mt-2 flex items-center gap-3 border-t border-hairline pt-4">
-                  <span className="flex size-9 items-center justify-center rounded-full bg-beige text-[11px] font-medium text-navy-deep">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-gold-soft to-beige text-[11px] font-medium text-navy-deep">
                     {t.name.charAt(0)}
                   </span>
                   <div>

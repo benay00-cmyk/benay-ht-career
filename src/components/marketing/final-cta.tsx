@@ -16,25 +16,25 @@ export function FinalCta() {
       <ScrollReveal>
         <Container className="relative flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-xl font-display text-3xl font-medium text-surface sm:text-4xl">
-            Kariyerinde bir sonraki adımını şimdi bul.
+            Kendi başına ilerlemek istemiyorsan, birlikte çalışalım.
           </h2>
           <p className="max-w-lg text-[15px] leading-relaxed text-surface/70">
-            Emin değilsen önce ücretsiz kariyer testini yap. Belirli bir ilana
-            başvuruyorsan doğrudan CV ve başvuru analizine geç. İstersen
-            eğitimlerle kendin ilerle, istersen Benay ile birlikte çalış.
+            CV danışmanlığından mülakat simülasyonuna, kurumsal İK
+            danışmanlığından kariyer koçluğuna — ihtiyacına en yakın hizmeti
+            seç, Benay değerlendirip sana dönüş yapsın.
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <MagneticLink
-              href="/kariyer-testi"
+              href="/danismanlik"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
-              Ücretsiz Kariyer Testine Başla
+              Benay ile Çalış
             </MagneticLink>
             <Link
-              href="/ai-asistan"
+              href="/iletisim"
               className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-surface hover:text-gold"
             >
-              Başvurumu Analiz Et
+              İletişime Geç
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </div>

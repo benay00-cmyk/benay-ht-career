@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/marketing/logo";
 
 const navItems: { href: string; label: string; variant?: "free" | "ai" }[] = [
   { href: "/kariyer-testi", label: "Kariyer Testi", variant: "free" },
@@ -26,8 +27,9 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link
           href="/"
-          className="font-display text-lg font-medium text-navy-deep"
+          className="flex items-center gap-2.5 font-display text-lg font-medium text-navy-deep"
         >
+          <Logo className="size-8 shrink-0" />
           Benay <span className="text-gold-deep">HR</span>
         </Link>
 
