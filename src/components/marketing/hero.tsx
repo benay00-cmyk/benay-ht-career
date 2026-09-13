@@ -11,7 +11,17 @@ export function Hero() {
     <section className="relative overflow-hidden border-b border-hairline bg-bg py-20 sm:py-28">
       <div
         aria-hidden="true"
-        className="animate-blob blob-shape pointer-events-none absolute -top-32 -right-32 size-[560px] bg-gold-soft/60 blur-2xl"
+        className="animate-blob blob-shape pointer-events-none absolute -top-40 -right-40 size-[680px] bg-gold/50 blur-2xl"
+      />
+      <div
+        aria-hidden="true"
+        className="animate-blob blob-shape pointer-events-none absolute top-1/3 -left-32 size-[480px] bg-sage/60 blur-2xl"
+        style={{ animationDelay: "-7s" }}
+      />
+      <div
+        aria-hidden="true"
+        className="animate-blob blob-shape pointer-events-none absolute -bottom-32 right-1/4 size-[420px] bg-mint/70 blur-2xl"
+        style={{ animationDelay: "-3s" }}
       />
       <Container className="relative grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
         <div className="flex flex-col gap-6">
@@ -57,7 +67,7 @@ export function Hero() {
           </div>
         </div>
 
-        <Parallax speed={0.1} className="mx-auto w-full max-w-sm">
+        <Parallax speed={0.1} className="relative mx-auto w-full max-w-sm">
           <PhotoFrame
             label="Benay Aktaş"
             className="animate-entrance"
@@ -65,6 +75,17 @@ export function Hero() {
             style={{ animationDelay: "100ms" }}
             reveal
           />
+          <div
+            className="animate-entrance animate-float absolute -bottom-6 -left-6 flex items-center gap-3 rounded-(--radius-lg) border border-hairline bg-surface px-5 py-3.5 shadow-(--shadow-card)"
+            style={{ animationDelay: "500ms" }}
+          >
+            <span className="font-display text-2xl font-extrabold text-navy-deep">
+              1000+
+            </span>
+            <span className="max-w-[6.5rem] text-[11px] leading-tight text-ink-muted">
+              CV incelemesi yapıldı
+            </span>
+          </div>
         </Parallax>
       </Container>
     </section>

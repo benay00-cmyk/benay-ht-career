@@ -293,6 +293,20 @@
   animation: page-in 320ms var(--ease-out) both;
 }
 
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float-y 4.5s var(--ease-in-out) infinite;
+}
+
 @keyframes globe-spin {
   from {
     transform: rotate(0deg);

@@ -8,9 +8,9 @@ import { consultingServices } from "@/features/consulting/data/services";
 import { cn } from "@/lib/utils";
 
 const accentStyle = {
-  gold: { top: "before:bg-gold", bg: "bg-gold-soft/25", chip: "bg-gold text-navy-deep" },
-  green: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]", chip: "bg-navy-deep text-surface" },
-  sage: { top: "before:bg-sage", bg: "bg-sage/25", chip: "bg-sage text-navy-deep" },
+  gold: { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg", chip: "bg-gold text-navy-deep" },
+  green: { top: "before:bg-navy-deep", bg: "bg-gradient-to-br from-sage/45 to-bg", chip: "bg-navy-deep text-surface" },
+  sage: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg", chip: "bg-sage text-navy-deep" },
 };
 
 export const metadata: Metadata = { title: "Danışmanlık · Benay HR" };

@@ -10,16 +10,16 @@ import { courses, digitalProducts } from "@/features/courses/data/courses";
 import { cn } from "@/lib/utils";
 
 const categoryAccent: Record<string, { top: string; bg: string }> = {
-  Kariyer: { top: "before:bg-gold", bg: "bg-gold-soft/25" },
-  İK: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]" },
-  "Yapay Zeka + İK": { top: "before:bg-deep-navy", bg: "bg-deep-navy/[0.06]" },
+  Kariyer: { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg" },
+  İK: { top: "before:bg-navy-deep", bg: "bg-gradient-to-br from-sage/45 to-bg" },
+  "Yapay Zeka + İK": { top: "before:bg-deep-navy", bg: "bg-gradient-to-br from-deep-navy/20 to-bg" },
 };
 
 const productAccents = ["gold", "green", "sage"] as const;
 const productAccentStyle = {
-  gold: { top: "before:bg-gold", bg: "bg-gold-soft/25" },
-  green: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]" },
-  sage: { top: "before:bg-sage", bg: "bg-sage/25" },
+  gold: { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg" },
+  green: { top: "before:bg-navy-deep", bg: "bg-gradient-to-br from-sage/45 to-bg" },
+  sage: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg" },
 };
 
 export const metadata: Metadata = { title: "Eğitimler · Benay HR" };
