@@ -307,6 +307,59 @@
   animation: float-y 4.5s var(--ease-in-out) infinite;
 }
 
+@keyframes pencil-write {
+  0%,
+  100% {
+    transform: translateX(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateX(22px) rotate(-8deg);
+  }
+}
+
+.animate-pencil-write {
+  animation: pencil-write 2.6s var(--ease-in-out) infinite;
+}
+
+@keyframes ink-line {
+  0%,
+  100% {
+    stroke-dashoffset: 60;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+}
+
+.animate-ink-line {
+  stroke-dasharray: 60;
+  animation: ink-line 2.6s var(--ease-in-out) infinite;
+}
+
+@keyframes sparkle-pop {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle-pop 2.6s var(--ease-in-out) infinite;
+}
+
 @keyframes globe-spin {
   from {
     transform: rotate(0deg);

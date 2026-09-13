@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { Card, CardEyebrow, CardTitle } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
+import { AnimatedNotebook } from "@/components/marketing/animated-notebook";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { courses, digitalProducts } from "@/features/courses/data/courses";
 import { cn } from "@/lib/utils";
@@ -33,7 +34,7 @@ export default function EgitimlerPage() {
   return (
     <div className="bg-bg">
       <div className="border-b border-hairline py-16">
-        <Container className="max-w-2xl">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <ScrollReveal>
             <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
               Eğitimler
@@ -45,6 +46,9 @@ export default function EgitimlerPage() {
               Ödeme entegrasyonu yakında eklenecek — şimdilik ön kayıt
               oluşturarak yerinizi ayırtabilirsiniz.
             </p>
+          </ScrollReveal>
+          <ScrollReveal direction="scale" delay={80} className="hidden justify-self-center lg:flex">
+            <AnimatedNotebook className="size-56" />
           </ScrollReveal>
         </Container>
       </div>
