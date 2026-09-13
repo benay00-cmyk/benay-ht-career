@@ -7,6 +7,20 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { courses, digitalProducts } from "@/features/courses/data/courses";
+import { cn } from "@/lib/utils";
+
+const categoryAccent: Record<string, { top: string; bg: string }> = {
+  Kariyer: { top: "before:bg-gold", bg: "bg-gold-soft/25" },
+  İK: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]" },
+  "Yapay Zeka + İK": { top: "before:bg-deep-navy", bg: "bg-deep-navy/[0.06]" },
+};
+
+const productAccents = ["gold", "green", "sage"] as const;
+const productAccentStyle = {
+  gold: { top: "before:bg-gold", bg: "bg-gold-soft/25" },
+  green: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]" },
+  sage: { top: "before:bg-sage", bg: "bg-sage/25" },
+};
 
 export const metadata: Metadata = { title: "Eğitimler · Benay HR" };
 
@@ -39,7 +53,14 @@ export default function EgitimlerPage() {
         <div className="grid gap-5 sm:grid-cols-2">
           {courses.map((c, i) => (
             <ScrollReveal key={c.id} delay={i * 60}>
-              <Card interactive className="flex h-full flex-col">
+              <Card
+                interactive
+                className={cn(
+                  "relative flex h-full flex-col overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
+                  categoryAccent[c.category]?.top,
+                  categoryAccent[c.category]?.bg
+                )}
+              >
                 <div className="flex items-center justify-between">
                   <CardEyebrow>{c.category}</CardEyebrow>
                   <span className="rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[16px] font-semibold text-gold-deep">
@@ -76,21 +97,32 @@ export default function EgitimlerPage() {
             Dijital Ürünler
           </h2>
           <HorizontalCarousel className="mt-6">
-            {digitalProducts.map((p) => (
-              <Card key={p.id} interactive className="h-full">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-display text-[15px] font-medium text-navy-deep">
-                    {p.title}
-                  </h3>
-                  <span className="shrink-0 rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[15px] font-semibold text-gold-deep">
-                    {p.price}
-                  </span>
-                </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
-                  {p.description}
-                </p>
-              </Card>
-            ))}
+            {digitalProducts.map((p, i) => {
+              const accent = productAccentStyle[productAccents[i % productAccents.length]];
+              return (
+                <Card
+                  key={p.id}
+                  interactive
+                  className={cn(
+                    "relative h-full overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
+                    accent.top,
+                    accent.bg
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="font-display text-[15px] font-medium text-navy-deep">
+                      {p.title}
+                    </h3>
+                    <span className="shrink-0 rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[15px] font-semibold text-gold-deep">
+                      {p.price}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
+                    {p.description}
+                  </p>
+                </Card>
+              );
+            })}
           </HorizontalCarousel>
         </ScrollReveal>
 

@@ -7,10 +7,10 @@ import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { consultingServices } from "@/features/consulting/data/services";
 import { cn } from "@/lib/utils";
 
-const accentChip = {
-  gold: "bg-gold-soft/50 text-gold-deep border-gold/30",
-  green: "bg-navy-deep/10 text-navy-deep border-navy-deep/20",
-  sage: "bg-sage/40 text-navy-deep border-sage/60",
+const accentStyle = {
+  gold: { top: "before:bg-gold", bg: "bg-gold-soft/25", chip: "bg-gold text-navy-deep" },
+  green: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]", chip: "bg-navy-deep text-surface" },
+  sage: { top: "before:bg-sage", bg: "bg-sage/25", chip: "bg-sage text-navy-deep" },
 };
 
 export const metadata: Metadata = { title: "Danışmanlık · Benay HR" };
@@ -41,11 +41,19 @@ export default function DanismanlikPage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {consultingServices.map((s, i) => (
             <ScrollReveal key={s.id} delay={i * 60}>
-              <Card id={s.id} interactive className="scroll-mt-24 h-full">
+              <Card
+                id={s.id}
+                interactive
+                className={cn(
+                  "before:absolute before:inset-x-0 before:top-0 before:h-1.5 relative scroll-mt-24 h-full overflow-hidden",
+                  accentStyle[s.accent].top,
+                  accentStyle[s.accent].bg
+                )}
+              >
                 <span
                   className={cn(
-                    "flex size-11 items-center justify-center rounded-full border",
-                    accentChip[s.accent]
+                    "flex size-11 items-center justify-center rounded-full",
+                    accentStyle[s.accent].chip
                   )}
                 >
                   <s.icon className="size-5" aria-hidden="true" />

@@ -4,10 +4,10 @@ import { ArrowRight, Clock } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const accentChip = {
-  gold: "bg-gold-soft/50 text-gold-deep border-gold/30",
-  green: "bg-navy-deep/10 text-navy-deep border-navy-deep/20",
-  sage: "bg-sage/40 text-navy-deep border-sage/60",
+const accentStyle = {
+  gold: { top: "before:bg-gold", bg: "bg-gold-soft/25", chip: "bg-gold text-navy-deep" },
+  green: { top: "before:bg-navy-deep", bg: "bg-navy-deep/[0.06]", chip: "bg-navy-deep text-surface" },
+  sage: { top: "before:bg-sage", bg: "bg-sage/25", chip: "bg-sage text-navy-deep" },
 };
 
 function ModuleTile({
@@ -27,8 +27,8 @@ function ModuleTile({
     <>
       <span
         className={cn(
-          "flex size-11 items-center justify-center rounded-full border transition-transform duration-(--motion-normal) ease-(--ease-out) group-hover:scale-110",
-          accentChip[accent]
+          "flex size-11 items-center justify-center rounded-full transition-transform duration-(--motion-normal) ease-(--ease-out) group-hover:scale-110",
+          accentStyle[accent].chip
         )}
       >
         <Icon
@@ -62,10 +62,14 @@ function ModuleTile({
   );
 
   const className = cn(
-    "group flex flex-col rounded-(--radius-lg) border bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out)",
+    "group relative flex flex-col overflow-hidden rounded-(--radius-lg) border p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) before:absolute before:inset-x-0 before:top-0 before:h-1.5",
     href
-      ? "border-hairline hover:-translate-y-2.5 hover:scale-[1.015] hover:border-gold/50 hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]"
-      : "border-dashed border-hairline opacity-70"
+      ? cn(
+          "border-hairline hover:-translate-y-2.5 hover:scale-[1.015] hover:border-gold/50 hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]",
+          accentStyle[accent].top,
+          accentStyle[accent].bg
+        )
+      : "border-dashed border-hairline bg-surface opacity-70"
   );
 
   if (href) {
