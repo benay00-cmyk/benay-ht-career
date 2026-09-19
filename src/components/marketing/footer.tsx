@@ -53,7 +53,7 @@ export function Footer() {
 
           {columns.map((col) => (
             <div key={col.title} className="flex flex-col gap-3">
-              <span className="font-mono text-[11px] tracking-[0.14em] text-gold uppercase">
+              <span className="font-sans text-[11px] font-bold tracking-[0.14em] text-gold uppercase">
                 {col.title}
               </span>
               <ul className="flex flex-col gap-2.5">

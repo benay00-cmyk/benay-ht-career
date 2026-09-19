@@ -17,7 +17,7 @@ export const faqItems = [
   {
     question: "Danışmanlık hizmeti nasıl işliyor?",
     answer:
-      "İhtiyacına en yakın hizmeti seçip talebini oluşturuyorsun; Benay talebini değerlendirip seninle iletişime geçiyor. Otomatik bir sistem değil, gerçek bir değerlendirme süreci.",
+      "İhtiyacına en yakın hizmeti seçip talebini oluşturuyorsun; talebin değerlendirilip seninle iletişime geçiliyor. Otomatik bir sistem değil, gerçek bir değerlendirme süreci.",
   },
   {
     question: "Eğitimler için ödeme yapabiliyor muyum?",
@@ -27,6 +27,6 @@ export const faqItems = [
   {
     question: "Talep gönderdikten sonra ne zaman dönüş alırım?",
     answer:
-      "Formu gönderdiğinde talebin Benay'a ulaşır; değerlendirildikten sonra en kısa sürede sana dönüş yapılır.",
+      "Formu gönderdiğinde talebin tarafımıza ulaşır; değerlendirildikten sonra en kısa sürede sana dönüş yapılır.",
   },
 ];

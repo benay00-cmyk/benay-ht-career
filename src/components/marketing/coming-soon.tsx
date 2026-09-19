@@ -21,7 +21,7 @@ function ComingSoon({
         <span className="flex size-14 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-gold-deep">
           <Icon className="size-6" aria-hidden="true" />
         </span>
-        <span className="mt-6 font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+        <span className="mt-6 font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
           {eyebrow}
         </span>
         <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">

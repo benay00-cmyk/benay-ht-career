@@ -29,28 +29,39 @@ export function HorizontalCarousel({
 
     const cards = Array.from(track.children) as HTMLElement[];
     const ratios = new Map<Element, number>();
+    let settleTimer: ReturnType<typeof setTimeout>;
 
+    // Mid-scroll, two adjacent cards' ratios cross back and forth several
+    // times before settling — committing `active` on every one of those
+    // crossings made the card visibly jump back and forth ("titreme").
+    // Debouncing to the last update once ratios stop changing fixes it.
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           ratios.set(entry.target, entry.intersectionRatio);
         }
-        let bestIdx = 0;
-        let bestRatio = -1;
-        cards.forEach((card, idx) => {
-          const ratio = ratios.get(card) ?? 0;
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
-            bestIdx = idx;
-          }
-        });
-        setActive(bestIdx);
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(() => {
+          let bestIdx = 0;
+          let bestRatio = -1;
+          cards.forEach((card, idx) => {
+            const ratio = ratios.get(card) ?? 0;
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              bestIdx = idx;
+            }
+          });
+          setActive(bestIdx);
+        }, 120);
       },
       { root: track, threshold: [0.25, 0.5, 0.75, 0.95] }
     );
 
     cards.forEach((card) => observer.observe(card));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(settleTimer);
+    };
   }, [children.length]);
 
   function scrollByCard(direction: 1 | -1) {

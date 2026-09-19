@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ChevronDown, Compass, Target } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -58,18 +57,6 @@ export function UserPaths() {
             <ChevronDown className="size-4 animate-bounce-down" aria-hidden="true" />
           </a>
         </ScrollReveal>
-
-        <div className="mt-8 flex items-center gap-3 text-[13px]">
-          <Compass className="size-3.5 text-gold-deep" aria-hidden="true" />
-          <Link href="/is-arayanlar" className="text-navy-deep hover:text-gold-deep">
-            İş Arayanlar İçin
-          </Link>
-          <span className="text-hairline">·</span>
-          <Target className="size-3.5 text-gold-deep" aria-hidden="true" />
-          <Link href="/ik-profesyonelleri" className="text-navy-deep hover:text-gold-deep">
-            İK Profesyonelleri İçin
-          </Link>
-        </div>
       </Container>
     </section>
   );

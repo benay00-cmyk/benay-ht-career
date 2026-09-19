@@ -24,7 +24,7 @@ export function AboutTeaser() {
         </ScrollReveal>
 
         <ScrollReveal direction="left" delay={80} className="flex flex-col gap-5">
-          <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+          <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
             Benay Aktaş
           </span>
           <h2 className="font-display text-3xl font-medium text-navy-deep sm:text-4xl">

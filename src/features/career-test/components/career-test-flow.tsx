@@ -68,7 +68,7 @@ function ResultScreen({ result }: { result: TestResult }) {
       >
         <ScoreRing value={result.overallScore} />
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
+          <span className="font-sans text-[11px] font-bold tracking-[0.14em] text-gold-deep uppercase">
             Kariyer Skorun
           </span>
           <h2 className="font-display text-2xl font-medium text-navy-deep">

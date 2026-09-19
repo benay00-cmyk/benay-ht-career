@@ -21,7 +21,7 @@ export function FinalCta() {
           <p className="max-w-lg text-[15px] leading-relaxed text-surface/70">
             CV danışmanlığından mülakat simülasyonuna, kurumsal İK
             danışmanlığından kariyer koçluğuna — ihtiyacına en yakın hizmeti
-            seç, Benay değerlendirip sana dönüş yapsın.
+            seç, değerlendirip sana dönüş yapalım.
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <MagneticLink

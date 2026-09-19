@@ -21,7 +21,7 @@ export default function StyleGuidePage() {
     <main className="bg-bg pb-32">
       <div className="border-b border-hairline bg-navy-deep py-14">
         <Container>
-          <span className="font-mono text-[11px] tracking-[0.16em] text-gold uppercase">
+          <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold uppercase">
             Faz 02 · Tasarım Sistemi
           </span>
           <h1 className="mt-3 font-display text-4xl font-medium text-surface sm:text-5xl">
@@ -99,7 +99,7 @@ export default function StyleGuidePage() {
               <span className="font-mono text-[10px] text-ink-muted uppercase">
                 Eyebrow / Etiket — IBM Plex Mono 11, +0.16em
               </span>
-              <p className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+              <p className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
                 Kariyer Asistanı
               </p>
             </div>

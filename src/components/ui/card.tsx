@@ -27,7 +27,7 @@ function CardEyebrow({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase",
+        "font-sans text-[11px] font-bold tracking-[0.14em] text-gold-deep uppercase",
         className
       )}
       {...props}

@@ -45,7 +45,7 @@ export default function HakkimdaPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="left" delay={80} className="flex flex-col gap-5">
-            <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+            <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
               Hakkımda
             </span>
             <h1 className="font-display text-3xl font-medium text-navy-deep sm:text-4xl">
@@ -79,7 +79,7 @@ export default function HakkimdaPage() {
             Bu süreçte çok yanlış yaptım. Yanlış kararlar aldım, yanlış
             yöntemler denedim, bazı şeylerin olması için uzun süre bekledim.
             Ama her yanlışım bana neyi farklı yapmam gerektiğini öğretti. Her
-            seferinde yeniden öğrendim, geliştim ve doğru yolu buldum. Bugün
+            seferinde yeniden öğrendim, geliştim ve şimdi buradayım. Bugün
             bulunduğum noktaya, kusursuz ilerleyerek değil; yanlışlarımdan
             doğruyu çıkararak ulaştım.
           </p>
@@ -112,7 +112,7 @@ export default function HakkimdaPage() {
             {approach.map((a, i) => (
               <ScrollReveal key={a.title} delay={i * 60}>
                 <div className="rounded-(--radius-lg) border border-hairline bg-surface p-6 transition-[transform,box-shadow,border-color] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-2.5 hover:scale-[1.015] hover:border-gold/50 hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]">
-                  <p className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
+                  <p className="font-sans text-[11px] font-bold tracking-[0.14em] text-gold-deep uppercase">
                     {a.title}
                   </p>
                   <p className="mt-3 text-[14px] leading-relaxed text-ink">

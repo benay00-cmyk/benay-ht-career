@@ -50,7 +50,7 @@ export function BlogTeaser() {
                 categoryTopBar[post.category]
               )}
             >
-              <span className="font-mono text-[11px] tracking-[0.14em] text-gold-deep uppercase">
+              <span className="font-sans text-[11px] font-bold tracking-[0.14em] text-gold-deep uppercase">
                 {blogCategories.find((c) => c.slug === post.category)?.label}
               </span>
               <h3 className="font-display text-lg font-medium text-navy-deep">

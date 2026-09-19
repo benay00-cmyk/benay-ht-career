@@ -27,7 +27,7 @@ export function AiAssistantTeaser() {
           <span className="flex size-11 items-center justify-center rounded-full border border-gold/30 bg-gold/10 text-gold">
             <Sparkles className="size-5" aria-hidden="true" />
           </span>
-          <span className="font-mono text-[11px] tracking-[0.16em] text-gold uppercase">
+          <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold uppercase">
             Belirli Bir İşe Başvuruyorsan
           </span>
           <h2 className="font-display text-3xl font-medium text-surface sm:text-4xl">

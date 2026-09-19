@@ -23,7 +23,7 @@ export default function DanismanlikPage() {
       <div className="border-b border-hairline py-16">
         <Container className="max-w-2xl">
           <ScrollReveal>
-            <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+            <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
               Danışmanlık
             </span>
             <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
@@ -31,7 +31,7 @@ export default function DanismanlikPage() {
             </h1>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
               İhtiyacınıza en yakın hizmeti seçin, talebinizi oluşturun —
-              Benay değerlendirip size dönüş yapsın.
+              değerlendirip size dönüş yapalım.
             </p>
           </ScrollReveal>
         </Container>

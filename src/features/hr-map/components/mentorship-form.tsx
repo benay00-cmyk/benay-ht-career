@@ -57,7 +57,7 @@ export function MentorshipForm() {
           Talebiniz Alındı
         </h3>
         <p className="max-w-sm text-[14px] text-ink-muted">
-          Mentörlük talebiniz Benay&apos;a iletildi. En kısa sürede tercih
+          Mentörlük talebiniz tarafımıza iletildi. En kısa sürede tercih
           ettiğiniz iletişim kanalından size dönüş yapılacak.
         </p>
       </Card>

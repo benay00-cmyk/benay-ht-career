@@ -36,7 +36,7 @@ export default function EgitimlerPage() {
       <div className="border-b border-hairline py-16">
         <Container className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <ScrollReveal>
-            <span className="font-mono text-[11px] tracking-[0.16em] text-gold-deep uppercase">
+            <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
               Eğitimler
             </span>
             <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
