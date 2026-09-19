@@ -64,12 +64,17 @@ export function HorizontalCarousel({
     };
   }, [children.length]);
 
+  // A fixed pixel jump (card width + gap) overshoots on short tracks: with
+  // few cards, a snap-centered target position can sit closer to the
+  // container than a full card-width away, so the browser's snap logic
+  // clamps past it to the next card instead. Scrolling the target card
+  // itself into view sidesteps the math entirely.
   function scrollByCard(direction: 1 | -1) {
     const track = trackRef.current;
     if (!track) return;
-    const card = track.children[0] as HTMLElement | undefined;
-    const amount = (card?.offsetWidth ?? 300) + 20;
-    track.scrollBy({ left: amount * direction, behavior: "smooth" });
+    const targetIdx = Math.max(0, Math.min(active + direction, track.children.length - 1));
+    const card = track.children[targetIdx] as HTMLElement | undefined;
+    card?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }
 
   return (
