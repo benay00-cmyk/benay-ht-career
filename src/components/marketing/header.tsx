@@ -25,12 +25,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-bg/90 backdrop-blur-sm">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 font-display text-lg font-medium text-navy-deep"
-        >
-          <Logo className="size-8 shrink-0" />
-          Benay <span className="text-gold-deep">HR</span>
+        <Link href="/">
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-5 xl:flex">

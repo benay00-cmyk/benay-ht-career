@@ -310,15 +310,15 @@
 @keyframes compass-wobble {
   0%,
   100% {
-    transform: rotate(-14deg);
+    transform: rotate(-32deg) scale(1);
   }
   50% {
-    transform: rotate(14deg);
+    transform: rotate(32deg) scale(1.12);
   }
 }
 
 .animate-compass {
-  animation: compass-wobble 3.2s var(--ease-in-out) infinite;
+  animation: compass-wobble 1.6s var(--ease-in-out) infinite;
 }
 
 @keyframes pencil-write {

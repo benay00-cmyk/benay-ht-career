@@ -1,4 +1,6 @@
-/** Compass-needle mark — ties into the site's "find your direction" theme, used everywhere the wordmark ("Benay HR") appears. */
+import { cn } from "@/lib/utils";
+
+/** Text wordmark used wherever the brand appears (header, footer, admin). */
 export function Logo({
   className,
   variant = "onLight",
@@ -6,22 +8,17 @@ export function Logo({
   className?: string;
   variant?: "onLight" | "onDark";
 }) {
-  const bg = variant === "onLight" ? "var(--navy-deep)" : "var(--gold)";
-  const needleFront = variant === "onLight" ? "var(--gold)" : "var(--navy-deep)";
-  const needleBack = variant === "onLight" ? "var(--surface)" : "var(--navy-deep)";
-  const ring = variant === "onLight" ? "var(--gold)" : "var(--navy-deep)";
+  const label = variant === "onLight" ? "text-gold-deep" : "text-gold";
+  const name = variant === "onLight" ? "text-navy-deep" : "text-surface";
 
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <circle cx="20" cy="20" r="19" fill={bg} />
-      <circle cx="20" cy="20" r="17.5" fill="none" stroke={ring} strokeOpacity="0.35" strokeWidth="1" />
-
-      <g transform="rotate(-28 20 20)">
-        <polygon points="20,7 16,20 24,20" fill={needleFront} />
-        <polygon points="20,33 16,20 24,20" fill={needleBack} fillOpacity="0.6" />
-      </g>
-
-      <circle cx="20" cy="20" r="2.5" fill={variant === "onLight" ? "var(--surface)" : "var(--gold)"} />
-    </svg>
+    <span className={cn("flex flex-col leading-none", className)}>
+      <span className={cn("font-mono text-[10px] font-bold tracking-[0.1em]", label)}>
+        HR.
+      </span>
+      <span className={cn("font-display text-[15px] font-bold tracking-[0.01em]", name)}>
+        Benay Aktaş
+      </span>
+    </span>
   );
 }

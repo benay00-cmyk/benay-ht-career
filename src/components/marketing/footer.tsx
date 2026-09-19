@@ -41,10 +41,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div className="flex flex-col gap-3">
-            <span className="flex items-center gap-2.5 font-display text-lg font-medium text-surface">
-              <Logo variant="onDark" className="size-8 shrink-0" />
-              Benay <span className="text-gold">HR</span>
-            </span>
+            <Logo variant="onDark" />
             <p className="max-w-xs text-[14px] leading-relaxed text-surface/60">
               İşe alımın diğer tarafında geçirdiğim yıllardan öğrendiklerimi,
               bugün senin kariyerine aktarıyorum.
