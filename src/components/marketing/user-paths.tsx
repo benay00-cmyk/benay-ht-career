@@ -22,7 +22,9 @@ export function UserPaths() {
         <ScrollReveal className="mt-12 mx-auto max-w-xl">
           <div className="flex flex-col gap-5 rounded-(--radius-lg) border border-hairline bg-surface p-9 text-center transition-[transform,box-shadow] duration-(--motion-normal) ease-(--ease-out) hover:-translate-y-2.5 hover:scale-[1.015] hover:shadow-[0_1px_2px_rgba(23,43,58,0.08),0_24px_48px_rgba(23,43,58,0.18)]">
             <span className="mx-auto flex size-12 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-2xl">
-              🧭
+              <span className="animate-compass inline-block" style={{ transformOrigin: "50% 50%" }}>
+                🧭
+              </span>
             </span>
             <div className="flex flex-col items-center gap-2">
               <span className="rounded-full bg-mint px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-navy-deep uppercase">

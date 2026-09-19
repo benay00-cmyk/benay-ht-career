@@ -307,6 +307,20 @@
   animation: float-y 4.5s var(--ease-in-out) infinite;
 }
 
+@keyframes compass-wobble {
+  0%,
+  100% {
+    transform: rotate(-14deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+.animate-compass {
+  animation: compass-wobble 3.2s var(--ease-in-out) infinite;
+}
+
 @keyframes pencil-write {
   0%,
   100% {
