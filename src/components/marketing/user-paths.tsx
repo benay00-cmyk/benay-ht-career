@@ -1,4 +1,5 @@
-import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -48,13 +49,13 @@ export function UserPaths() {
             Belirli bir ilana başvuruyorsan{" "}
             <strong className="text-ink">doğrudan CV ve başvuru analizine geç.</strong>
           </p>
-          <a
-            href="#ai-analiz"
+          <Link
+            href="/is-arayanlar#ai-analiz"
             aria-label="Başvurumu ve CV'mi AI ile Analiz Et bölümüne git"
             className="mt-1 flex size-9 items-center justify-center rounded-full border border-gold/30 text-gold-deep transition-colors duration-(--motion-fast) ease-(--ease-out) hover:bg-gold-soft/30"
           >
-            <ChevronDown className="size-4 animate-bounce-down" aria-hidden="true" />
-          </a>
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </ScrollReveal>
       </Container>
     </section>

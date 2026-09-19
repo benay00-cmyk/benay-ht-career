@@ -1,6 +1,10 @@
+import { ArrowRight } from "lucide-react";
+
 import { Container } from "@/components/ui/container";
 import { Parallax } from "@/components/ui/parallax";
 import { PhotoFrame } from "@/components/marketing/photo-frame";
+import { buttonVariants } from "@/components/ui/button";
+import { MagneticLink } from "@/components/ui/magnetic-link";
 
 export function Hero() {
   return (
@@ -30,15 +34,35 @@ export function Hero() {
             className="animate-entrance max-w-xl font-display text-4xl leading-[1.08] font-extrabold text-navy-deep sm:text-5xl lg:text-[56px]"
             style={{ animationDelay: "60ms" }}
           >
-            Kariyerinde doğru adımı at.
+            Kariyerin için doğru adımı birlikte atalım.
           </h1>
           <p
             className="animate-entrance max-w-lg text-[17px] leading-relaxed text-ink-muted"
             style={{ animationDelay: "160ms" }}
           >
-            Kariyerin için artık beklemek zorunda değilsin. Haydi
-            başlayalım, artık beraberiz.
+            İş arıyorsan, kariyerini değiştirmek istiyorsan veya İK alanında
+            uzmanlaşmak istiyorsan; doğru strateji, profesyonel rehberlik ve
+            gerçek İK deneyimi ile yanındayım.
           </p>
+          <div
+            className="animate-entrance mt-2 flex flex-wrap items-center gap-4"
+            style={{ animationDelay: "220ms" }}
+          >
+            <MagneticLink
+              href="/is-arayanlar"
+              className={buttonVariants({ variant: "gold", size: "lg" })}
+            >
+              Kariyer Dünyasına Git
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </MagneticLink>
+            <MagneticLink
+              href="/ik-profesyonelleri"
+              className={buttonVariants({ variant: "primary", size: "lg" })}
+            >
+              İK Dünyasına Git
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </MagneticLink>
+          </div>
         </div>
 
         <Parallax speed={0.1} className="relative mx-auto w-full max-w-sm">
