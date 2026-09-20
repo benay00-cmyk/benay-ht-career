@@ -87,6 +87,8 @@ export default function IsArayanlarPage() {
         </Container>
       </div>
 
+      <JobSearchSupport />
+
       <Container className="py-16">
         <ScrollReveal>
           <h2 className="font-display text-2xl font-medium text-navy-deep">
@@ -99,8 +101,6 @@ export default function IsArayanlarPage() {
           ))}
         </HorizontalCarousel>
       </Container>
-
-      <JobSearchSupport />
     </div>
   );
 }

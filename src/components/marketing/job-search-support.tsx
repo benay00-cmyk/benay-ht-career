@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils";
 
 const innerVoices = [
   "CV'm neden geri dönüş almıyor?",
+  "Benim neyim eksik?",
+  "Bu kadar başvuru yaptım, neden hâlâ sonuç yok?",
   "Acaba artık yeterince iyi değil miyim?",
 ];
 
@@ -19,27 +21,27 @@ const challenges = [
   {
     question: "Geri dönüş alamıyor musunuz?",
     answer:
-      "Yüzlerce ilana başvurup birkaç geri dönüş almak, motivasyonu ciddi şekilde düşürebilir. CV'ni, başvurduğun pozisyonları ve başvuru stratejini birlikte değerlendirip daha bilinçli bir sistem kuruyoruz.",
+      "Yüzlerce ilana başvurup birkaç geri dönüş almak, bir süre sonra motivasyonu ciddi şekilde düşürebilir. CV'ni, başvurduğun pozisyonları ve başvuru stratejini birlikte değerlendiriyoruz; sorunun tam olarak nerede olduğunu belirleyip daha bilinçli bir başvuru sistemi kuruyoruz.",
   },
   {
     question: "Mülakatlara giriyor ama teklif alamıyor musunuz?",
     answer:
-      "Mülakata çağrılmak önemli bir adım; ama sürekli olumsuz yanıt almak özgüveni sarsabilir. Gerçek mülakat senaryoları üzerinden kendini ifade etme biçimini birlikte güçlendiriyoruz.",
+      "Mülakata çağrılmak önemli bir adım. Ama görüşme sonunda sürekli olumsuz yanıt almak, kendine olan güvenini zedeleyebilir. Gerçek mülakat senaryoları üzerinden çalışıyor; cevaplarını, kendini ifade etme biçimini ve pozisyona verdiğin mesajı birlikte güçlendiriyoruz.",
   },
   {
     question: "Ne istediğinizi bilmiyor musunuz?",
     answer:
-      "“Her işe başvurayım” düşüncesi süreci daha da karmaşıklaştırır. Deneyimlerini ve beklentilerini netleştirip senin için daha anlamlı pozisyonları birlikte belirliyoruz.",
+      "“Her işe başvurayım” düşüncesi süreci daha da karmaşıklaştırabilir. Deneyimlerini, yetkinliklerini ve beklentilerini değerlendirip hangi pozisyonların senin için gerçekten anlamlı olabileceğini birlikte netleştiriyoruz.",
   },
   {
     question: "Uzun süredir arıyor ve motivasyonunuzu mu kaybediyorsunuz?",
     answer:
-      "Uzayan bir iş arama süreci yorucu olabilir. Daha fazla başvuru yapmak yerine süreci yeniden yapılandırıp takip edebileceğin, sistemli bir yapı kuruyoruz.",
+      "Her gün ilanlara bakmak, başvuru yapmak ve cevap beklemek zamanla yorucu bir rutine dönüşebilir. Daha fazla başvuru yapmak yerine süreci yeniden yapılandırıyoruz — hedeflerini, günlük rutinini ve ilerlemeni birlikte takip edebileceğin, daha sistemli bir yapı kuruyoruz.",
   },
   {
     question: "Kendinizi diğer adaylarla mı kıyaslıyorsunuz?",
     answer:
-      "Başkalarının kariyerindeki ilerlemeyi izlemek zorlayıcı olabilir. Odağı, kontrol edemediğin sonuçlardan kontrol edebileceğin hazırlığına ve stratejine taşıyoruz.",
+      "LinkedIn'de yeni işe başlayanları görmek, çevrendeki insanların ilerlediğini izlemek ve kendi sürecinin uzadığını hissetmek zorlayıcı olabilir. Odağı, kontrol edemediğin sonuçlardan senin kontrol edebileceğin hazırlığa ve stratejiye taşıyoruz.",
   },
 ];
 
@@ -70,6 +72,21 @@ const steps = [
     description: "“Başvur ve bekle” demiyoruz; neyin işe yaradığını birlikte görüp süreci güncelliyoruz.",
   },
 ];
+
+function GlowPanel({ tone, className, children }: { tone: "gold" | "mint"; className?: string; children: React.ReactNode }) {
+  return (
+    <div className={cn("relative", className)}>
+      <div
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute -inset-4 -z-10 rounded-3xl blur-2xl sm:-inset-6",
+          tone === "gold" ? "bg-gold-soft/70" : "bg-mint/70"
+        )}
+      />
+      {children}
+    </div>
+  );
+}
 
 function ChallengeRow({
   question,
@@ -124,13 +141,15 @@ export function JobSearchSupport() {
         <Container className="max-w-2xl">
           <ScrollReveal>
             <SectionHeading
+              align="center"
               eyebrow="Yalnız Değilsin"
               title="İş ararken yalnızca bir pozisyon aramıyoruz."
-              description="Bekliyor, başvuruyor, görüşmelere giriyor, bazen reddediliyor ve çoğu zaman nedenini bile öğrenemiyoruz. Bir süre sonra bu süreç sadece kariyerini değil, özgüvenini ve motivasyonunu da etkileyebiliyor."
+              description="Bekliyor, başvuruyor, görüşmelere giriyor, bazen reddediliyor ve çoğu zaman neden olumsuz yanıt aldığımızı bile öğrenemiyoruz. Bir süre sonra bu süreç sadece kariyerini değil, özgüvenini, motivasyonunu ve günlük hayatını da etkileyebiliyor."
+              className="mx-auto"
             />
           </ScrollReveal>
 
-          <ScrollReveal delay={80} className="mt-6 flex flex-col gap-2 border-l-2 border-gold/40 pl-5">
+          <ScrollReveal delay={80} className="mx-auto mt-8 flex max-w-md flex-col gap-2.5 text-center">
             {innerVoices.map((v) => (
               <p key={v} className="font-display text-[15px] text-ink-muted italic">
                 &ldquo;{v}&rdquo;
@@ -138,13 +157,18 @@ export function JobSearchSupport() {
             ))}
           </ScrollReveal>
 
-          <ScrollReveal delay={140}>
-            <p className="mt-6 text-[15px] leading-relaxed text-ink-muted">
-              Biz burada sadece CV hazırlamıyoruz. Önce nerede zorlandığını,
-              hangi noktada tıkandığını ve iş arama sürecinde neyin değişmesi
-              gerektiğini birlikte belirliyoruz — çünkü her problem aynı
-              çözümü gerektirmez.
-            </p>
+          <ScrollReveal delay={160} className="mt-10">
+            <GlowPanel tone="mint" className="mx-auto max-w-xl rounded-2xl bg-surface/80 p-6 text-center">
+              <p className="text-[15px] leading-relaxed text-ink">
+                Biz burada sadece CV hazırlamıyoruz. Önce bulunduğun noktayı
+                anlamaya çalışıyoruz — nerede zorlandığını, hangi noktada
+                tıkandığını ve iş arama sürecinde neyin değişmesi gerektiğini
+                birlikte belirliyoruz. Çünkü bazen problem CV&apos;dedir,
+                bazen yanlış pozisyonlara başvurulur, bazen mülakatta kendini
+                doğru ifade edemezsin, bazen de uzayan süreç motivasyonunu
+                tüketir. Her problem aynı çözümü gerektirmez.
+              </p>
+            </GlowPanel>
           </ScrollReveal>
         </Container>
       </section>
@@ -186,10 +210,11 @@ export function JobSearchSupport() {
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed text-surface/70">
               Bir pozisyona kabul edilmemek yeterli olmadığın anlamına gelmez.
-              Bir mülakatın olumsuz sonuçlanması potansiyelini belirlemez. İş
-              arama bir değerlendirme sürecidir; senin değerine verilmiş bir
-              puan değildir. Biz bu süreçte neyi kontrol edebileceğimize
-              odaklanıyoruz.
+              Bir CV&apos;nin reddedilmesi kariyerinin başarısız olduğu
+              anlamına gelmez. Bir mülakatın olumsuz sonuçlanması
+              potansiyelini belirlemez. İş arama bir değerlendirme sürecidir;
+              senin değerine verilmiş bir puan değildir. Biz bu süreçte neyi
+              kontrol edebileceğimize odaklanıyoruz.
             </p>
           </Container>
         </ScrollReveal>
@@ -226,21 +251,23 @@ export function JobSearchSupport() {
 
       <section className="border-t border-hairline bg-surface py-20">
         <ScrollReveal>
-          <Container className="flex flex-col items-center gap-5 text-center">
-            <h2 className="max-w-xl font-display text-2xl font-medium text-navy-deep sm:text-3xl">
-              İş Arama Sürecini Tek Başına Yönetmek Zorunda Değilsin.
-            </h2>
-            <p className="max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              Nerede zorlandığını bulalım, neyi değiştirebileceğimizi
-              birlikte belirleyelim ve iş arama sürecini daha bilinçli bir
-              sisteme dönüştürelim.
-            </p>
-            <MagneticLink
-              href="/danismanlik"
-              className={buttonVariants({ variant: "gold", size: "lg", className: "mt-2" })}
-            >
-              Benay ile Çalış
-            </MagneticLink>
+          <Container className="flex flex-col items-center">
+            <GlowPanel tone="gold" className="flex max-w-xl flex-col items-center gap-5 rounded-2xl bg-bg/80 p-8 text-center">
+              <h2 className="font-display text-2xl font-medium text-navy-deep sm:text-3xl">
+                İş Arama Sürecini Tek Başına Yönetmek Zorunda Değilsin.
+              </h2>
+              <p className="text-[15px] leading-relaxed text-ink-muted">
+                Nerede zorlandığını bulalım, neyi değiştirebileceğimizi
+                birlikte belirleyelim ve iş arama sürecini daha bilinçli bir
+                sisteme dönüştürelim.
+              </p>
+              <MagneticLink
+                href="/danismanlik"
+                className={buttonVariants({ variant: "gold", size: "lg", className: "mt-2" })}
+              >
+                Benay ile Çalış
+              </MagneticLink>
+            </GlowPanel>
           </Container>
         </ScrollReveal>
       </section>
