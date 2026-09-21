@@ -102,7 +102,7 @@ function ResultScreen({ result }: { result: TestResult }) {
           <Card className="animate-entrance" style={{ animationDelay: "140ms" }}>
             <div className="flex items-center gap-2.5">
               <AlertTriangle className="size-4.5 text-amber-600" />
-              <h3 className="font-display text-base font-medium text-navy-deep">Riskli Alanların</h3>
+              <h3 className="font-display text-base font-medium text-navy-deep">Öncelikli Gelişim Alanların</h3>
             </div>
             <ul className="mt-4 flex flex-col gap-2.5">
               {result.risks.map((r) => (

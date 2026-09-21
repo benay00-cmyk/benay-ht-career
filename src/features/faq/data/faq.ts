@@ -1,8 +1,8 @@
 export const faqItems = [
   {
-    question: "Kariyer Testi gerçekten ücretsiz mi?",
+    question: "Kariyer Check-Up gerçekten ücretsiz mi?",
     answer:
-      "Evet. Kariyer Testi tamamen ücretsizdir, kredi kartı bilgisi istenmez ve sonuçlarını görmek için ödeme yapmanız gerekmez.",
+      "Evet. Kariyer Check-Up tamamen ücretsizdir, kredi kartı bilgisi istenmez ve sonuçlarını görmek için ödeme yapmanız gerekmez.",
   },
   {
     question: "AI analiz sonuçları ne kadar güvenilir?",
