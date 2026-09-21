@@ -5,10 +5,10 @@ const columns = [
   {
     title: "Platform",
     links: [
-      { href: "/kariyer-testi", label: "Ücretsiz Kariyer Testi" },
+      { href: "/kariyer-testi", label: "Ücretsiz Kariyer Check-Up" },
       { href: "/is-arayanlar", label: "İş Arayanlar" },
-      { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-      { href: "/ai-asistan", label: "Başvurumu ve CV'mi AI ile Analiz Et" },
+      { href: "/is-hayati", label: "İş Hayatı" },
+      { href: "/ai-asistan", label: "CV / İlan Eşleşme Analizi" },
     ],
   },
   {
@@ -16,13 +16,14 @@ const columns = [
     links: [
       { href: "/blog", label: "Kariyer Merkezi" },
       { href: "/egitimler", label: "Eğitimler" },
+      { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
       { href: "/ik-haritasi", label: "İK Haritası" },
     ],
   },
   {
     title: "Kurumsal",
     links: [
-      { href: "/hakkimda", label: "Hakkımda" },
+      { href: "/hakkimda", label: "Benay" },
       { href: "/danismanlik", label: "Danışmanlık" },
       { href: "/iletisim", label: "İletişim" },
     ],

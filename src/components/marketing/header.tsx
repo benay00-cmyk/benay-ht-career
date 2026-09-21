@@ -9,11 +9,13 @@ import { cn } from "@/lib/utils";
 import { Logo } from "@/components/marketing/logo";
 
 const navItems: { href: string; label: string }[] = [
+  { href: "/", label: "Ana Sayfa" },
+  { href: "/kariyer-testi", label: "Kariyer Check-Up" },
   { href: "/is-arayanlar", label: "İş Arayanlar" },
-  { href: "/ik-profesyonelleri", label: "İK Profesyonelleri" },
-  { href: "/egitimler", label: "Eğitimler" },
+  { href: "/is-hayati", label: "İş Hayatı" },
+  { href: "/egitimler", label: "Kaynaklar" },
+  { href: "/hakkimda", label: "Benay" },
   { href: "/danismanlik", label: "Danışmanlık" },
-  { href: "/hakkimda", label: "Hakkımda" },
   { href: "/iletisim", label: "İletişim" },
 ];
 
