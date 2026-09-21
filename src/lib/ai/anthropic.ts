@@ -34,7 +34,6 @@ const analysisTool = {
       companyCulture: { type: "string" },
       companyRedFlags: { type: "array", items: { type: "string" } },
       atsScore: { type: "number", description: "0-100, CV yoksa 0" },
-      hiringLikelihood: { type: "number", description: "0-100, CV yoksa 0" },
       applicationReadiness: {
         type: "string",
         enum: ["hazir", "gelistirilmeli", "hazir_degil", "cv_yok"],
@@ -54,7 +53,6 @@ const analysisTool = {
       "companyCulture",
       "companyRedFlags",
       "atsScore",
-      "hiringLikelihood",
       "applicationReadiness",
       "strengths",
       "gaps",
@@ -74,7 +72,8 @@ const SYSTEM_PROMPT = `Sen Benay HR & Career platformunun kariyer analiz asistan
 Kurallar:
 - Türkçe, net ve yapıcı bir dil kullan.
 - Kesinlik iddia etme: skorlar tahminidir, gerçek ATS sisteminin sonucunu garanti etmez.
-- CV verilmediyse: atsScore=0, hiringLikelihood=0, applicationReadiness="cv_yok", strengths/gaps/cvSentenceChanges/missingKeywords/starStories için boş dizi döndür. Yine de şirket araştırması, mülakat ipuçları, muhtemel sorular ve işverene sorulacak sorular gibi CV gerektirmeyen alanları doldur.
+- CV verilmediyse: atsScore=0, applicationReadiness="cv_yok", strengths/gaps/cvSentenceChanges/missingKeywords/starStories için boş dizi döndür. Yine de şirket araştırması, mülakat ipuçları, muhtemel sorular ve işverene sorulacak sorular gibi CV gerektirmeyen alanları doldur.
+- Kesinlikle "işe alınma olasılığı" ya da buna benzer gerçek bir işe alım kararı izlenimi veren bir sayı üretme; yalnızca CV/ilan eşleşmesine dair gözlemler sun.
 - CV verildiyse: hem güçlü yönleri hem eksikleri dengeli göster, aşırı olumlu ya da olumsuz olma. cvSentenceChanges için CV'den GERÇEKTEN geçen ifadeleri baz al, uydurma cümle üretme.
 - companyRedFlags: yalnızca ilan metninde gerçekten dikkat çeken bir ifade varsa doldur (belirsiz maaş, aşırı esneklik beklentisi, çok sayıda sorumluluk/az tanım vb.); yoksa boş dizi döndür, zorla bir şey uydurma.
 - Her dizide en fazla 5, en az 2 madde ver (CV yoksa CV'ye bağlı diziler hariç); maddeler kısa ve somut olsun.

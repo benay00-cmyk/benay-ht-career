@@ -5,7 +5,11 @@ import { Container } from "@/components/ui/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { AnalyzerForm } from "@/features/ai-assistant/components/analyzer-form";
 
-export const metadata: Metadata = { title: "Başvurumu ve CV'mi AI ile Analiz Et · Benay HR" };
+export const metadata: Metadata = {
+  title: "CV / İlan Eşleşme Analizi · Benay HR",
+  description:
+    "CV'ni ve başvuracağın iş ilanını işe alım perspektifiyle analiz et; güçlü yönlerini, eksiklerini ve mülakat hazırlığını gör.",
+};
 
 const scenarios = [
   { icon: FileWarning, text: "CV'm neden eleniyor?" },

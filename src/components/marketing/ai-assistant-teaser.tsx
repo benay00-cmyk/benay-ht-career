@@ -5,10 +5,7 @@ import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
-const scoreRows = [
-  { label: "ATS Uyumluluk Skoru", value: 78 },
-  { label: "İşe Alınma Olasılığı", value: 64 },
-];
+const scoreRows = [{ label: "ATS Uyumluluk Skoru", value: 78 }];
 
 const findings = [
   { tag: "Güçlü Yön", text: "5 yıllık işe alım deneyimi ilanla doğrudan örtüşüyor" },

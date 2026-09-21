@@ -97,12 +97,6 @@ export default async function AdminDashboardPage() {
                   {aiStats.avgAtsScore !== null ? `${aiStats.avgAtsScore}/100` : "—"}
                 </span>
               </div>
-              <div className="flex items-center justify-between rounded-(--radius-sm) bg-bg px-3.5 py-2 text-[13.5px]">
-                <span className="text-ink">Ortalama İşe Alınma Olasılığı</span>
-                <span className="font-mono text-navy-deep">
-                  {aiStats.avgHiringLikelihood !== null ? `${aiStats.avgHiringLikelihood}/100` : "—"}
-                </span>
-              </div>
             </div>
           </Card>
         </div>

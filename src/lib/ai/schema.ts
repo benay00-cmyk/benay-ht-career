@@ -35,13 +35,6 @@ export const analysisResultSchema = z.object({
     .optional()
     .default(0)
     .describe("CV verildiyse ATS uyumluluk skoru 0-100; CV verilmediyse 0"),
-  hiringLikelihood: z
-    .number()
-    .min(0)
-    .max(100)
-    .optional()
-    .default(0)
-    .describe("CV verildiyse ilana göre işe alınma olasılığı tahmini 0-100; CV verilmediyse 0"),
   applicationReadiness: z
     .enum(["hazir", "gelistirilmeli", "hazir_degil", "cv_yok"])
     .optional()

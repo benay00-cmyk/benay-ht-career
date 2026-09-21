@@ -7,7 +7,6 @@ export async function logAiSession(
   metrics?: {
     hasCv?: boolean;
     atsScore?: number;
-    hiringLikelihood?: number;
     applicationReadiness?: string;
   }
 ) {
@@ -18,7 +17,6 @@ export async function logAiSession(
       success,
       has_cv: metrics?.hasCv ?? null,
       ats_score: metrics?.atsScore ?? null,
-      hiring_likelihood: metrics?.hiringLikelihood ?? null,
       application_readiness: metrics?.applicationReadiness ?? null,
     });
   } catch (err) {

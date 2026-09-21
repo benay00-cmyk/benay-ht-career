@@ -179,9 +179,8 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
               </div>
               {hasCv ? (
                 <>
-                  <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="max-w-xs">
                     <ScoreBar label="ATS Uyumluluğu" value={result.atsScore} />
-                    <ScoreBar label="İşe Alınma Olasılığı" value={result.hiringLikelihood} />
                   </div>
 
                   {result.cvSentenceChanges.length > 0 && (
@@ -222,7 +221,7 @@ export function AnalysisResult({ result }: { result: AnalysisResultType }) {
                 </>
               ) : (
                 <EmptyNote>
-                  ATS skoru ve işe alınma olasılığı için CV eklemen gerekir.
+                  ATS skoru ve CV / ilan eşleşme analizi için CV eklemen gerekir.
                 </EmptyNote>
               )}
             </div>

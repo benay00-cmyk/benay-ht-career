@@ -108,7 +108,6 @@ export async function POST(request: Request) {
     await logAiSession("cv_analysis", true, {
       hasCv: !!cvText,
       atsScore: result.atsScore,
-      hiringLikelihood: result.hiringLikelihood,
       applicationReadiness: result.applicationReadiness,
     });
     return NextResponse.json({ result, hasCv: !!cvText });
