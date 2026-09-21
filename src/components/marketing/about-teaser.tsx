@@ -28,7 +28,7 @@ export function AboutTeaser() {
             Benay Aktaş
           </span>
           <h2 className="font-display text-3xl font-medium text-navy-deep sm:text-4xl">
-            İşe alım masasının diğer tarafından kariyerine bak.
+            Bir zamanlar ben de iş arayan taraftaydım.
           </h2>
           <p className="max-w-lg text-[16px] leading-relaxed text-ink-muted">
             İK&apos;nın içinden gelen, işe alımdan eğitime, organizasyonel
