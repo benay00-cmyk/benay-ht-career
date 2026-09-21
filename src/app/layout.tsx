@@ -19,7 +19,7 @@ const plexMono = IBM_Plex_Mono({
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
 const SITE_NAME = "Benay HR & Career";
 const SITE_DESCRIPTION =
-  "İK danışmanlığı, kariyer koçluğu ve yapay zekâ destekli kariyer araçları.";
+  "İşe alım masasının diğer tarafından iş hayatına bak. Ücretsiz Kariyer Check-Up, iş arama, mülakat ve iş hayatı üzerine gerçek deneyime dayalı rehberlik.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

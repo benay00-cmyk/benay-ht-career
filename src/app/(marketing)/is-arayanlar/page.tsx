@@ -15,7 +15,11 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { JobSearchSupport } from "@/components/marketing/job-search-support";
 
-export const metadata: Metadata = { title: "İş Arayanlar · Benay HR" };
+export const metadata: Metadata = {
+  title: "İş Arayanlar · Benay HR",
+  description:
+    "İş arama sadece ilan bulup başvurmak değildir. CV, LinkedIn, mülakat ve iş arama stratejisinin yanında sürecin psikolojik tarafını da ele alıyoruz.",
+};
 
 const otherModules = [
   {

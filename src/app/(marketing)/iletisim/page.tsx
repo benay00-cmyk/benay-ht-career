@@ -4,7 +4,10 @@ import { Container } from "@/components/ui/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 
-export const metadata: Metadata = { title: "İletişim · Benay HR" };
+export const metadata: Metadata = {
+  title: "İletişim · Benay HR",
+  description: "Benay Aktaş'a ulaş — sorularını ve talebini ilet.",
+};
 
 export default function IletisimPage() {
   return (

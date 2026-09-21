@@ -10,7 +10,11 @@ import { HrAssistantWidget } from "@/features/hr-assistant/components/hr-assista
 import { AiAssistantTeaser } from "@/components/marketing/ai-assistant-teaser";
 import { HrCareerSupport } from "@/components/marketing/hr-career-support";
 
-export const metadata: Metadata = { title: "İK Profesyonelleri · Benay HR" };
+export const metadata: Metadata = {
+  title: "İK Profesyonelleri · Benay HR",
+  description:
+    "İK uzmanları ve İK alanına girmek isteyenler için prompt kütüphanesi, kariyer yol haritası ve yapay zekâ destekli asistan.",
+};
 
 const modules = [
   {

@@ -13,7 +13,11 @@ const accentStyle = {
   sage: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg", chip: "bg-sage text-navy-deep" },
 };
 
-export const metadata: Metadata = { title: "Danışmanlık · Benay HR" };
+export const metadata: Metadata = {
+  title: "Danışmanlık · Benay HR",
+  description:
+    "CV danışmanlığından mülakat simülasyonuna, kariyer danışmanlığından kurumsal İK eğitimine — ihtiyacına en yakın hizmeti seç.",
+};
 
 const contextOptions = consultingServices.map((s) => s.title);
 

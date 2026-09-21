@@ -29,7 +29,7 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          İK Danışmanlığı · Kariyer Koçluğu · Yapay Zeka Araçları
+          İşe Alım Masasının Diğer Tarafından
         </div>
         <div
           style={{
@@ -51,7 +51,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          Kariyer danışmanlığı, İK kaynakları ve yapay zekâ destekli araçlar
+          İş hayatına gerçek deneyimle bak: kariyer, iş arama ve işe alım
         </div>
       </div>
     ),

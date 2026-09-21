@@ -23,7 +23,11 @@ const productAccentStyle = {
   sage: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg" },
 };
 
-export const metadata: Metadata = { title: "Eğitimler · Benay HR" };
+export const metadata: Metadata = {
+  title: "Eğitimler · Benay HR",
+  description:
+    "CV, LinkedIn, mülakat, iş arama ve İK kariyeri üzerine kısa, uygulanabilir eğitimler ve dijital ürünler.",
+};
 
 const registrationOptions = [
   ...courses.map((c) => `Eğitim: ${c.title}`),
