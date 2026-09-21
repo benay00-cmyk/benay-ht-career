@@ -7,7 +7,11 @@ import { PhotoFrame } from "@/components/marketing/photo-frame";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { buttonVariants } from "@/components/ui/button";
 
-export const metadata: Metadata = { title: "Hakkımda · Benay HR" };
+export const metadata: Metadata = {
+  title: "Benay Aktaş · Benay HR",
+  description:
+    "Bir zamanlar iş arayan taraftaydım, şimdi işe alım yapan tarafındayım. Benay Aktaş'ın kariyer yolculuğu ve yaklaşımı.",
+};
 
 const stats = [
   { value: "1000+", label: "CV İncelemesi" },
@@ -50,13 +54,12 @@ export default function HakkimdaPage() {
             </span>
             <h1 className="font-display text-3xl font-medium text-navy-deep sm:text-4xl">
               Benay Aktaş
-              <span className="block text-gold-deep">İK &amp; Kariyer Danışmanı</span>
+              <span className="block text-gold-deep">Kariyer &amp; İş Hayatı Danışmanı</span>
             </h1>
             <p className="max-w-lg text-[16px] leading-relaxed text-ink-muted">
-              Kariyer yolculuğum, İnsan Kaynakları alanına duyduğum merakla
-              başladı. İktisat eğitimimin ardından İnsan Kaynakları alanında
-              yüksek lisansımı tamamladım. Ancak bu yol benim için hiçbir
-              zaman düz bir çizgi olmadı.
+              Bir zamanlar ben de uzun süre iş aradım. Bugün ise işe alım
+              yapan tarafındayım. İki tarafı da yaşamış olmak, iş hayatına
+              bambaşka bir yerden bakmamı sağladı.
             </p>
 
             <div className="mt-2 grid grid-cols-2 gap-4 border-y border-hairline py-6">
@@ -76,6 +79,12 @@ export default function HakkimdaPage() {
       <Container className="max-w-2xl py-16">
         <div className="flex flex-col gap-6 text-[16px] leading-relaxed text-ink-muted">
           <p>
+            Kariyer yolculuğum, İnsan Kaynakları alanına duyduğum merakla
+            başladı. İktisat eğitimimin ardından İnsan Kaynakları alanında
+            yüksek lisansımı tamamladım. Ancak bu yol benim için hiçbir zaman
+            düz bir çizgi olmadı.
+          </p>
+          <p>
             Bu süreçte çok yanlış yaptım. Yanlış kararlar aldım, yanlış
             yöntemler denedim, bazı şeylerin olması için uzun süre bekledim.
             Ama her yanlışım bana neyi farklı yapmam gerektiğini öğretti. Her
@@ -87,12 +96,13 @@ export default function HakkimdaPage() {
             Profesyonel hayatım boyunca işe alım, bordro, eğitim ve gelişim,
             organizasyonel gelişim ve farklı İK süreçlerinde deneyim
             kazandım. Özellikle işe alım süreçlerinde adayları değerlendiren
-            tarafta yer almak, bana kariyer yolculuğuna farklı bir
-            perspektiften bakmayı öğretti.
+            tarafta yer almak, iş hayatına farklı bir perspektiften bakmayı
+            öğretti — CV&apos;nin arkasında ne aranır, bir mülakatta gerçekte ne
+            değerlendirilir, bir aday neden ilerler ya da neden takılır.
           </p>
           <p className="font-medium text-ink">
-            Bugün bu deneyimi İK &amp; Kariyer Danışmanı olarak danışanlarıma
-            aktarıyorum.
+            Bugün bu deneyimi Kariyer &amp; İş Hayatı Danışmanı olarak
+            danışanlarıma aktarıyorum.
           </p>
         </div>
 
@@ -141,8 +151,8 @@ export default function HakkimdaPage() {
             Danışmanlık Al
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
-          <Link href="/ai-asistan" className={buttonVariants({ variant: "outline" })}>
-            Kariyerini Analiz Et
+          <Link href="/kariyer-testi" className={buttonVariants({ variant: "outline" })}>
+            Ücretsiz Kariyer Check-Up
           </Link>
         </div>
       </Container>
