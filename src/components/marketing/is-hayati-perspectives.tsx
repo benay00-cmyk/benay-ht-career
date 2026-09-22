@@ -7,43 +7,23 @@ import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
-
-const perspectives = [
-  {
-    question: "Çok çalışmak neden her zaman kariyer ilerlemesi sağlamaz?",
-    answer:
-      "Yöneticiler harcanan zamanı değil, doğru anda ortaya çıkan sonucu hatırlar. Soru \"ne kadar çalıştım\" değil, \"kim ne zaman fark etti\" olmalı.",
-  },
-  {
-    question: "İş değiştirmek neden her zaman kariyer yapmak değildir?",
-    answer:
-      "Yatay hareket (aynı seviyede farklı şirket) ile dikey hareket (yetki ve etki artışı) kolayca karışır. Asıl soru: seni bir yere mi taşıyor, yoksa sadece yer mi değiştiriyorsun?",
-  },
-  {
-    question: "İyi CV ile doğru CV neden aynı şey değildir?",
-    answer:
-      "İyi CV okunması kolay olandır; doğru CV, değerlendiren kişinin aradığı sinyali verendir. \"Bu güzel mi\" değil, \"aradıkları burada mı\" diye sor.",
-  },
-  {
-    question: "Mülakatta heyecanlanman neden asıl problemin olmayabilir?",
-    answer:
-      "Heyecan bir belirtidir, sebep değil. Asıl sorun çoğu zaman hazırlıksızlık ya da kendini nasıl konumlandıracağını netleştirememektir.",
-  },
-];
+import { perspectives } from "@/features/is-hayati/data/perspectives";
 
 function PerspectiveRow({
+  id,
   question,
   answer,
   open,
   onToggle,
 }: {
+  id: string;
   question: string;
   answer: string;
   open: boolean;
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-hairline">
+    <div id={id} className="scroll-mt-24 border-b border-hairline">
       <button
         type="button"
         onClick={onToggle}
@@ -78,6 +58,21 @@ function PerspectiveRow({
 export function IsHayatiPerspectives() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
 
+  React.useEffect(() => {
+    function applyHash() {
+      const hash = window.location.hash.replace("#", "");
+      const index = perspectives.findIndex((p) => p.key === hash);
+      if (index >= 0) {
+        setOpenIndex(index);
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
+
   return (
     <section className="border-b border-hairline bg-surface py-20">
       <Container className="max-w-2xl">
@@ -93,7 +88,8 @@ export function IsHayatiPerspectives() {
         <ScrollReveal delay={80} className="mt-10 border-t border-hairline">
           {perspectives.map((p, i) => (
             <PerspectiveRow
-              key={p.question}
+              key={p.key}
+              id={p.key}
               question={p.question}
               answer={p.answer}
               open={openIndex === i}

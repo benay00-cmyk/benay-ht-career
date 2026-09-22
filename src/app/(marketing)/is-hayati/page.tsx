@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ScanSearch } from "lucide-react";
+import { ArrowRight, Compass } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { MagneticLink } from "@/components/ui/magnetic-link";
 import { IsHayatiPerspectives } from "@/components/marketing/is-hayati-perspectives";
+import { perspectives } from "@/features/is-hayati/data/perspectives";
 import { blogCategories, blogPosts } from "@/features/blog/data/posts";
+
+const struggleTags: Record<string, string> = {
+  iletisim: "İletişim",
+  sinirlar: "Sınırlar",
+  yukselme: "Yükselme",
+  departman: "Departman Değiştirme",
+  "is-degistirme": "İş Değiştirme",
+};
 
 export const metadata: Metadata = {
   title: "İş Hayatı · Benay HR",
   description:
     "İş hayatının görünmeyen kuralları: işe alımın görünmeyen tarafı, iş değiştirme, terfi, görünürlük, yönetici-çalışan ilişkileri ve iş psikolojisi üzerine gerçek gözleme dayalı bakış açıları.",
 };
-
-const topics = [
-  "İşe Alımın Görünmeyen Tarafı",
-  "İş Değiştirme",
-  "Terfi",
-  "Görünürlük",
-  "Yönetici-Çalışan İlişkileri",
-  "İş Psikolojisi",
-  "Yeni İş Dünyası & AI",
-];
 
 const isHayatiPosts = blogPosts.filter((p) => p.category === "is-hayati");
 
@@ -44,49 +43,43 @@ export default function IsHayatiPage() {
               değiştirme ve yöneticinle ilişkin kadar iyi olduğun işi de
               belirler. Burada görünenin arkasındaki mekanizmayı konuşuyoruz.
             </p>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              {topics.map((topic) => (
-                <span
-                  key={topic}
-                  className="rounded-full border border-hairline bg-surface px-3 py-1.5 text-[12.5px] font-medium text-ink"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
           </ScrollReveal>
         </Container>
       </div>
 
-      <IsHayatiPerspectives />
-
-      <section className="border-b border-hairline bg-bg py-20">
-        <Container className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="border-b border-hairline bg-bg py-16">
+        <Container className="max-w-2xl text-center">
           <ScrollReveal>
-            <span className="flex size-11 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-gold-deep">
-              <ScanSearch className="size-5" aria-hidden="true" />
+            <span className="mx-auto flex size-11 items-center justify-center rounded-full border border-gold/30 bg-gold-soft/40 text-gold-deep">
+              <Compass className="size-5" aria-hidden="true" />
             </span>
-            <h2 className="mt-4 font-display text-2xl font-medium text-navy-deep sm:text-3xl">
-              İşin Röntgeni
+            <h2 className="mt-4 font-display text-xl font-medium text-navy-deep sm:text-2xl">
+              Seni Zorlayan Hangisi?
             </h2>
-            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              İş ilanını herkes okuyabilir. Önemli olan, ne gördüğünü
-              bilmektir — CV eklemeden, yalnızca ilan üzerinden.
-            </p>
-            <p className="mt-2 max-w-lg text-[12.5px] text-ink-muted/70">
-              Not: şirketin kesin eleme kriterini değil, ilanın öne çıkardığı
-              vurguları yorumlar.
+            <p className="mt-3 text-[14.5px] leading-relaxed text-ink-muted">
+              Sana en yakın olanı seç, o başlığı aşağıda birlikte açalım.
             </p>
           </ScrollReveal>
-          <ScrollReveal delay={80} className="lg:justify-self-end">
-            <Link href="/ai-asistan" className={buttonVariants({ variant: "gold", size: "lg" })}>
-              İlanı Röntgenle
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+
+          <ScrollReveal delay={80} className="mt-6 flex flex-wrap justify-center gap-2">
+            {perspectives.map((p) => (
+              // Plain <a>, not next/link: this is a same-page hash jump and
+              // IsHayatiPerspectives listens for the native `hashchange`
+              // event to open the matching row, which next/link's routing
+              // doesn't reliably dispatch for hash-only hrefs.
+              <a
+                key={p.key}
+                href={`#${p.key}`}
+                className="rounded-full border border-hairline bg-surface px-4 py-2 text-[13px] font-medium text-ink transition-colors hover:border-gold-deep hover:text-gold-deep"
+              >
+                {struggleTags[p.key]}
+              </a>
+            ))}
           </ScrollReveal>
         </Container>
       </section>
+
+      <IsHayatiPerspectives />
 
       {isHayatiPosts.length > 0 && (
         <section className="bg-surface py-20">
