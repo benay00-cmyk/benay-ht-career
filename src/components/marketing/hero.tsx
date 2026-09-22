@@ -17,8 +17,7 @@ export function Hero() {
             className="animate-entrance max-w-lg text-[17px] leading-relaxed text-ink-muted"
             style={{ animationDelay: "80ms" }}
           >
-            İş ararken, kariyerinde ilerlerken veya yeni bir işe hazırlanırken
-            seni gerçekten nerede zorlayan şeyi gör.
+            Bir işe hazırlanırken nerede zorlandığını gör.
           </p>
           <div
             className="animate-entrance mt-2 flex flex-wrap items-center gap-4"
@@ -34,7 +33,7 @@ export function Hero() {
               href="/hakkimda"
               className={buttonVariants({ variant: "ghost", size: "lg" })}
             >
-              Benay&apos;i Tanı
+              Benay&apos;ı Tanı
             </MagneticLink>
           </div>
         </div>

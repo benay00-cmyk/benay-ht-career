@@ -21,10 +21,10 @@ export function AboutTeaser() {
             Bir zamanlar ben de iş arayan taraftaydım.
           </h2>
           <p className="max-w-lg text-[16px] leading-relaxed text-ink-muted">
-            İK&apos;nın içinden gelen, işe alımdan eğitime, organizasyonel
-            gelişimden yapay zekâ yönetimine gerçek saha deneyimini
-            teknolojiyle birleştiren bir yaklaşım. AI analiz eder; bu deneyim
-            yön verir.
+            Bekledim, başvurdum, elendim — nedenini çoğu zaman öğrenemedim.
+            Bugün ise işe alım yapan tarafındayım. İki tarafı da yaşamış
+            olmak, bir CV&apos;de veya mülakatta gerçekte neyin
+            değerlendirildiğini görmemi sağladı.
           </p>
 
           <div className="mt-2 flex gap-8 border-y border-hairline py-6">
