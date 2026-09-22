@@ -1,6 +1,6 @@
 export type Course = {
   id: string;
-  category: "Kariyer" | "İK" | "Yapay Zeka + İK";
+  category: "İş Arama" | "CV" | "Mülakat" | "Kariyer" | "İK" | "Yapay Zeka + İK";
   title: string;
   audience: string;
   outcomes: string[];
@@ -12,7 +12,7 @@ export type Course = {
 export const courses: Course[] = [
   {
     id: "ats-gecen-cv",
-    category: "Kariyer",
+    category: "CV",
     title: "ATS'i Geçen CV Nasıl Yazılır?",
     audience: "İş arayan herkes, kariyer değişikliği yapmak isteyenler",
     outcomes: [
@@ -28,7 +28,7 @@ export const courses: Course[] = [
   },
   {
     id: "mulakat-hazirlik",
-    category: "Kariyer",
+    category: "Mülakat",
     title: "Mülakatta Fark Yaratmak",
     audience: "Mülakata hazırlanan iş arayanlar",
     outcomes: [
@@ -44,7 +44,7 @@ export const courses: Course[] = [
   },
   {
     id: "linkedin-profil-optimizasyonu",
-    category: "Kariyer",
+    category: "CV",
     title: "LinkedIn Profilini Öne Çıkar",
     audience: "İş arayanlar, kariyerinde görünürlüğünü artırmak isteyenler",
     outcomes: [
@@ -60,7 +60,7 @@ export const courses: Course[] = [
   },
   {
     id: "etkili-is-arama",
-    category: "Kariyer",
+    category: "İş Arama",
     title: "Etkili İş Arama Stratejileri",
     audience: "Aktif iş arayan herkes",
     outcomes: [

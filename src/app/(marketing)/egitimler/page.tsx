@@ -7,14 +7,26 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { AnimatedNotebook } from "@/components/marketing/animated-notebook";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
-import { courses, digitalProducts } from "@/features/courses/data/courses";
+import { courses, digitalProducts, type Course } from "@/features/courses/data/courses";
 import { cn } from "@/lib/utils";
 
 const categoryAccent: Record<string, { top: string; bg: string }> = {
-  Kariyer: { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg" },
+  "İş Arama": { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg" },
+  CV: { top: "before:bg-beige", bg: "bg-gradient-to-br from-beige/60 to-bg" },
+  Mülakat: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg" },
+  Kariyer: { top: "before:bg-gold-deep", bg: "bg-gradient-to-br from-gold-soft/60 to-bg" },
   İK: { top: "before:bg-navy-deep", bg: "bg-gradient-to-br from-sage/45 to-bg" },
   "Yapay Zeka + İK": { top: "before:bg-deep-navy", bg: "bg-gradient-to-br from-deep-navy/20 to-bg" },
 };
+
+const categoryOrder: Course["category"][] = [
+  "İş Arama",
+  "CV",
+  "Mülakat",
+  "Kariyer",
+  "İK",
+  "Yapay Zeka + İK",
+];
 
 const productAccents = ["gold", "green", "sage"] as const;
 const productAccentStyle = {
@@ -58,46 +70,62 @@ export default function EgitimlerPage() {
       </div>
 
       <Container className="py-14">
-        <div className="grid gap-5 sm:grid-cols-2">
-          {courses.map((c, i) => (
-            <ScrollReveal key={c.id} delay={i * 60}>
-              <Card
-                interactive
-                className={cn(
-                  "relative flex h-full flex-col overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
-                  categoryAccent[c.category]?.top,
-                  categoryAccent[c.category]?.bg
-                )}
-              >
-                <div className="flex items-center justify-between">
-                  <CardEyebrow>{c.category}</CardEyebrow>
-                  <span className="rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[16px] font-semibold text-gold-deep">
-                    {c.price}
-                  </span>
-                </div>
-                <CardTitle>{c.title}</CardTitle>
-                <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
+        <div className="flex flex-col gap-12">
+          {categoryOrder.map((category) => {
+            const categoryCourses = courses.filter((c) => c.category === category);
+            if (categoryCourses.length === 0) return null;
 
-                <ul className="mt-4 flex flex-col gap-2">
-                  {c.outcomes.map((o) => (
-                    <li key={o} className="flex items-start gap-2 text-[13px] text-ink">
-                      <span className="mt-1.5 size-1 shrink-0 rounded-full bg-gold-deep" />
-                      {o}
-                    </li>
+            return (
+              <div key={category}>
+                <ScrollReveal>
+                  <h2 className="font-display text-xl font-medium text-navy-deep">
+                    {category}
+                  </h2>
+                </ScrollReveal>
+                <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                  {categoryCourses.map((c, i) => (
+                    <ScrollReveal key={c.id} delay={i * 60}>
+                      <Card
+                        interactive
+                        className={cn(
+                          "relative flex h-full flex-col overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
+                          categoryAccent[c.category]?.top,
+                          categoryAccent[c.category]?.bg
+                        )}
+                      >
+                        <div className="flex items-center justify-between">
+                          <CardEyebrow>{c.category}</CardEyebrow>
+                          <span className="rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[16px] font-semibold text-gold-deep">
+                            {c.price}
+                          </span>
+                        </div>
+                        <CardTitle>{c.title}</CardTitle>
+                        <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
+
+                        <ul className="mt-4 flex flex-col gap-2">
+                          {c.outcomes.map((o) => (
+                            <li key={o} className="flex items-start gap-2 text-[13px] text-ink">
+                              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-gold-deep" />
+                              {o}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-5 flex items-center gap-4 border-t border-hairline pt-4 text-[12.5px] text-ink-muted">
+                          <span className="flex items-center gap-1.5">
+                            <Clock className="size-3.5" /> {c.duration}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            <User className="size-3.5" /> {c.instructor}
+                          </span>
+                        </div>
+                      </Card>
+                    </ScrollReveal>
                   ))}
-                </ul>
-
-                <div className="mt-5 flex items-center gap-4 border-t border-hairline pt-4 text-[12.5px] text-ink-muted">
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="size-3.5" /> {c.duration}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <User className="size-3.5" /> {c.instructor}
-                  </span>
                 </div>
-              </Card>
-            </ScrollReveal>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
         <ScrollReveal className="mt-16">
