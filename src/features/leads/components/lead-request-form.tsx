@@ -22,10 +22,13 @@ export function LeadRequestForm({
   type,
   contextOptions,
   submitLabel = "Talebi Gönder",
+  hashToContext,
 }: {
   type: GeneralLeadValues["type"];
   contextOptions?: string[];
   submitLabel?: string;
+  /** Maps a URL hash (e.g. from `#cv-danismanligi`) to the matching contextOptions value, so arriving from a specific service/module card pre-selects it in the dropdown. */
+  hashToContext?: Record<string, string>;
 }) {
   const [submitted, setSubmitted] = React.useState(false);
   const [serverError, setServerError] = React.useState<string | null>(null);
@@ -33,11 +36,26 @@ export function LeadRequestForm({
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<Omit<GeneralLeadValues, "type">>({
     resolver: zodResolver(generalLeadSchema.omit({ type: true })),
     defaultValues: { context: contextOptions?.[0] ?? "Genel Mesaj" },
   });
+
+  React.useEffect(() => {
+    if (!hashToContext) return;
+
+    function applyHash() {
+      const hash = window.location.hash.replace("#", "");
+      const matched = hashToContext![hash];
+      if (matched) setValue("context", matched);
+    }
+
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, [hashToContext, setValue]);
 
   async function onSubmit(values: Omit<GeneralLeadValues, "type">) {
     setServerError(null);

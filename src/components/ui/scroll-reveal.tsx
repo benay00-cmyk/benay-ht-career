@@ -15,11 +15,13 @@ export function ScrollReveal({
   direction = "up",
   delay = 0,
   className,
+  id,
 }: {
   children: React.ReactNode;
   direction?: RevealDirection;
   delay?: number;
   className?: string;
+  id?: string;
 }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
   const [revealed, setRevealed] = React.useState(
@@ -52,6 +54,7 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
+      id={id}
       data-reveal={revealAttr}
       data-revealed={revealed}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}

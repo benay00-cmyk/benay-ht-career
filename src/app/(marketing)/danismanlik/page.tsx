@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
+import { ServiceJumpLink } from "@/features/consulting/components/service-jump-link";
 import { consultingServices } from "@/features/consulting/data/services";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 };
 
 const contextOptions = consultingServices.map((s) => s.title);
+const hashToContext = Object.fromEntries(consultingServices.map((s) => [s.id, s.title]));
 
 export default function DanismanlikPage() {
   return (
@@ -54,6 +56,7 @@ export default function DanismanlikPage() {
                   accentStyle[s.accent].bg
                 )}
               >
+                <ServiceJumpLink id={s.id} label={s.title} />
                 <span
                   className={cn(
                     "flex size-11 items-center justify-center rounded-full",
@@ -73,7 +76,7 @@ export default function DanismanlikPage() {
           ))}
         </div>
 
-        <ScrollReveal className="mt-16 max-w-xl">
+        <ScrollReveal id="talep-olustur" className="mt-16 max-w-xl scroll-mt-24">
           <h2 className="font-display text-2xl font-medium text-navy-deep">
             Talep Oluştur
           </h2>
@@ -82,7 +85,11 @@ export default function DanismanlikPage() {
             anlatın.
           </p>
           <div className="mt-6">
-            <LeadRequestForm type="danismanlik" contextOptions={contextOptions} />
+            <LeadRequestForm
+              type="danismanlik"
+              contextOptions={contextOptions}
+              hashToContext={hashToContext}
+            />
           </div>
         </ScrollReveal>
       </Container>
