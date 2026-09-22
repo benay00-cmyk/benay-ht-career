@@ -88,7 +88,7 @@ export default function EgitimlerPage() {
                 {categoryCourses.length > 0 && (
                   <div className="mt-5 grid gap-5 sm:grid-cols-2">
                     {categoryCourses.map((c, i) => (
-                      <ScrollReveal key={c.id} delay={i * 60}>
+                      <ScrollReveal key={c.id} id={c.id} delay={i * 60} className="scroll-mt-24">
                         <Card
                           interactive
                           className={cn(

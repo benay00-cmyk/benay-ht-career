@@ -26,35 +26,35 @@ const otherModules = [
     icon: FileEdit,
     title: "CV",
     description: "Sıfırdan profesyonel CV oluşturma desteği.",
-    href: "/egitimler#cv",
+    href: "/egitimler#ats-gecen-cv",
     accent: "gold" as const,
   },
   {
     icon: Link2,
     title: "LinkedIn",
     description: "Profilinin doğru kişiler tarafından bulunmasını sağla.",
-    href: "/egitimler#cv",
+    href: "/egitimler#linkedin-profil-optimizasyonu",
     accent: "green" as const,
   },
   {
     icon: MessagesSquare,
     title: "Mülakat",
     description: "Mülakatlara güvenle hazırlan, doğru soru ve yanıtları öğren.",
-    href: "/egitimler#mulakat",
+    href: "/egitimler#mulakat-hazirlik",
     accent: "sage" as const,
   },
   {
     icon: Search,
     title: "İş Arama",
     description: "Doğru kanallardan doğru pozisyonlara ulaşma stratejileri.",
-    href: "/egitimler#is-arama",
+    href: "/egitimler#etkili-is-arama",
     accent: "gold" as const,
   },
   {
     icon: Users2,
     title: "Mentörlük",
     description: "Bire bir kariyer ve yetkinlik mentörlüğü ile yol al.",
-    href: "/egitimler#kariyer",
+    href: "/egitimler#kariyer-mentorlugu",
     accent: "green" as const,
   },
   {
@@ -81,12 +81,8 @@ export default function IsArayanlarPage() {
               <span className="block text-xl font-normal text-ink-muted sm:text-2xl">
                 İş aramak, sadece ilanlara başvuru yapmak değil.
               </span>
-              Kariyerini Şansa Bırakma.
+              <span className="mt-2 block">Kariyerini Şansa Bırakma.</span>
             </h1>
-            <p className="mt-4 text-[16px] leading-relaxed text-ink-muted">
-              CV&apos;den mülakata, LinkedIn&apos;den kariyer yol haritasına —
-              başvuru sürecinin her adımı için tek platform.
-            </p>
           </ScrollReveal>
         </Container>
       </div>
