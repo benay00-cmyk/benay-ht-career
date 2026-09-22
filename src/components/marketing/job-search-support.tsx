@@ -12,8 +12,6 @@ import { cn } from "@/lib/utils";
 
 const innerVoices = [
   "CV'm neden geri dönüş almıyor?",
-  "Benim neyim eksik?",
-  "Bu kadar başvuru yaptım, neden hâlâ sonuç yok?",
   "Acaba artık yeterince iyi değil miyim?",
 ];
 
@@ -21,27 +19,27 @@ const challenges = [
   {
     question: "Geri dönüş alamıyor musunuz?",
     answer:
-      "Yüzlerce ilana başvurup birkaç geri dönüş almak, bir süre sonra motivasyonu ciddi şekilde düşürebilir. CV'ni, başvurduğun pozisyonları ve başvuru stratejini birlikte değerlendiriyoruz; sorunun tam olarak nerede olduğunu belirleyip daha bilinçli bir başvuru sistemi kuruyoruz.",
+      "CV'ni, başvurduğun pozisyonları ve başvuru stratejini birlikte gözden geçirip daha bilinçli bir sistem kuruyoruz.",
   },
   {
     question: "Mülakatlara giriyor ama teklif alamıyor musunuz?",
     answer:
-      "Mülakata çağrılmak önemli bir adım. Ama görüşme sonunda sürekli olumsuz yanıt almak, kendine olan güvenini zedeleyebilir. Gerçek mülakat senaryoları üzerinden çalışıyor; cevaplarını, kendini ifade etme biçimini ve pozisyona verdiğin mesajı birlikte güçlendiriyoruz.",
+      "Gerçek mülakat senaryoları üzerinden çalışıp kendini ifade etme biçimini birlikte güçlendiriyoruz.",
   },
   {
     question: "Ne istediğinizi bilmiyor musunuz?",
     answer:
-      "“Her işe başvurayım” düşüncesi süreci daha da karmaşıklaştırabilir. Deneyimlerini, yetkinliklerini ve beklentilerini değerlendirip hangi pozisyonların senin için gerçekten anlamlı olabileceğini birlikte netleştiriyoruz.",
+      "Deneyimlerini ve beklentilerini netleştirip senin için gerçekten anlamlı pozisyonları birlikte belirliyoruz.",
   },
   {
     question: "Uzun süredir arıyor ve motivasyonunuzu mu kaybediyorsunuz?",
     answer:
-      "Her gün ilanlara bakmak, başvuru yapmak ve cevap beklemek zamanla yorucu bir rutine dönüşebilir. Daha fazla başvuru yapmak yerine süreci yeniden yapılandırıyoruz — hedeflerini, günlük rutinini ve ilerlemeni birlikte takip edebileceğin, daha sistemli bir yapı kuruyoruz.",
+      "Daha fazla başvuru yapmak yerine süreci yeniden yapılandırıp takip edebileceğin sistemli bir yapı kuruyoruz.",
   },
   {
     question: "Kendinizi diğer adaylarla mı kıyaslıyorsunuz?",
     answer:
-      "LinkedIn'de yeni işe başlayanları görmek, çevrendeki insanların ilerlediğini izlemek ve kendi sürecinin uzadığını hissetmek zorlayıcı olabilir. Odağı, kontrol edemediğin sonuçlardan senin kontrol edebileceğin hazırlığa ve stratejiye taşıyoruz.",
+      "Odağı kontrol edemediğin sonuçlardan, senin kontrol edebileceğin hazırlığa ve stratejiye taşıyoruz.",
   },
 ];
 
@@ -144,12 +142,12 @@ export function JobSearchSupport() {
               align="center"
               eyebrow="Yalnız Değilsin"
               title="İş ararken yalnızca bir pozisyon aramıyoruz."
-              description="Bekliyor, başvuruyor, görüşmelere giriyor, bazen reddediliyor ve çoğu zaman neden olumsuz yanıt aldığımızı bile öğrenemiyoruz. Bir süre sonra bu süreç sadece kariyerini değil, özgüvenini, motivasyonunu ve günlük hayatını da etkileyebiliyor."
+              description="Bir süre sonra bu süreç sadece kariyerini değil, özgüvenini de etkileyebiliyor."
               className="mx-auto"
             />
           </ScrollReveal>
 
-          <ScrollReveal delay={80} className="mx-auto mt-8 flex max-w-md flex-col gap-2.5 text-center">
+          <ScrollReveal delay={80} className="mx-auto mt-6 flex max-w-md flex-col gap-2 text-center">
             {innerVoices.map((v) => (
               <p key={v} className="font-display text-[15px] text-ink-muted italic">
                 &ldquo;{v}&rdquo;
@@ -157,16 +155,11 @@ export function JobSearchSupport() {
             ))}
           </ScrollReveal>
 
-          <ScrollReveal delay={160} className="mt-10">
-            <GlowPanel tone="mint" className="mx-auto max-w-xl rounded-2xl bg-surface/80 p-6 text-center">
-              <p className="text-[15px] leading-relaxed text-ink">
-                Biz burada sadece CV hazırlamıyoruz. Önce bulunduğun noktayı
-                anlamaya çalışıyoruz — nerede zorlandığını, hangi noktada
-                tıkandığını ve iş arama sürecinde neyin değişmesi gerektiğini
-                birlikte belirliyoruz. Çünkü bazen problem CV&apos;dedir,
-                bazen yanlış pozisyonlara başvurulur, bazen mülakatta kendini
-                doğru ifade edemezsin, bazen de uzayan süreç motivasyonunu
-                tüketir. Her problem aynı çözümü gerektirmez.
+          <ScrollReveal delay={140} className="mt-8">
+            <GlowPanel tone="mint" className="mx-auto max-w-xl rounded-2xl bg-surface/80 p-5 text-center">
+              <p className="text-[14.5px] leading-relaxed text-ink">
+                Biz burada sadece CV hazırlamıyoruz — önce nerede zorlandığını
+                birlikte buluyoruz. Çünkü her problem aynı çözümü gerektirmez.
               </p>
             </GlowPanel>
           </ScrollReveal>
@@ -210,11 +203,8 @@ export function JobSearchSupport() {
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed text-surface/70">
               Bir pozisyona kabul edilmemek yeterli olmadığın anlamına gelmez.
-              Bir CV&apos;nin reddedilmesi kariyerinin başarısız olduğu
-              anlamına gelmez. Bir mülakatın olumsuz sonuçlanması
-              potansiyelini belirlemez. İş arama bir değerlendirme sürecidir;
-              senin değerine verilmiş bir puan değildir. Biz bu süreçte neyi
-              kontrol edebileceğimize odaklanıyoruz.
+              İş arama bir değerlendirme sürecidir; senin değerine verilmiş
+              bir puan değildir.
             </p>
           </Container>
         </ScrollReveal>

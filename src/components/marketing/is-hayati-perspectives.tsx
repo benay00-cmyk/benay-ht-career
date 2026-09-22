@@ -12,22 +12,22 @@ const perspectives = [
   {
     question: "Çok çalışmak neden her zaman kariyer ilerlemesi sağlamaz?",
     answer:
-      "Uzun saatler çalışmak görünürlüğü otomatik artırmaz. Yöneticiler çoğu zaman harcanan zamanı değil, doğru anda ortaya çıkan sonucu hatırlar. Görünmeyen ama etkili bir çalışan, görünen ama sonuçsuz bir çalışandan geride kalabilir. Soru \"ne kadar çalıştım\" değil, \"kimin, ne zaman, neyi fark ettiği\" olmalı.",
+      "Yöneticiler harcanan zamanı değil, doğru anda ortaya çıkan sonucu hatırlar. Soru \"ne kadar çalıştım\" değil, \"kim ne zaman fark etti\" olmalı.",
   },
   {
     question: "İş değiştirmek neden her zaman kariyer yapmak değildir?",
     answer:
-      "Sık iş değiştirmek ilerleme hissi verir, ama yatay hareket (aynı seviyede farklı bir şirket) ile dikey hareket (yetki, sorumluluk ve etki artışı) kolayca birbirine karışır. Yeni bir işe geçmeden önce sorulması gereken soru şu: bu değişiklik seni gerçekten bir yere mi taşıyor, yoksa sadece yer mi değiştiriyorsun?",
+      "Yatay hareket (aynı seviyede farklı şirket) ile dikey hareket (yetki ve etki artışı) kolayca karışır. Asıl soru: seni bir yere mi taşıyor, yoksa sadece yer mi değiştiriyorsun?",
   },
   {
     question: "İyi CV ile doğru CV neden aynı şey değildir?",
     answer:
-      "Görsel olarak kusursuz bir CV bile elenebilir. İyi CV, okunması kolay olandır; doğru CV, o pozisyonu değerlendiren kişinin aradığı sinyali verendir. İkisi aynı hedefe hizmet etmez. CV'ni göndermeden önce \"bu güzel mi\" değil, \"bu, ilanı okuyan kişinin aradığı şeyi gösteriyor mu\" diye sor.",
+      "İyi CV okunması kolay olandır; doğru CV, değerlendiren kişinin aradığı sinyali verendir. \"Bu güzel mi\" değil, \"aradıkları burada mı\" diye sor.",
   },
   {
     question: "Mülakatta heyecanlanman neden asıl problemin olmayabilir?",
     answer:
-      "Mülakat sonrası genelde \"çok heyecanlandım, o yüzden olmadı\" diye düşünülür. Ama heyecan bir belirtidir, sebep değil. Asıl sorun çoğu zaman hazırlıksızlık ya da kendini nasıl konumlandıracağını netleştirememektir. Heyecanı yönetmeye çalışmak yerine anlatacağın şeyi netleştirmek, heyecanı da azaltır.",
+      "Heyecan bir belirtidir, sebep değil. Asıl sorun çoğu zaman hazırlıksızlık ya da kendini nasıl konumlandıracağını netleştirememektir.",
   },
 ];
 

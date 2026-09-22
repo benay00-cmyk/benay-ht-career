@@ -72,13 +72,11 @@ export default function IsHayatiPage() {
             </h2>
             <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-ink-muted">
               İş ilanını herkes okuyabilir. Önemli olan, ne gördüğünü
-              bilmektir. Teknik beklentilerin, rolün gerçek amacının ve öne
-              çıkan yetkinliklerin arkasındaki sinyalleri birlikte okuyalım —
-              CV eklemeden, yalnızca ilan üzerinden.
+              bilmektir — CV eklemeden, yalnızca ilan üzerinden.
             </p>
-            <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-ink-muted/80">
-              Not: Bu analiz ilanda öne çıkan vurguları yorumlar; şirketin
-              kesin eleme kriterlerini bilemez.
+            <p className="mt-2 max-w-lg text-[12.5px] text-ink-muted/70">
+              Not: şirketin kesin eleme kriterini değil, ilanın öne çıkardığı
+              vurguları yorumlar.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={80} className="lg:justify-self-end">
