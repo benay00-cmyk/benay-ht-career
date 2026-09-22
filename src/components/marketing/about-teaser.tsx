@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { PhotoFrame } from "@/components/marketing/photo-frame";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const stats = [
@@ -12,18 +11,9 @@ const stats = [
 
 export function AboutTeaser() {
   return (
-    <section className="bg-bg py-24">
-      <Container className="grid items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-        <ScrollReveal direction="scale">
-          <PhotoFrame
-            label="Benay Aktaş"
-            ratio="aspect-[4/5]"
-            className="mx-auto w-full max-w-sm"
-            src="/images/benay-aktas.jpg"
-          />
-        </ScrollReveal>
-
-        <ScrollReveal direction="left" delay={80} className="flex flex-col gap-5">
+    <section className="border-t border-hairline bg-bg py-24">
+      <Container className="max-w-2xl">
+        <ScrollReveal className="flex flex-col gap-5">
           <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
             Benay Aktaş
           </span>
@@ -37,7 +27,7 @@ export function AboutTeaser() {
             yön verir.
           </p>
 
-          <div className="mt-2 grid grid-cols-2 gap-4 border-y border-hairline py-6">
+          <div className="mt-2 flex gap-8 border-y border-hairline py-6">
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="font-display text-2xl font-medium text-navy-deep">

@@ -7,7 +7,6 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { RotatingGlobe } from "@/components/marketing/rotating-globe";
 import { HrAssistantWidget } from "@/features/hr-assistant/components/hr-assistant-widget";
-import { AiAssistantTeaser } from "@/components/marketing/ai-assistant-teaser";
 import { HrCareerSupport } from "@/components/marketing/hr-career-support";
 
 export const metadata: Metadata = {
@@ -21,21 +20,21 @@ const modules = [
     icon: Library,
     title: "Prompt Kütüphanesi",
     description: "11 kategoride, kopyala-yapıştır kullanılabilecek İK promptları.",
-    href: "/egitimler",
+    href: "/egitimler#yapay-zeka-ik",
     accent: "gold" as const,
   },
   {
     icon: Map,
     title: "İK Haritası",
     description: "Kariyerinde neredesin? Seviyeni seç, yol haritanı gör.",
-    href: "/egitimler",
+    href: "/egitimler#ik",
     accent: "green" as const,
   },
   {
     icon: Users2,
     title: "İK Mentörlüğü",
     description: "Bire bir kariyer ve yetkinlik mentörlüğü talep et.",
-    href: "/egitimler",
+    href: "/egitimler#ik",
     accent: "sage" as const,
   },
 ];
@@ -43,8 +42,6 @@ const modules = [
 export default function IkProfesyonelleriPage() {
   return (
     <div className="bg-bg">
-      <AiAssistantTeaser />
-
       <div className="border-b border-hairline py-20">
         <Container className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <ScrollReveal>
