@@ -142,16 +142,17 @@ export const courses: Course[] = [
 
 export type DigitalProduct = {
   id: string;
+  category: Course["category"];
   title: string;
   description: string;
   price: string;
 };
 
 export const digitalProducts: DigitalProduct[] = [
-  { id: "cv-sablonu", title: "CV Şablonu Paketi", description: "ATS uyumlu, 3 farklı tasarımda düzenlenebilir CV şablonu.", price: "₺290" },
-  { id: "mulakat-rehberi", title: "Mülakat Rehberi", description: "40+ soru ve örnek cevap içeren kapsamlı mülakat hazırlık rehberi.", price: "₺390" },
-  { id: "ik-prompt-paketi", title: "İK Prompt Paketi", description: "11 kategoride 50+ hazır İK promptu, indirilebilir PDF.", price: "₺490" },
-  { id: "mulakat-soru-bankasi", title: "İK Mülakat Soru Bankası", description: "Fonksiyon bazında 150+ yetkinlik bazlı mülakat sorusu.", price: "₺590" },
-  { id: "kariyer-workbook", title: "Kariyer Planlama Workbook", description: "Adım adım kariyer hedefi belirleme çalışma kitabı.", price: "₺350" },
-  { id: "linkedin-rehberi", title: "LinkedIn Rehberi", description: "Profilini doğru kişiler tarafından bulunur hale getiren rehber.", price: "₺290" },
+  { id: "cv-sablonu", category: "CV", title: "CV Şablonu Paketi", description: "ATS uyumlu, 3 farklı tasarımda düzenlenebilir CV şablonu.", price: "₺290" },
+  { id: "linkedin-rehberi", category: "CV", title: "LinkedIn Rehberi", description: "Profilini doğru kişiler tarafından bulunur hale getiren rehber.", price: "₺290" },
+  { id: "mulakat-rehberi", category: "Mülakat", title: "Mülakat Rehberi", description: "40+ soru ve örnek cevap içeren kapsamlı mülakat hazırlık rehberi.", price: "₺390" },
+  { id: "mulakat-soru-bankasi", category: "Mülakat", title: "İK Mülakat Soru Bankası", description: "Fonksiyon bazında 150+ yetkinlik bazlı mülakat sorusu.", price: "₺590" },
+  { id: "kariyer-workbook", category: "Kariyer", title: "Kariyer Planlama Workbook", description: "Adım adım kariyer hedefi belirleme çalışma kitabı.", price: "₺350" },
+  { id: "ik-prompt-paketi", category: "Yapay Zeka + İK", title: "İK Prompt Paketi", description: "11 kategoride 50+ hazır İK promptu, indirilebilir PDF.", price: "₺490" },
 ];

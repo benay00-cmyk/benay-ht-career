@@ -4,7 +4,6 @@ import { Clock, User } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Card, CardEyebrow, CardTitle } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { HorizontalCarousel } from "@/components/ui/horizontal-carousel";
 import { AnimatedNotebook } from "@/components/marketing/animated-notebook";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
 import { courses, digitalProducts, type Course } from "@/features/courses/data/courses";
@@ -19,6 +18,15 @@ const categoryAccent: Record<string, { top: string; bg: string }> = {
   "Yapay Zeka + İK": { top: "before:bg-deep-navy", bg: "bg-gradient-to-br from-deep-navy/20 to-bg" },
 };
 
+const categorySlug: Record<Course["category"], string> = {
+  "İş Arama": "is-arama",
+  CV: "cv",
+  Mülakat: "mulakat",
+  Kariyer: "kariyer",
+  İK: "ik",
+  "Yapay Zeka + İK": "yapay-zeka-ik",
+};
+
 const categoryOrder: Course["category"][] = [
   "İş Arama",
   "CV",
@@ -27,13 +35,6 @@ const categoryOrder: Course["category"][] = [
   "İK",
   "Yapay Zeka + İK",
 ];
-
-const productAccents = ["gold", "green", "sage"] as const;
-const productAccentStyle = {
-  gold: { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg" },
-  green: { top: "before:bg-navy-deep", bg: "bg-gradient-to-br from-sage/45 to-bg" },
-  sage: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg" },
-};
 
 export const metadata: Metadata = {
   title: "Eğitimler · Benay HR",
@@ -70,97 +71,96 @@ export default function EgitimlerPage() {
       </div>
 
       <Container className="py-14">
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-16">
           {categoryOrder.map((category) => {
             const categoryCourses = courses.filter((c) => c.category === category);
-            if (categoryCourses.length === 0) return null;
+            const categoryProducts = digitalProducts.filter((p) => p.category === category);
+            if (categoryCourses.length === 0 && categoryProducts.length === 0) return null;
 
             return (
-              <div key={category}>
+              <div key={category} id={categorySlug[category]} className="scroll-mt-24">
                 <ScrollReveal>
                   <h2 className="font-display text-xl font-medium text-navy-deep">
                     {category}
                   </h2>
                 </ScrollReveal>
-                <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                  {categoryCourses.map((c, i) => (
-                    <ScrollReveal key={c.id} delay={i * 60}>
-                      <Card
-                        interactive
-                        className={cn(
-                          "relative flex h-full flex-col overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
-                          categoryAccent[c.category]?.top,
-                          categoryAccent[c.category]?.bg
-                        )}
-                      >
-                        <div className="flex items-center justify-between">
-                          <CardEyebrow>{c.category}</CardEyebrow>
-                          <span className="rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[16px] font-semibold text-gold-deep">
-                            {c.price}
-                          </span>
-                        </div>
-                        <CardTitle>{c.title}</CardTitle>
-                        <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
 
-                        <ul className="mt-4 flex flex-col gap-2">
-                          {c.outcomes.map((o) => (
-                            <li key={o} className="flex items-start gap-2 text-[13px] text-ink">
-                              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-gold-deep" />
-                              {o}
-                            </li>
-                          ))}
-                        </ul>
+                {categoryCourses.length > 0 && (
+                  <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                    {categoryCourses.map((c, i) => (
+                      <ScrollReveal key={c.id} delay={i * 60}>
+                        <Card
+                          interactive
+                          className={cn(
+                            "relative flex h-full flex-col overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
+                            categoryAccent[c.category]?.top,
+                            categoryAccent[c.category]?.bg
+                          )}
+                        >
+                          <div className="flex items-center justify-between">
+                            <CardEyebrow>{c.category}</CardEyebrow>
+                            <span className="rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[16px] font-semibold text-gold-deep">
+                              {c.price}
+                            </span>
+                          </div>
+                          <CardTitle>{c.title}</CardTitle>
+                          <p className="mt-2 text-[13.5px] text-ink-muted">{c.audience}</p>
 
-                        <div className="mt-5 flex items-center gap-4 border-t border-hairline pt-4 text-[12.5px] text-ink-muted">
-                          <span className="flex items-center gap-1.5">
-                            <Clock className="size-3.5" /> {c.duration}
-                          </span>
-                          <span className="flex items-center gap-1.5">
-                            <User className="size-3.5" /> {c.instructor}
-                          </span>
-                        </div>
-                      </Card>
-                    </ScrollReveal>
-                  ))}
-                </div>
+                          <ul className="mt-4 flex flex-col gap-2">
+                            {c.outcomes.map((o) => (
+                              <li key={o} className="flex items-start gap-2 text-[13px] text-ink">
+                                <span className="mt-1.5 size-1 shrink-0 rounded-full bg-gold-deep" />
+                                {o}
+                              </li>
+                            ))}
+                          </ul>
+
+                          <div className="mt-5 flex items-center gap-4 border-t border-hairline pt-4 text-[12.5px] text-ink-muted">
+                            <span className="flex items-center gap-1.5">
+                              <Clock className="size-3.5" /> {c.duration}
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                              <User className="size-3.5" /> {c.instructor}
+                            </span>
+                          </div>
+                        </Card>
+                      </ScrollReveal>
+                    ))}
+                  </div>
+                )}
+
+                {categoryProducts.length > 0 && (
+                  <div className={cn("grid gap-4 sm:grid-cols-2", categoryCourses.length > 0 ? "mt-4" : "mt-5")}>
+                    {categoryProducts.map((p) => (
+                      <ScrollReveal key={p.id}>
+                        <Card
+                          interactive
+                          className={cn(
+                            "relative h-full overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
+                            categoryAccent[p.category]?.top,
+                            categoryAccent[p.category]?.bg
+                          )}
+                        >
+                          <div className="flex items-start justify-between gap-3">
+                            <h3 className="font-display text-[15px] font-medium text-navy-deep">
+                              {p.title}
+                            </h3>
+                            <span className="shrink-0 rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[15px] font-semibold text-gold-deep">
+                              {p.price}
+                            </span>
+                          </div>
+                          <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
+                            {p.description}
+                          </p>
+                        </Card>
+                      </ScrollReveal>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
-
-        <ScrollReveal className="mt-16">
-          <h2 className="font-display text-2xl font-medium text-navy-deep">
-            Dijital Ürünler
-          </h2>
-          <HorizontalCarousel className="mt-6">
-            {digitalProducts.map((p, i) => {
-              const accent = productAccentStyle[productAccents[i % productAccents.length]];
-              return (
-                <Card
-                  key={p.id}
-                  interactive
-                  className={cn(
-                    "relative h-full overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-1.5",
-                    accent.top,
-                    accent.bg
-                  )}
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="font-display text-[15px] font-medium text-navy-deep">
-                      {p.title}
-                    </h3>
-                    <span className="shrink-0 rounded-full bg-gold-soft/50 px-3 py-1 font-mono text-[15px] font-semibold text-gold-deep">
-                      {p.price}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-[13px] leading-relaxed text-ink-muted">
-                    {p.description}
-                  </p>
-                </Card>
-              );
-            })}
-          </HorizontalCarousel>
-        </ScrollReveal>
 
         <ScrollReveal className="mt-16">
           <h2 className="font-display text-2xl font-medium text-navy-deep">
