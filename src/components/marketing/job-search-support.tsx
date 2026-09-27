@@ -158,7 +158,7 @@ export function JobSearchSupport() {
           <ScrollReveal delay={140} className="mt-8">
             <GlowPanel tone="mint" className="mx-auto max-w-xl rounded-2xl bg-surface/80 p-5 text-center">
               <p className="text-[14.5px] leading-relaxed text-ink">
-                Önce CV'yi değil, nerede tıkandığını konuşuyoruz. Her
+                Önce CV&apos;yi değil, nerede tıkandığını konuşuyoruz. Her
                 problemin çözümü aynı değil.
               </p>
             </GlowPanel>

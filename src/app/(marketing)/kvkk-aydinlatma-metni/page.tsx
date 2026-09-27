@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { LegalPage, LegalSection } from "@/components/legal/legal-page";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = { title: "KVKK Aydınlatma Metni · Benay HR" 
 
 export default function KvkkAydinlatmaMetniPage() {
   return (
-    <LegalPage title="KVKK Aydınlatma Metni" updatedAt="29.08.2026">
+    <LegalPage title="KVKK Aydınlatma Metni" updatedAt="28.09.2026">
       <LegalSection title="1. Veri Sorumlusu">
         <p>
           6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;)
@@ -63,9 +64,13 @@ export default function KvkkAydinlatmaMetniPage() {
         <p>
           Kariyer Asistanı&apos;na CV yüklediğinizde ve iş ilanı metni
           girdiğinizde, bu içerik değerlendirme yapılması amacıyla yapay
-          zekâ servis sağlayıcısına (bkz. madde 5) iletilir. Bu özelliği
-          kullanmanız, bu işleme açık rıza verdiğiniz anlamına gelir;
-          kullanmak zorunda değilsiniz.
+          zekâ servis sağlayıcısına (bkz. madde 5) iletilir. Bu işlem için
+          CV&apos;nizi göndermeden önce ayrı bir onay kutusuyla açık rızanız
+          alınır; detaylar için{" "}
+          <Link href="/acik-riza-metni" className="text-gold-deep underline underline-offset-2">
+            Açık Rıza Metni
+          </Link>
+          &apos;ne bakabilirsiniz. Bu özelliği kullanmak zorunda değilsiniz.
         </p>
       </LegalSection>
 
@@ -97,11 +102,14 @@ export default function KvkkAydinlatmaMetniPage() {
 
       <LegalSection title="6. Veri Saklama Süresi">
         <p>
-          CV ve ilan analiz verileri, hizmetin sunulması için gerekli makul
-          süre boyunca saklanır ve bu sürenin sonunda silinir veya anonim
-          hale getirilir. Talep formu verileri, talebinizin sonuçlanmasından
-          itibaren makul bir süre saklandıktan sonra silinir. Daha uzun
-          saklama gerektiren yasal yükümlülükler saklıdır.
+          CV&apos;niz ve ilan metniniz Benay HR tarafından saklanmaz; analiz
+          tamamlanır tamamlanmaz sunucu belleğinden silinir. Yalnızca analiz
+          sonucuna dair birkaç özet ölçüt (ör. ATS skoru, analizin başarılı
+          olup olmadığı), kimliğinizle ilişkilendirilmeksizin hizmet
+          kalitesini izlemek amacıyla veritabanında tutulur. Talep formu
+          verileri, talebinizin sonuçlanmasından itibaren makul bir süre
+          saklandıktan sonra silinir. Daha uzun saklama gerektiren yasal
+          yükümlülükler saklıdır.
         </p>
       </LegalSection>
 

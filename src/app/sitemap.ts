@@ -20,6 +20,7 @@ const staticRoutes = [
   "/gizlilik-politikasi",
   "/cerez-politikasi",
   "/kvkk-aydinlatma-metni",
+  "/acik-riza-metni",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

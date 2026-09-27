@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { UploadCloud, FileText, X, PenLine, Paperclip } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -35,7 +36,10 @@ export function AnalyzerForm() {
   const [error, setError] = React.useState<string | null>(null);
   const [result, setResult] = React.useState<AnalysisResult | null>(null);
   const [loadingStep, setLoadingStep] = React.useState(0);
+  const [consent, setConsent] = React.useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const hasCv = (cvMode === "paste" && cvText.trim().length > 0) || (cvMode === "upload" && !!file);
 
   React.useEffect(() => {
     if (status !== "loading") return;
@@ -74,6 +78,11 @@ export function AnalyzerForm() {
 
     if (jobDescription.trim().length < 50) {
       setError("İş ilanı metni çok kısa görünüyor, tamamını yapıştırdığınızdan emin olun.");
+      return;
+    }
+
+    if (hasCv && !consent) {
+      setError("CV'nizin işlenmesi için açık rıza onay kutusunu işaretlemeniz gerekiyor.");
       return;
     }
 
@@ -240,6 +249,29 @@ export function AnalyzerForm() {
         </p>
       </Card>
 
+      {hasCv && (
+        <label className="flex items-start gap-2.5 text-[13px] leading-relaxed text-ink-muted">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            className="mt-0.5 size-4 shrink-0 accent-gold-deep"
+          />
+          <span>
+            CV&apos;min analiz için yapay zekâ servis sağlayıcısına
+            iletilmesine{" "}
+            <Link
+              href="/acik-riza-metni"
+              target="_blank"
+              className="text-gold-deep underline underline-offset-2"
+            >
+              Açık Rıza Metni
+            </Link>
+            &apos;ni okudum, açık rızam ile onaylıyorum.
+          </span>
+        </label>
+      )}
+
       {error && (
         <p
           role="alert"
@@ -254,7 +286,7 @@ export function AnalyzerForm() {
           type="submit"
           variant="gold"
           size="lg"
-          disabled={status === "loading"}
+          disabled={status === "loading" || (hasCv && !consent)}
           className="w-fit"
         >
           {status === "loading" && <PulseDots />}

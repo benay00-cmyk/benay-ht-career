@@ -33,6 +33,7 @@ const legalLinks = [
   { href: "/gizlilik-politikasi", label: "Gizlilik Politikası" },
   { href: "/cerez-politikasi", label: "Çerez Politikası" },
   { href: "/kvkk-aydinlatma-metni", label: "KVKK Aydınlatma Metni" },
+  { href: "/acik-riza-metni", label: "Açık Rıza Metni" },
 ];
 
 export function Footer() {
