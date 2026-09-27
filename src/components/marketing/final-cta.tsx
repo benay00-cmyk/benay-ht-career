@@ -25,7 +25,7 @@ export function FinalCta() {
           </p>
           <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <MagneticLink
-              href="/danismanlik"
+              href="/egitimler#danismanlik"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
               Benay ile Çalış

@@ -21,15 +21,15 @@ const stats = [
 const approach = [
   {
     title: "CV",
-    text: "Yalnızca güzel görünmesi için değil, doğru mesajı vermesi için değerlendiriyorum.",
+    text: "Bir CV'ye güzel göründüğü için değil, doğru mesajı verdiği için iyi derim.",
   },
   {
     title: "Mülakat",
-    text: "Yalnızca soru-cevap çalışmak için değil, kendinizi doğru konumlandırmanız için hazırlanıyoruz.",
+    text: "Ezberlenmiş cevaplar yerine kendini doğru anlatmayı çalışıyoruz.",
   },
   {
     title: "Kariyer Planı",
-    text: "Yalnızca hedef belirlemek olarak değil, o hedefe nasıl ulaşacağınızı netleştirmek olarak ele alıyorum.",
+    text: "Hedefi belirlemek kolay taraf; asıl mesele oraya nasıl varacağını netleştirmek.",
   },
 ];
 
@@ -147,7 +147,7 @@ export default function HakkimdaPage() {
         </div>
 
         <div className="mt-12 flex flex-wrap gap-3">
-          <Link href="/danismanlik" className={buttonVariants({ variant: "gold" })}>
+          <Link href="/egitimler#danismanlik" className={buttonVariants({ variant: "gold" })}>
             Danışmanlık Al
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>

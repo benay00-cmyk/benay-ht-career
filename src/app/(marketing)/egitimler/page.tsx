@@ -6,8 +6,19 @@ import { Card, CardEyebrow, CardTitle } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { AnimatedNotebook } from "@/components/marketing/animated-notebook";
 import { LeadRequestForm } from "@/features/leads/components/lead-request-form";
+import { ServiceJumpLink } from "@/features/consulting/components/service-jump-link";
+import { consultingServices } from "@/features/consulting/data/services";
 import { courses, digitalProducts, type Course } from "@/features/courses/data/courses";
 import { cn } from "@/lib/utils";
+
+const serviceAccentStyle = {
+  gold: { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg", chip: "bg-gold text-navy-deep" },
+  green: { top: "before:bg-navy-deep", bg: "bg-gradient-to-br from-sage/45 to-bg", chip: "bg-navy-deep text-surface" },
+  sage: { top: "before:bg-sage", bg: "bg-gradient-to-br from-mint/70 to-bg", chip: "bg-sage text-navy-deep" },
+};
+
+const consultingContextOptions = consultingServices.map((s) => s.title);
+const consultingHashToContext = Object.fromEntries(consultingServices.map((s) => [s.id, s.title]));
 
 const categoryAccent: Record<string, { top: string; bg: string }> = {
   "İş Arama": { top: "before:bg-gold", bg: "bg-gradient-to-br from-gold-soft/80 to-bg" },
@@ -66,6 +77,72 @@ export default function EgitimlerPage() {
           </ScrollReveal>
           <ScrollReveal direction="scale" delay={80} className="hidden justify-self-center lg:flex">
             <AnimatedNotebook className="size-56" />
+          </ScrollReveal>
+        </Container>
+      </div>
+
+      <div id="danismanlik" className="scroll-mt-24 border-b border-hairline bg-surface py-16">
+        <Container>
+          <ScrollReveal>
+            <span className="font-sans text-[11px] font-bold tracking-[0.16em] text-gold-deep uppercase">
+              Danışmanlık
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-medium text-navy-deep sm:text-3xl">
+              Kendin ilerlemek istemiyorsan, birlikte çalışalım.
+            </h2>
+            <p className="mt-3 max-w-xl text-[14.5px] leading-relaxed text-ink-muted">
+              İhtiyacına en yakın hizmeti seç, talebini oluştur —
+              değerlendirip sana dönüş yapalım.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {consultingServices.map((s, i) => (
+              <ScrollReveal key={s.id} delay={i * 60}>
+                <Card
+                  id={s.id}
+                  interactive
+                  className={cn(
+                    "before:absolute before:inset-x-0 before:top-0 before:h-1.5 relative scroll-mt-24 h-full overflow-hidden",
+                    serviceAccentStyle[s.accent].top,
+                    serviceAccentStyle[s.accent].bg
+                  )}
+                >
+                  <ServiceJumpLink id={s.id} label={s.title} formId="danismanlik-talep" />
+                  <span
+                    className={cn(
+                      "flex size-11 items-center justify-center rounded-full",
+                      serviceAccentStyle[s.accent].chip
+                    )}
+                  >
+                    <s.icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 font-display text-lg font-medium text-navy-deep">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-[13.5px] leading-relaxed text-ink-muted">
+                    {s.longDesc}
+                  </p>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal id="danismanlik-talep" className="mt-12 max-w-xl scroll-mt-24">
+            <h3 className="font-display text-xl font-medium text-navy-deep">
+              Talep oluştur
+            </h3>
+            <p className="mt-2 text-[14px] text-ink-muted">
+              Hangi hizmetle ilgilendiğinizi seçin ve kısaca ihtiyacınızı
+              anlatın.
+            </p>
+            <div className="mt-6">
+              <LeadRequestForm
+                type="danismanlik"
+                contextOptions={consultingContextOptions}
+                hashToContext={consultingHashToContext}
+              />
+            </div>
           </ScrollReveal>
         </Container>
       </div>
@@ -164,7 +241,7 @@ export default function EgitimlerPage() {
 
         <ScrollReveal className="mt-16">
           <h2 className="font-display text-2xl font-medium text-navy-deep">
-            Ön Kayıt / Talep Oluştur
+            Ön kayıt / talep oluştur
           </h2>
           <p className="mt-2 max-w-lg text-[14px] text-ink-muted">
             İlgilendiğiniz eğitim ya da ürünü seçin, formu doldurun — ödeme

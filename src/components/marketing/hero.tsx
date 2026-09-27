@@ -5,8 +5,8 @@ import { MagneticLink } from "@/components/ui/magnetic-link";
 
 export function Hero() {
   return (
-    <section className="border-b border-hairline bg-bg py-20 sm:py-28">
-      <Container className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+    <section className="border-b border-hairline bg-bg py-14 sm:py-20">
+      <Container className="grid items-start gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
         <div className="flex flex-col gap-6">
           <h1
             className="animate-entrance max-w-xl font-display text-4xl leading-[1.1] font-extrabold text-navy-deep sm:text-5xl lg:text-[52px]"
@@ -17,23 +17,23 @@ export function Hero() {
             className="animate-entrance max-w-lg text-[17px] leading-relaxed text-ink-muted"
             style={{ animationDelay: "80ms" }}
           >
-            Bir işe hazırlanırken nerede zorlandığını gör.
+            Sana en yakın kapıyı seç, oradan devam edelim.
           </p>
           <div
             className="animate-entrance mt-2 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "140ms" }}
           >
             <MagneticLink
-              href="/kariyer-testi"
+              href="/is-arayanlar"
               className={buttonVariants({ variant: "gold", size: "lg" })}
             >
-              Ücretsiz Kariyer Check-Up
+              İş Arıyorum
             </MagneticLink>
             <MagneticLink
-              href="/hakkimda"
-              className={buttonVariants({ variant: "ghost", size: "lg" })}
+              href="/ik-profesyonelleri"
+              className={buttonVariants({ variant: "primary", size: "lg" })}
             >
-              Benay&apos;ı Tanı
+              İK&apos;da Kariyer Yapıyorum
             </MagneticLink>
           </div>
         </div>

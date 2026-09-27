@@ -9,7 +9,16 @@
  * (e.g. the Kariyer Check-Up result screen) still use to deep-link directly
  * to this card.
  */
-export function ServiceJumpLink({ id, label }: { id: string; label: string }) {
+export function ServiceJumpLink({
+  id,
+  label,
+  formId = "talep-olustur",
+}: {
+  id: string;
+  label: string;
+  /** id of the request-form section to scroll to — pages with more than one form (e.g. Egitimler's course sign-up vs. Danışmanlık request) pass their own. */
+  formId?: string;
+}) {
   return (
     <a
       href={`#${id}`}
@@ -19,9 +28,7 @@ export function ServiceJumpLink({ id, label }: { id: string; label: string }) {
         event.preventDefault();
         history.replaceState(null, "", `#${id}`);
         window.dispatchEvent(new HashChangeEvent("hashchange"));
-        document
-          .getElementById("talep-olustur")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById(formId)?.scrollIntoView({ behavior: "smooth", block: "start" });
       }}
     />
   );

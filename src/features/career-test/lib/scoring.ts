@@ -29,11 +29,11 @@ const diagnosisByCategory: Record<CategoryId, string> = {
 };
 
 const nextStepByCategory: Record<CategoryId, { label: string; href: string }> = {
-  basvuru_stratejisi: { label: "Kariyer Danışmanlığı Hizmetini İncele", href: "/danismanlik#kariyer-danismanligi" },
-  cv_profil: { label: "CV Hazırlama Eğitimini İncele", href: "/egitimler" },
-  mulakat: { label: "Mülakat Simülasyonu Hizmetini İncele", href: "/danismanlik#mulakat-simulasyonu" },
-  kariyer_netligi: { label: "Kariyer Danışmanlığı Hizmetini İncele", href: "/danismanlik#kariyer-danismanligi" },
-  networking: { label: "Eğitimlere Göz At", href: "/egitimler" },
+  basvuru_stratejisi: { label: "Kariyer Danışmanlığı Hizmetini İncele", href: "/egitimler#kariyer-danismanligi" },
+  cv_profil: { label: "CV Hazırlama Eğitimini İncele", href: "/egitimler#cv" },
+  mulakat: { label: "Mülakat Simülasyonu Hizmetini İncele", href: "/egitimler#mulakat-simulasyonu" },
+  kariyer_netligi: { label: "Kariyer Danışmanlığı Hizmetini İncele", href: "/egitimler#kariyer-danismanligi" },
+  networking: { label: "Eğitimlere Göz At", href: "/egitimler#is-arama" },
 };
 
 export function scoreTest(answers: Record<string, number>): TestResult {

@@ -20,21 +20,21 @@ const modules = [
     icon: Library,
     title: "Prompt Kütüphanesi",
     description: "11 kategoride, kopyala-yapıştır kullanılabilecek İK promptları.",
-    href: "/egitimler#ik-da-yapay-zeka",
+    href: "/ik-profesyonelleri/prompt-kutuphanesi",
     accent: "gold" as const,
   },
   {
     icon: Map,
     title: "İK Haritası",
     description: "Kariyerinde neredesin? Seviyeni seç, yol haritanı gör.",
-    href: "/egitimler#ik-kariyer-yol-haritasi",
+    href: "/ik-haritasi",
     accent: "green" as const,
   },
   {
     icon: Users2,
     title: "İK Mentörlüğü",
     description: "Bire bir kariyer ve yetkinlik mentörlüğü talep et.",
-    href: "/egitimler#ik-mentorlugu-programi",
+    href: "/ik-haritasi/mentorluk",
     accent: "sage" as const,
   },
 ];
@@ -49,7 +49,7 @@ export default function IkProfesyonelleriPage() {
               İK Profesyonelleri
             </span>
             <h1 className="mt-3 font-display text-4xl font-medium text-navy-deep sm:text-5xl">
-              İK&apos;yı Sadece Öğrenme. İşin İçinden Öğren.
+              İK&apos;yı sadece öğrenme, işin içinden öğren.
             </h1>
             <p className="mt-4 text-[16px] leading-relaxed text-ink-muted">
               İK uzmanları, yöneticiler ve İK alanına girmek isteyenler için

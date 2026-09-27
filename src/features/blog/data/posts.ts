@@ -119,7 +119,7 @@ export const blogPosts: BlogPost[] = [
     cta: {
       text: "İşe alım sürecinizi baştan mı kurmak istiyorsunuz?",
       label: "İK Danışmanlığı Talep Et",
-      href: "/danismanlik",
+      href: "/egitimler#ik-danismanligi",
     },
   },
   {
@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
     cta: {
       text: "Gerçek bir mülakat ortamında pratik yapmak ister misiniz?",
       label: "Mülakat Simülasyonu Talep Et",
-      href: "/danismanlik",
+      href: "/egitimler#mulakat-simulasyonu",
     },
   },
   {
@@ -261,7 +261,7 @@ export const blogPosts: BlogPost[] = [
     cta: {
       text: "İş hayatındaki sınırlarınızı ve önceliklerinizi birlikte netleştirelim.",
       label: "Kariyer Danışmanlığı Talep Et",
-      href: "/danismanlik",
+      href: "/egitimler#kariyer-danismanligi",
     },
   },
 ];
