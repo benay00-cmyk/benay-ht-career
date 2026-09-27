@@ -97,8 +97,22 @@ export default function IsArayanlarPage() {
               <span className="block text-xl font-normal text-ink-muted sm:text-2xl">
                 İş aramak, sadece ilanlara başvuru yapmak değil.
               </span>
-              <span className="mt-2 block">Kariyerini Şansa Bırakma.</span>
+              <span className="mt-2 block">Kariyerini şansa bırakma.</span>
             </h1>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <Link
+                href="/iletisim"
+                className={buttonVariants({ variant: "gold", size: "lg" })}
+              >
+                Danışmanlık
+              </Link>
+              <Link
+                href="/egitimler"
+                className={buttonVariants({ variant: "primary", size: "lg" })}
+              >
+                Eğitimler
+              </Link>
+            </div>
           </ScrollReveal>
         </Container>
       </div>

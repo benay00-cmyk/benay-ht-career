@@ -9,11 +9,10 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navItems: { href: string; label: string }[] = [
-  { href: "/is-arayanlar", label: "İş Arıyorum" },
-  { href: "/ik-profesyonelleri", label: "İK'da Kariyer Yapıyorum" },
-  { href: "/egitimler", label: "Kaynaklar" },
-  { href: "/hakkimda", label: "Benay" },
-  { href: "/iletisim", label: "İletişim" },
+  { href: "/hakkimda", label: "Hakkımda" },
+  { href: "/is-arayanlar", label: "İş Arayanlar" },
+  { href: "/ik-profesyonelleri", label: "İK'cılar" },
+  { href: "/egitimler", label: "Hizmetler / Eğitimler" },
 ];
 
 export function Header() {
