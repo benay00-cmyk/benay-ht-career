@@ -73,14 +73,13 @@ export function HrCareerSupport() {
 
         <ScrollReveal delay={260} className="mt-12 flex flex-col items-start gap-4 border-t border-hairline pt-10">
           <h3 className="font-display text-2xl font-medium text-navy-deep">
-            İK Kariyerini Tesadüflere Bırakma.
+            İK kariyerini tesadüflere bırakma.
           </h3>
           <p className="text-[15px] leading-relaxed text-ink-muted">
-            Birlikte gelişelim, birlikte daha güçlü bir İK profesyoneli
-            olalım.
+            Birlikte gelişelim, daha güçlü bir İK profesyoneli olalım.
           </p>
           <MagneticLink
-            href="/danismanlik"
+            href="/egitimler#danismanlik"
             className={buttonVariants({ variant: "gold", size: "lg" })}
           >
             Benay ile Çalış

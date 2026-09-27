@@ -46,18 +46,18 @@ const challenges = [
 const steps = [
   {
     n: "01",
-    title: "Durumu Analiz Ediyoruz",
+    title: "Durumu analiz ediyoruz",
     description: "Nerede olduğunu, ne aradığını ve şimdiye kadar neler denediğini değerlendiriyoruz.",
   },
   {
     n: "02",
-    title: "Sorunu Belirliyoruz",
+    title: "Sorunu belirliyoruz",
     description: "CV, başvuru yöntemi, LinkedIn, mülakat veya kariyer yönünde nerede gelişim gerektiğini ortaya çıkarıyoruz.",
   },
   {
     n: "03",
-    title: "Strateji Oluşturuyoruz",
-    description: "Sana uygun pozisyonları, başvuru kanallarını ve iş arama yöntemini birlikte planlıyoruz.",
+    title: "Strateji kuruyoruz",
+    description: "Sana uygun pozisyonları, başvuru kanallarını ve iş arama yöntemini planlıyoruz.",
   },
   {
     n: "04",
@@ -66,8 +66,8 @@ const steps = [
   },
   {
     n: "05",
-    title: "Takip Ediyoruz",
-    description: "“Başvur ve bekle” demiyoruz; neyin işe yaradığını birlikte görüp süreci güncelliyoruz.",
+    title: "Takip ediyoruz",
+    description: "“Başvur ve bekle” demiyoruz; neyin işe yaradığını görüp süreci güncelliyoruz.",
   },
 ];
 
@@ -158,8 +158,8 @@ export function JobSearchSupport() {
           <ScrollReveal delay={140} className="mt-8">
             <GlowPanel tone="mint" className="mx-auto max-w-xl rounded-2xl bg-surface/80 p-5 text-center">
               <p className="text-[14.5px] leading-relaxed text-ink">
-                Biz burada sadece CV hazırlamıyoruz — önce nerede zorlandığını
-                birlikte buluyoruz. Çünkü her problem aynı çözümü gerektirmez.
+                Önce CV'yi değil, nerede tıkandığını konuşuyoruz. Her
+                problemin çözümü aynı değil.
               </p>
             </GlowPanel>
           </ScrollReveal>
@@ -171,8 +171,8 @@ export function JobSearchSupport() {
           <ScrollReveal>
             <SectionHeading
               align="center"
-              eyebrow="Birlikte Aşıyoruz"
-              title="İş Arama Sürecindeki Zorlukları Birlikte Aşıyoruz"
+              eyebrow="Sık Yaşanan Zorluklar"
+              title="İş arama sürecindeki zorlukları birlikte aşıyoruz"
               className="mx-auto"
             />
           </ScrollReveal>
@@ -199,7 +199,7 @@ export function JobSearchSupport() {
         <ScrollReveal>
           <Container className="relative max-w-2xl text-center">
             <h2 className="font-display text-3xl font-medium text-surface sm:text-4xl">
-              İşsiz Olmak, Değersiz Olmak Değildir.
+              İşsiz olmak, değersiz olmak değildir.
             </h2>
             <p className="mt-5 text-[16px] leading-relaxed text-surface/70">
               Bir pozisyona kabul edilmemek yeterli olmadığın anlamına gelmez.
@@ -244,15 +244,14 @@ export function JobSearchSupport() {
           <Container className="flex flex-col items-center">
             <GlowPanel tone="gold" className="flex max-w-xl flex-col items-center gap-5 rounded-2xl bg-bg/80 p-8 text-center">
               <h2 className="font-display text-2xl font-medium text-navy-deep sm:text-3xl">
-                İş Arama Sürecini Tek Başına Yönetmek Zorunda Değilsin.
+                İş arama sürecini tek başına yönetmek zorunda değilsin.
               </h2>
               <p className="text-[15px] leading-relaxed text-ink-muted">
                 Nerede zorlandığını bulalım, neyi değiştirebileceğimizi
-                birlikte belirleyelim ve iş arama sürecini daha bilinçli bir
-                sisteme dönüştürelim.
+                birlikte belirleyelim ve bir sonraki adımı netleştirelim.
               </p>
               <MagneticLink
-                href="/danismanlik"
+                href="/egitimler#danismanlik"
                 className={buttonVariants({ variant: "gold", size: "lg", className: "mt-2" })}
               >
                 Benay ile Çalış

@@ -16,7 +16,7 @@ export default function MentorlukPage() {
               İK Mentörlüğü
             </span>
             <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
-              Mentörlük Talep Et
+              Mentörlük talep et
             </h1>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
               Formu doldur, talebini değerlendirip seninle iletişime

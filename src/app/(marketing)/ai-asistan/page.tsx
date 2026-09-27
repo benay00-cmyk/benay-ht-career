@@ -28,7 +28,7 @@ export default function AiAsistanPage() {
               Belirli Bir İşe Başvuruyorsan
             </span>
             <h1 className="mt-3 font-display text-3xl font-medium text-navy-deep sm:text-4xl">
-              Başvurumu ve CV&apos;mi AI ile Analiz Et
+              Başvurumu ve CV&apos;mi AI ile analiz et
             </h1>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-muted">
               CV&apos;ni ve başvuracağın iş ilanını analiz et. Güçlü yönlerini,

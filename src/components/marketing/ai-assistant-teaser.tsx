@@ -28,7 +28,7 @@ export function AiAssistantTeaser() {
             Belirli Bir İşe Başvuruyorsan
           </span>
           <h2 className="font-display text-3xl font-medium text-surface sm:text-4xl">
-            Başvurumu ve CV&apos;mi AI ile Analiz Et
+            Başvurumu ve CV&apos;mi AI ile analiz et
           </h2>
           <p className="max-w-md text-[16px] leading-relaxed text-surface/70">
             CV&apos;ni ve başvuracağın iş ilanını işe alım perspektifiyle
